@@ -5,30 +5,6 @@
       "style": {
         "navigationBarTitleText": "绑定手机号"
       }
-    },
-    {
-      "path": "pages/login/index",
-      "style": {
-        "navigationBarTitleText": "授权登录"
-      }
-    },
-    {
-      "path": "pages/uc/index",
-      "style": {
-        "navigationBarTitleText": "重阳会员"
-      }
-    },
-    {
-      "path": "pages/home/index",
-      "style": {
-        "navigationBarTitleText": "首页"
-      }
-    },
-    {
-      "path": "pages/bus/index",
-      "style": {
-        "navigationBarTitleText": "免费班车"
-      }
     }
   ],
   "globalStyle": {
