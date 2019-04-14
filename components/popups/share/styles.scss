@@ -1,0 +1,42 @@
+@import "../../../styles/utils/index";
+
+@include c(share-popup) {
+  @include position--fixed(50%, null, null, 50%);
+
+  transform: translate(-50%, -50%);
+  z-index: map-get($z-indexes, c-popup);
+  width: px2rpx(480px);
+  background-color: map-get($colors, c1);
+
+  @include c(icon) {
+    @include position--absolute(px2rpx(-100px), 0);
+  }
+
+  @include e(coupon) {
+    @include size(100%, px2rpx(200px));
+
+    background-color: map-get($colors, c9);
+  }
+
+  @include cc(friend) {
+    @include size(100%, px2rpx(130px));
+
+    position: relative;
+
+    @include e(avatar) {
+      @include position--absolute(50%, null, null, px2rpx(20px));
+      @include circle(px2rpx(88px));
+
+      transform: translateY(-50%);
+      display: block;
+    }
+
+    @include e(tip) {
+      @include position--absolute(50%, null, null, px2rpx(138px));
+      @extend %lhfs40;
+
+      transform: translateY(-50%);
+      width: px2rpx(300px);
+    }
+  }
+}

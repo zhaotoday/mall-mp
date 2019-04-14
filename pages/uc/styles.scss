@@ -1,0 +1,48 @@
+@import "../../styles/utils/index";
+
+@include p(uc) {
+  @include position--absolute(0, 0, 0, 0);
+
+  background-color: map-get($colors, c1);
+
+  @include pb(wrap) {
+    @include padding(px2rpx(30px), null, px2rpx(63px));
+    padding-top: px2rpx(30px);
+    background: {
+      color: map-get($colors, c3);
+      image: cdn("pages/my/wrap-bottom.png");
+      size: 100% px2rpx(63px);
+      position: 0 bottom;
+      repeat: no-repeat;
+    }
+  }
+
+  @include pb(avatar) {
+    @include circle(px2rpx(128px));
+    @include block--center;
+
+    display: block;
+    border: px2rpx(4px) solid map-get($colors, c1);
+  }
+
+  @include pb(nickname) {
+    @include padding(px2rpx(30px), null, px2rpx(30px));
+
+    text-align: center;
+    line-height: 100%;
+  }
+
+  @include pb(cell) {
+    @include block--center;
+
+    width: px2rpx(600px);
+  }
+
+  @include pb(point-tabs) {
+    padding-top: px2rpx(50px);
+
+    @include e(no-data) {
+      background-color: red;
+    }
+  }
+}

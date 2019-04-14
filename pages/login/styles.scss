@@ -1,0 +1,15 @@
+@import '../../styles/utils/index';
+
+@include p(login) {
+  @include pb(tip) {
+    @include block--center;
+    @extend %lhfs42;
+
+    padding-bottom: px2rpx(96px);
+    width: px2rpx(640px);
+  }
+
+  @include pb(login-button) {
+    @include block--center;
+  }
+}

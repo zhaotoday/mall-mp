@@ -1,0 +1,43 @@
+@import '../../styles/utils/index';
+
+@include p(bind) {
+  @include pb(tip) {
+    @include block--center;
+
+    text-align: center;
+    padding-bottom: px2rpx(40px);
+    width: px2rpx(640px);
+    line-height: 100%;
+  }
+
+  @include pb(telephone-input, check-code-input) {
+    @include block--center;
+  }
+
+  @include pb(telephone-input) {
+    margin-bottom: px2rpx(20px);
+  }
+
+  @include pb(check-code-input) {
+    margin-bottom: px2rpx(60px);
+
+    input {
+      width: 67%;
+    }
+  }
+
+  @include pb(check-code) {
+    @include position--absolute(50%, 0);
+    @include padding(null, px2rpx(20px), null, px2rpx(20px));
+    @include text--middle(px2rpx(88px));
+
+    transform: translateY(-50%);
+    text-align: right;
+    color: map-get($colors, c3);
+    z-index: 2;
+
+    &.is-disabled {
+      color: map-get($colors, c4);
+    }
+  }
+}
