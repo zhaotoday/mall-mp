@@ -1,0 +1,28 @@
+{
+  "name": "uni-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhaotoday/uni-app.git"
+  },
+  "author": "zhaojintian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhaotoday/uni-app/issues"
+  },
+  "homepage": "https://github.com/zhaotoday/uni-app#readme",
+  "dependencies": {
+    "jt-helpers": "0.0.6",
+    "jt-rest": "0.0.8",
+    "mp-client": "0.0.28",
+    "mpvue": "^2.0.5",
+    "sass-utils": "^1.0.20",
+    "vuex": "^3.1.0",
+    "wx-bridge": "0.0.11"
+  }
+}

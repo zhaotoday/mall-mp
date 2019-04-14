@@ -1,11 +1,17 @@
 import Vue from 'vue'
-import App from './App'
+import App from '@/app'
+import store from '@/store'
+import globalPlugin from '@/plugins/global'
+import '@/utils/init'
 
 Vue.config.productionTip = false
 
-App.mpType = 'app'
+Vue.use(globalPlugin)
 
 const app = new Vue({
-    ...App
+  mpType: 'app',
+  store,
+  ...App
 })
+
 app.$mount()
