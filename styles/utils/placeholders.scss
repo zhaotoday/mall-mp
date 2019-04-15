@@ -1,13 +1,3 @@
-@each $key, $value in $font-sizes {
-  %#{$key} {
-    font-size: px2rpx($value);
-  }
-
-  %lh#{$key} {
-    line-height: px2rpx($value);
-  }
-}
-
 %border-1px {
   z-index: 0;
   position: relative;
