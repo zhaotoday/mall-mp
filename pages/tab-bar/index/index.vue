@@ -1,11 +1,39 @@
 <template>
   <div class="p-index">
-    abc
+    <CSwiper :items="adsImages" />
+    {{ categoriesList.total}}
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import CSwiper from '@/components/swiper'
+
 export default {
+  components: {
+    CSwiper
+  },
+  computed: {
+    ...mapState({
+      adsList: state => state['public/ads'].list,
+      categoriesList: state => state['public/categories'].list
+    }),
+    adsImages () {
+      return this.adsList.items.map(item => this.$helpers.getImageById(item.picture))
+    }
+  },
+  onLoad () {
+    this.getAdsList()
+    this.getCategoriesList()
+  },
+  methods: {
+    getAdsList () {
+      return this.$store.dispatch('public/ads/getList', {})
+    },
+    getCategoriesList () {
+      return this.$store.dispatch('public/categories/getList', {})
+    }
+  }
 }
 </script>
 

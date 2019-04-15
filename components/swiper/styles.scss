@@ -15,17 +15,17 @@
     line-height: 100%;
 
     @include e(item) {
-      @include circle(px2rpx(16px));
+      @include circle(px2rpx(12px));
       @include margin(0, px2rpx(5px), null, px2rpx(5px));
 
       display: inline-block;
-      background-color: map-get($colors, c1);
-      opacity: .2;
+      background-color: white;
+      opacity: .6;
 
       &.is-active {
         width: px2rpx(30px);
-        border-radius: px2rpx(8px);
-        background-color: map-get($colors, c2);
+        border-radius: px2rpx(12px / 2);
+        background-color: white;
         opacity: 1;
       }
     }
