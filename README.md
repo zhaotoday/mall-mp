@@ -1,79 +1,15 @@
-## 命令
-
-``` bash
-# 安装依赖
-$ npm install
-
-# 开发时构建
-$ npm run dev
-
-# 启动图片服务，请先将 http-server 安装到全局
-$ cd cdn && http-server -p 88
-
-# 打包构建
-$ npm run build
-
-# 指定平台的开发时构建(微信、百度、头条、支付宝)
-$ npm dev:wx
-$ npm dev:swan
-$ npm dev:tt
-$ npm dev:my
-
-# 指定平台的打包构建
-$ npm build:wx
-$ npm build:swan
-$ npm build:tt
-$ npm build:my
-```
-
-## 优化开发体验
-
-#### 引入 mpvue-entry
-
-```bash
-# 安装
-$ npm install --save-dev mpvue-entry@next
-```
-
-```js
-// webpack.base.conf.js
-const MpvueEntry = require('mpvue-entry')
-
-module.exports = {
-  entry: MpvueEntry.getEntry('src/app.json'),
-  ...
-  plugins: [
-    new MpvueEntry(),
-    ...
-  ]
-}
-```
-
-```json
-// app.json - 支持 js 格式，兼容微信小程序官方配置规范
-{
-  "pages": [
-    {
-      "path": "pages/news/list",
-      "config": {
-        "navigationBarTitleText": "文章列表",
-        "enablePullDownRefresh": true
-      }
-    }
-  ],
-  "window": {}
-}
-```
-
-#### 使用 Sass
-
-```bash
-# 安装
-$ npm install --save node-sass sass-loader
-```
-
 ## 参考
 
+- [uni-app 官方文档](https://uniapp.dcloud.io/)
+- [快速上手](https://uniapp.dcloud.io/quickstart)
+- [uni-app跨平台框架官方教程](https://ke.qq.com/course/343370)
+- [uni-app的H5版使用注意事项](https://ask.dcloud.net.cn/article/35232)
+- [NPM 支持](http://uniapp.dcloud.io/frame?id=npm%E6%94%AF%E6%8C%81)
+- [uni-app 中使用微信小程序第三方 SDK 及资源汇总](https://ask.dcloud.net.cn/article/35070)
+- [uni-app中如何使用5+的原生界面控件（包括map、video、livepusher、barcode、nview）
+](https://ask.dcloud.net.cn/article/35036)
+- [uni-app 入坑指南](https://www.jianshu.com/p/7b33ade6d10b)
+- [mpvue项目（组件）迁移指南、示例及资源汇总](http://ask.dcloud.net.cn/article/34945)
 - [mpVue](http://mpvue.com)
 - [awesome-mpvue](https://github.com/mpvue/awesome-mpvue)
 - [Flyio](https://wendux.github.io/dist/#/doc/flyio/readme)
