@@ -19,15 +19,9 @@
       }
     },
     {
-      "path": "pages/uc/index",
+      "path": "pages/tab-bar/my/index",
       "style": {
-        "navigationBarTitleText": "重阳会员"
-      }
-    },
-    {
-      "path": "pages/bus/index",
-      "style": {
-        "navigationBarTitleText": "免费班车"
+        "navigationBarTitleText": "我的"
       }
     }
   ],
