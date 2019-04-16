@@ -1,5 +1,3 @@
-@import "../../utils/index";
-
 .u-fwb {
   font-weight: bold;
 }
@@ -10,4 +8,8 @@
 
 .u-cf {
   @include clearfix;
+}
+
+.u-mb20 {
+  margin-bottom: px2rpx(20px);
 }

@@ -1,0 +1,36 @@
+@include c(card) {
+  background-color: map-get($colors, c1);
+
+  @include e(head) {
+    @include text--middle(px2rpx(80px));
+
+    position: relative;
+    text-indent: px2rpx(18px + 8px + 18px);
+
+    &::before {
+      @include size(px2rpx(8px), px2rpx(26px));
+      @include position--absolute(50%, null, null, px2rpx(18px));
+
+      transform: translateY(-50%);
+      content: '';
+      display: block;
+      background-color: map-get($colors, c6);
+      border-radius: px2rpx(4px);
+    }
+
+    @include s(has-border) {
+      @extend %border-1px;
+
+      &::after {
+        border-bottom: 1px solid map-get($colors, c4);
+      }
+    }
+  }
+
+  @include e(body) {
+    border-bottom: 1px solid map-get($colors, c4);
+  }
+
+  @include e(foot) {
+  }
+}

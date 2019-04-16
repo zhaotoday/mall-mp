@@ -19,13 +19,13 @@
       @include margin(0, px2rpx(5px), null, px2rpx(5px));
 
       display: inline-block;
-      background-color: white;
+      background-color: map-get($colors, c1);
       opacity: .6;
 
       &.is-active {
         width: px2rpx(30px);
         border-radius: px2rpx(12px / 2);
-        background-color: white;
+        background-color: map-get($colors, c1);
         opacity: 1;
       }
     }

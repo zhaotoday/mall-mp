@@ -1,7 +1,7 @@
 <template>
   <div class="p-index">
     <CSwiper :items="adsImages" />
-    <ul class="pb-categories">
+    <ul class="pb-categories u-mb20">
       <li
         v-for="item in categoriesList.items"
         :key="item.id"
@@ -10,6 +10,21 @@
         {{ item.name }}
       </li>
     </ul>
+    <div class="c-card">
+      <div class="c-card__head has-border fs26">
+        热门产品
+      </div>
+      <div class="c-card__body">
+        <ul class="c-products">
+          <li
+            v-for="item in productsList.items"
+            :key="item.id"
+            class="c-products__item">
+            <img :src="$helpers.getImageById(item.pictures)" />
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -24,15 +39,17 @@ export default {
   computed: {
     ...mapState({
       adsList: state => state['public/ads'].list,
-      categoriesList: state => state['public/categories'].list
+      categoriesList: state => state['public/categories'].list,
+      productsList: state => state['public/products'].list
     }),
     adsImages () {
-      return (this.adsList.items || []).map(item => this.$helpers.getImageById(item.picture))
+      return this.adsList.items.map(item => this.$helpers.getImageById(item.picture))
     }
   },
   onLoad () {
     this.getAdsList()
     this.getCategoriesList()
+    this.getProductsList()
   },
   methods: {
     getAdsList () {
@@ -41,6 +58,11 @@ export default {
     getCategoriesList () {
       return this.$store.dispatch('public/categories/getList', {
         query: { alias: 'products' }
+      })
+    },
+    getProductsList () {
+      return this.$store.dispatch('public/products/getList', {
+        query: {}
       })
     }
   }
