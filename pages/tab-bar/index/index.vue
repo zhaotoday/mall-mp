@@ -25,7 +25,7 @@
               class="c-products__image"
               :src="$helpers.getImageById(item.pictures)" />
             <div class="c-products__name fs24">{{ item.name }}</div>
-            <div class="c-products__price c7 fs26">{{ item.price }} 元</div>
+            <div class="c-products__price c7 fs28">{{ item.price }} 元</div>
             <div class="c-products__cart c-icon c-icon--cart"></div>
           </li>
         </ul>
@@ -59,11 +59,20 @@ export default {
   },
   methods: {
     getAdsList () {
-      return this.$store.dispatch('public/ads/getList', {})
+      return this.$store.dispatch('public/ads/getList', {
+        query: {}
+      })
     },
     getCategoriesList () {
       return this.$store.dispatch('public/categories/getList', {
-        query: { alias: 'products' }
+        query: {
+          alias: 'products',
+          where: {
+            parentId: {
+              $eq: 0
+            }
+          }
+        }
       })
     },
     getProductsList () {

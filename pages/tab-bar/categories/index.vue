@@ -1,5 +1,5 @@
 <template>
-  <div class="p-index">
+  <div class="p-categories">
     categories
   </div>
 </template>

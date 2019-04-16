@@ -19,7 +19,7 @@
     display: block;
     border-radius: px2rpx(6px);
     width: px2rpx(324px);
-    box-shadow: 0 0 px2rpx(20px) 0 rgba(map-get($colors, c2), 0.08);
+    box-shadow: 0 0 px2rpx(20px) 0 rgba(map-get($colors, c2), 0.1);
   }
 
   @include e(name, price) {
@@ -36,7 +36,7 @@
   }
 
   @include e(price) {
-    padding-top: px2rpx(30px);
+    padding-top: px2rpx(25px);
   }
 
   @include e(cart) {

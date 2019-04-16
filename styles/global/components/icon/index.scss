@@ -13,7 +13,7 @@
   }
 
   @include m(cart) {
-    @include size(px2rpx(32px), px2rpx(32px));
+    @include size(px2rpx(34px), px2rpx(34px));
 
     background-image: cdn("components/icon/cart.png");
   }
