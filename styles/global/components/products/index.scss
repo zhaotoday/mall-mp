@@ -2,6 +2,7 @@
   @include clearfix;
 
   padding: px2rpx(17px);
+  min-height: px2rpx(400px);
 
   @include e(item) {
     @include padding(px2rpx(17px), null, px2rpx(17px));

@@ -2,7 +2,7 @@
   background-color: map-get($colors, c1);
 
   @include e(head) {
-    @include text--middle(px2rpx(80px));
+    @include text--middle(px2rpx(90px));
 
     position: relative;
     text-indent: px2rpx(18px + 8px + 18px);
@@ -25,12 +25,5 @@
         border-bottom: 1px solid map-get($colors, c3);
       }
     }
-  }
-
-  @include e(body) {
-    border-bottom: 1px solid map-get($colors, c4);
-  }
-
-  @include e(foot) {
   }
 }

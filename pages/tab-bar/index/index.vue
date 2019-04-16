@@ -5,13 +5,13 @@
       <li
         v-for="item in categoriesList.items"
         :key="item.id"
-        class="pb-categories__item fs20 u-tac">
+        class="pb-categories__item fs22 u-tac">
         <img :src="$helpers.getImageById(item.icon)" />
         {{ item.name }}
       </li>
     </ul>
     <div class="c-card">
-      <div class="c-card__head has-border fs28">
+      <div class="c-card__head has-border fs30">
         热销产品
       </div>
       <div class="c-card__body">
@@ -24,7 +24,7 @@
               class="c-products__image"
               :src="$helpers.getImageById(item.pictures)" />
             <div class="c-products__name fs24">{{ item.name }}</div>
-            <div class="c-products__price c7 fs26 u-fwb">{{ item.price }} 元</div>
+            <div class="c-products__price c7 fs26">{{ item.price }} 元</div>
             <div class="c-products__cart c-icon c-icon--cart"></div>
           </li>
         </ul>
