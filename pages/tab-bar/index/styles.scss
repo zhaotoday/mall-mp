@@ -20,6 +20,7 @@
         @include block--center;
 
         display: block;
+        border-radius: px2rpx(6px);
         margin-bottom: px2rpx(6px);
       }
     }

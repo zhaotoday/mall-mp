@@ -11,8 +11,8 @@
       </li>
     </ul>
     <div class="c-card">
-      <div class="c-card__head has-border fs26">
-        热门产品
+      <div class="c-card__head has-border fs28">
+        热销产品
       </div>
       <div class="c-card__body">
         <ul class="c-products">
@@ -20,7 +20,12 @@
             v-for="item in productsList.items"
             :key="item.id"
             class="c-products__item">
-            <img :src="$helpers.getImageById(item.pictures)" />
+            <img
+              class="c-products__image"
+              :src="$helpers.getImageById(item.pictures)" />
+            <div class="c-products__name fs24">{{ item.name }}</div>
+            <div class="c-products__price c7 fs26 u-fwb">{{ item.price }} 元</div>
+            <div class="c-products__cart c-icon c-icon--cart"></div>
           </li>
         </ul>
       </div>

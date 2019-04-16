@@ -1,0 +1,20 @@
+@include c(icon) {
+  display: inline-block;
+  background: {
+    size: 100% 100%;
+    repeat: no-repeat;
+    position: center center;
+  }
+
+  @include m(logo) {
+    @include size(px2rpx(280px), px2rpx(280px));
+
+    background-image: cdn("components/icon/logo.png");
+  }
+
+  @include m(cart) {
+    @include size(px2rpx(32px), px2rpx(32px));
+
+    background-image: cdn("components/icon/cart.png");
+  }
+}

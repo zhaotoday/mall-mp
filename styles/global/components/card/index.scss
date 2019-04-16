@@ -22,7 +22,7 @@
       @extend %border-1px;
 
       &::after {
-        border-bottom: 1px solid map-get($colors, c4);
+        border-bottom: 1px solid map-get($colors, c3);
       }
     }
   }
