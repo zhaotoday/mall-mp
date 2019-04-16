@@ -6,18 +6,18 @@ $cdn-version: 0.1;
 
 // 颜色
 $colors: (
-  c1: #fff,
-  c2: #333333,
-  c3:#F0F0F0,
-  c4: #DDDDDD,
-  c5: #CCCCCC,
-  c6: #FBA319,
-  c7: red,
+        c1: #fff,
+        c2: #333333,
+        c3:#F0F0F0,
+        c4: #DDDDDD,
+        c5: #CCCCCC,
+        c6: #999999,
+        c7: #FBA319,
         c8: red
 );
 
 // z-index
 $z-indexes: (
-  c-overlay: 5,
-  c-popup: 6
+        c-overlay: 5,
+        c-popup: 6
 );
