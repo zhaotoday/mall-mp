@@ -7,6 +7,18 @@
       }
     },
     {
+      "path": "pages/tab-bar/categories/index",
+      "style": {
+        "navigationBarTitleText": "分类"
+      }
+    },
+    {
+      "path": "pages/tab-bar/my/index",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
+    },
+    {
       "path": "pages/bind/index",
       "style": {
         "navigationBarTitleText": "绑定手机号"
@@ -16,12 +28,6 @@
       "path": "pages/login/index",
       "style": {
         "navigationBarTitleText": "授权登录"
-      }
-    },
-    {
-      "path": "pages/tab-bar/my/index",
-      "style": {
-        "navigationBarTitleText": "我的"
       }
     }
   ],
@@ -44,7 +50,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/tab-bar/index/index",
+        "pagePath": "pages/tab-bar/categories/index",
         "iconPath": "static/tab-bar/categories.png",
         "selectedIconPath": "static/tab-bar/categories-hl.png",
         "text": "分类"

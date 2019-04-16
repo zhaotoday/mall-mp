@@ -5,7 +5,8 @@
       <li
         v-for="item in categoriesList.items"
         :key="item.id"
-        class="pb-categories__item fs22 u-tac">
+        class="pb-categories__item fs22 u-tac"
+        @click="switchTab('/pages/tab-bar/categories/index')">
         <img :src="$helpers.getImageById(item.icon)" />
         {{ item.name }}
       </li>

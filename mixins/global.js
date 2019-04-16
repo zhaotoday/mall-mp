@@ -7,6 +7,9 @@ export default {
     }),
     navigateTo (url) {
       this.$wx.navigateTo({ url })
+    },
+    switchTab (url) {
+      this.$wx.switchTab({ url })
     }
   }
 }
