@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'Popup',
+  name: 'CPopup',
   props: {
     visible: {
       type: Boolean,
