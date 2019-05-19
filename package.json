@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/zhaotoday/uni-app#readme",
   "dependencies": {
+    "array-to-tree": "^3.3.0",
     "jt-helpers": "0.0.6",
     "jt-rest": "0.0.8",
     "mp-client": "0.0.28",

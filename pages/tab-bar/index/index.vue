@@ -33,7 +33,8 @@
               <div class="c-products__tag fs20">100 元/包</div>
               <div class="c-products__price c5 fs40">
                 <span class="fs20">￥</span>
-                {{ item.price }}</div>
+                {{ item.price }}
+              </div>
             </div>
             <div class="c-products__cart c-icon c-icon--add-bg"></div>
           </li>
@@ -59,7 +60,8 @@
               <div class="c-products__tag fs20">100 元/包</div>
               <div class="c-products__price c5 fs40">
                 <span class="fs20">￥</span>
-                {{ item.price }}</div>
+                {{ item.price }}
+              </div>
             </div>
             <div class="c-products__cart c-icon c-icon--add-bg"></div>
           </li>

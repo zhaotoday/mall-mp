@@ -1,6 +1,12 @@
 {
   "pages": [
     {
+      "path": "pages/tab-bar/categories/index",
+      "style": {
+        "navigationBarTitleText": "分类"
+      }
+    },
+    {
       "path": "pages/tab-bar/index/index",
       "style": {
         "navigationBarTitleText": "东街口"
@@ -10,12 +16,6 @@
       "path": "pages/login/index",
       "style": {
         "navigationBarTitleText": "授权登录"
-      }
-    },
-    {
-      "path": "pages/tab-bar/categories/index",
-      "style": {
-        "navigationBarTitleText": "分类"
       }
     },
     {
