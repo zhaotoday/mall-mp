@@ -22,6 +22,24 @@
     @include position--absolute(px2rpx(30px), null, null, px2rpx(188px));
   }
 
+  @include e(checkbox) {
+    @include position--absolute(50%, null, null, 0);
+
+    transform: translateY(-50%);
+  }
+
+  @include s(is-editable) {
+    @include c(products) {
+      @include e(image) {
+        left: px2rpx(68px);
+      }
+
+      @include e(info) {
+        left: px2rpx(256px);
+      }
+    }
+  }
+
   @include e(name, desc, price) {
     line-height: 100%;
   }

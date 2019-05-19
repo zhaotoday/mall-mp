@@ -1,6 +1,12 @@
 {
   "pages": [
     {
+      "path": "pages/tab-bar/cart/index",
+      "style": {
+        "navigationBarTitleText": "购物车"
+      }
+    },
+    {
       "path": "pages/tab-bar/categories/index",
       "style": {
         "navigationBarTitleText": "分类"
@@ -56,7 +62,7 @@
         "text": "分类"
       },
       {
-        "pagePath": "pages/tab-bar/index/index",
+        "pagePath": "pages/tab-bar/cart/index",
         "iconPath": "static/tab-bar/cart.png",
         "selectedIconPath": "static/tab-bar/cart-hl.png",
         "text": "购物车"
