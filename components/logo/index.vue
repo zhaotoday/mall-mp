@@ -6,7 +6,9 @@
 </template>
 
 <script>
-export default {}
+export default {
+  name: 'c-logo'
+}
 </script>
 
 <style

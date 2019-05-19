@@ -1,5 +1,6 @@
 <template>
   <div class="p-index">
+    <div></div>
     <CSwiper :items="adsImages" />
     <ul class="pb-categories u-mb20">
       <li

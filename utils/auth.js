@@ -14,7 +14,7 @@ export default {
     wxb.setStorageSync(USER, user)
     wxb.setStorageSync(TOKEN, `Bearer ${token}`)
   },
-  setPhoneNumber (phoneNumber) {
+  setPhoneNumber ({ phoneNumber }) {
     const user = this.get()[USER]
     wxb.setStorageSync(USER, { ...user, phoneNumber })
   },
