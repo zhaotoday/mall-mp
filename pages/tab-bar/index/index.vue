@@ -1,6 +1,5 @@
 <template>
   <div class="p-index">
-    <div></div>
     <CSwiper :items="adsImages" />
     <ul class="pb-categories u-mb20">
       <li
@@ -27,7 +26,7 @@
               :src="$helpers.getImageById(item.pictures)" />
             <div class="c-products__name fs24">{{ item.name }}</div>
             <div class="c-products__price c7 fs28">{{ item.price }} 元</div>
-            <div class="c-products__cart c-icon c-icon--cart"></div>
+            <div class="c-products__cart c-icon c-icon--add-bg"></div>
           </li>
         </ul>
       </div>

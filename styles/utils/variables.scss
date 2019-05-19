@@ -1,6 +1,6 @@
 // CDN
-// $cdn: "http://localhost:88";
-$cdn: "https://fzsc.lrcdn.cn";
+$cdn: "http://localhost:88";
+// $cdn: "https://fzsc.lrcdn.cn";
 
 // CDN 版本号
 $cdn-version: 0.1;
@@ -8,13 +8,16 @@ $cdn-version: 0.1;
 // 颜色
 $colors: (
         c1: #fff,
-        c2: #333333,
-        c3:#F0F0F0,
-        c4: #DDDDDD,
-        c5: #CCCCCC,
-        c6: #999999,
-        c7: #FBA319,
-        c8: red
+        c2: #000,
+        c3: #333333,
+        c4: #53B060,
+        c5: #FA751D,
+        c6: #F6F6F6,
+        c7: #F4F4F4,
+        c8: #BBBBBB,
+        c9: #999999,
+        c10: #666666,
+        c11: #4D4D4D
 );
 
 // z-index

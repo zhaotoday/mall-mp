@@ -1,14 +1,27 @@
 @import '../../styles/utils/index';
 
 @include p(login) {
-  @include pb(tip) {
-    @include block--center;
+  @include b(logo-wrap) {
+    @include padding(px2rpx(130px), null, px2rpx(120px));
 
-    padding-bottom: px2rpx(96px);
-    width: px2rpx(640px);
+    text-align: center;
   }
 
-  @include pb(login-button) {
+  @include b(title, desc) {
+    @include margin(null, px2rpx(60px), null, px2rpx(60px));
+
+    line-height: 100%;
+  }
+
+  @include b(title) {
+    padding-bottom: px2rpx(20px);
+  }
+
+  @include b(desc) {
+    padding-bottom: px2rpx(82px);
+  }
+
+  @include c(button) {
     @include block--center;
   }
 }

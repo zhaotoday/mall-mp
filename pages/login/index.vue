@@ -1,11 +1,12 @@
 <template>
   <div class="p-login">
-    <CLogo />
-    <p class="pb-tip c4 fs24">
-      您暂未获取微信授权，将无法正常使用小程序的功能。如需要正常使用，请点击“授权登录”按钮，打开头像，昵称等信息的授权。
-    </p>
+    <div class="b-logo-wrap">
+      <c-logo></c-logo>
+    </div>
+    <h2 class="b-title fs32">该程序将获取以下授权：</h2>
+    <p class="b-desc c9 fs28">获得您的公开信息（昵称、头像等）</p>
     <button
-      class="pb-login-button c-button c-button--1 bgc3 c1 fs34"
+      class="c-button w670 h76 bgc4 c1 fs32"
       open-type="getUserInfo"
       @getuserinfo="handleGetUserInfo">
       授权登录
@@ -18,19 +19,7 @@ import { utils } from 'mp-client'
 import CLogo from '@/components/logo'
 
 export default {
-  components: {
-    CLogo
-  },
-  onLoad () {
-    /*
-    wx.openLocation({
-      latitude: 22.5542080000,
-      longitude: 113.8878770000,
-      name: '宝安中心A地铁口',
-      address: '宝安中心A地铁口'
-    })
-    */
-  },
+  components: { CLogo },
   methods: {
     async handleGetUserInfo (e) {
       const { iv, encryptedData } = e.mp.detail
