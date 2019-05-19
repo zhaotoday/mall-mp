@@ -3,7 +3,7 @@
     <div class="b-logo-wrap">
       <c-logo></c-logo>
     </div>
-    <h2 class="b-title fs32">该程序将获取以下授权：</h2>
+    <h2 class="b-title fs32">力软商城将获取以下授权：</h2>
     <p class="b-desc c9 fs28">获得您的公开信息（昵称、头像等）</p>
     <button
       class="c-button w670 h76 bgc4 c1 fs32"
@@ -29,11 +29,11 @@ export default {
       })
 
       if (!getSettingRes.authSetting['scope.userInfo']) {
-        this.$wx.showToast({ title: '您需要授权登录才能进行下一步操作' })
+        this.$wx.showToast({ title: '授权登录后才能进行下一步操作' })
       } else {
         const wxUsersPostActionRes = await this.$store.dispatch('public/wxUsers/postAction', {
           body: {
-            type: 'LOGIN',
+            type: 'GET_MP_USER_INFO',
             code: loginRes.code,
             iv,
             encryptedData,
@@ -43,10 +43,10 @@ export default {
         const { wxUser, token } = wxUsersPostActionRes.data
         const url = this.$mp.query.from
           ? '/' + utils.url.decode(this.$mp.query.from)
-          : '/pages/home/index'
+          : '/pages/tab-bar/index/index'
 
         this.$auth.login({ user: wxUser, token })
-        this.$wx.navigateTo({ url })
+        this.$wx.switchTab({ url })
       }
     }
   }

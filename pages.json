@@ -3,7 +3,7 @@
     {
       "path": "pages/login/index",
       "style": {
-        "navigationBarTitleText": "登录"
+        "navigationBarTitleText": "授权登录"
       }
     },
     {
@@ -32,10 +32,10 @@
     }
   ],
   "globalStyle": {
-    "navigationBarTextStyle": "black",
+    "navigationBarTextStyle": "white",
     "navigationBarTitleText": "uni-app",
-    "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8"
+    "navigationBarBackgroundColor": "#53B060",
+    "backgroundColor": "#F6F6F6"
   },
   "tabBar": {
     "color": "#999999",

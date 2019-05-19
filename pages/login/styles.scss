@@ -8,7 +8,7 @@
   }
 
   @include b(title, desc) {
-    @include margin(null, px2rpx(60px), null, px2rpx(60px));
+    @include margin(null, px2rpx(40px), null, px2rpx(40px));
 
     line-height: 100%;
   }
