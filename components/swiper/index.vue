@@ -27,6 +27,7 @@
 
 <script>
 export default {
+  name: 'c-swiper',
   props: {
     items: {
       type: Array,
