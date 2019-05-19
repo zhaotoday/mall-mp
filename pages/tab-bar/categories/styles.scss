@@ -4,6 +4,7 @@
   @include b(sidebar) {
     @include position--absolute(0, null, 0, 0);
 
+    padding-top: px2rpx(10px);
     width: px2rpx(180px);
     box-sizing: border-box;
     border-right: 1px solid map-get($colors, c12);
