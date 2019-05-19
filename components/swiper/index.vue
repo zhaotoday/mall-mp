@@ -17,7 +17,7 @@
     </swiper>
     <div class="cc-indicator">
       <span
-        v-for="(item, index) in indicatorItems"
+        v-for="(item, index) in items.length"
         :key="index"
         :class="[ 'cc-indicator__item', { 'is-active': item === current } ]">
       </span>
@@ -39,11 +39,6 @@ export default {
   data () {
     return {
       current: 0
-    }
-  },
-  computed: {
-    indicatorItems () {
-      return Array.from({ length: this.items.length }, (v, k) => k)
     }
   },
   methods: {
