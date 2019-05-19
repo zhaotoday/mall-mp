@@ -28,6 +28,10 @@
     transform: translateY(-50%);
   }
 
+  @include c(number-input) {
+    @include position--absolute(null, 0, px2rpx(30px));
+  }
+
   @include s(is-editable) {
     @include c(products) {
       @include e(image) {

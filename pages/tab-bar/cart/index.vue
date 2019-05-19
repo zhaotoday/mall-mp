@@ -21,7 +21,7 @@
             {{ item.price }}
           </div>
         </div>
-        <div class="c-products__cart c-icon c-icon--add-bg"></div>
+        <c-number-input></c-number-input>
       </li>
     </ul>
     <c-cart-manager></c-cart-manager>
@@ -32,9 +32,10 @@
 import { mapState } from 'vuex'
 import CCheckbox from '@/components/checkbox'
 import CCartManager from '../../../components/cart-manager/index'
+import CNumberInput from '../../../components/number-input/index'
 
 export default {
-  components: { CCartManager, CCheckbox },
+  components: { CNumberInput, CCartManager, CCheckbox },
   data () {
     return {}
   },
