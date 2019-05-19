@@ -18,6 +18,10 @@ export default class extends REST {
       options.body = {}
     }
 
+    if (typeof options.loading === 'undefined') {
+      options.loading = true
+    }
+
     if (auth.loggedIn()) {
       const userId = auth.get()['user']['id']
 
@@ -34,18 +38,18 @@ export default class extends REST {
       options.query._ = new Date().getTime()
     }
 
-    wxb.showLoading()
+    options.loading && wxb.showLoading()
 
     return new Promise(resolve => {
       super.request(method, options)
         .then(res => {
-          wxb.hideLoading()
+          options.loading && wxb.hideLoading()
 
           // 在这里可对 res 进行包装
           resolve(res.data)
         })
         .catch(res => {
-          wxb.hideLoading()
+          options.loading && wxb.hideLoading()
 
           if (res.statusCode === 500) {
             wxb.showToast({ title: '服务器出错' })
