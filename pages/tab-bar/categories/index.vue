@@ -54,6 +54,7 @@ export default {
   },
   computed: {
     ...mapState({
+      id: state => state['public/categories'].id,
       list: state => state['public/categories'].list
     }),
     tree () {
@@ -62,8 +63,13 @@ export default {
       }) || []
     }
   },
-  onLoad () {
-    this.getList()
+  async onLoad () {
+    await this.getList()
+  },
+  async onShow () {
+    if (this.id) {
+      this.cSidebar.index = this.tree.findIndex(item => item.id === this.id)
+    }
   },
   methods: {
     getList () {

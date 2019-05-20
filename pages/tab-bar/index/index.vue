@@ -7,7 +7,7 @@
         v-for="item in categoriesList.items"
         :key="item.id"
         class="b-categories__item fs22 u-tac"
-        @click="switchTab('/pages/tab-bar/categories/index')">
+        @click="handleGoCategories(item.id)">
         <img
           class="b-categories__image"
           :src="$helpers.getImageById(item.icon)" />
@@ -114,6 +114,12 @@ export default {
     getProductsList () {
       return this.$store.dispatch('public/products/getList', {
         query: {}
+      })
+    },
+    handleGoCategories (id) {
+      this.$store.dispatch('public/categories/setId', { id })
+      this.$wx.switchTab({
+        url: '/pages/tab-bar/categories/index'
       })
     }
   }

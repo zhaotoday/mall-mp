@@ -6,5 +6,8 @@ export default {
   },
   [types.GET_DETAIL] (state, payload) {
     state.detail = payload.data
+  },
+  [types.SET_ID] (state, payload) {
+    state.id = payload.id
   }
 }

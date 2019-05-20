@@ -28,5 +28,9 @@ export default {
 
   postAction ({ commit }, { query, body }) {
     return new Model().addPath('actions').POST({ query, body })
+  },
+
+  setId ({ commit }, { id }) {
+    commit(types.SET_ID, { id })
   }
 }

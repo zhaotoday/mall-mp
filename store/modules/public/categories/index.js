@@ -7,7 +7,8 @@ const initState = {
     items: [],
     total: 0
   },
-  detail: {}
+  detail: {},
+  id: 0
 }
 
 export default {
