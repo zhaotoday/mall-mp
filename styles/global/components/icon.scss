@@ -17,4 +17,12 @@
 
     background-image: cdn("components/icon/add-bg.png");
   }
+
+  @each $value in (address, collection, coupon, service, to-be-business) {
+    @include m(#{$value}) {
+      @include size(px2rpx(40px), px2rpx(40px));
+
+      background-image: cdn("components/icon/#{$value}.png");
+    }
+  }
 }
