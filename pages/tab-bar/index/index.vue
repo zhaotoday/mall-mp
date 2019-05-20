@@ -4,7 +4,7 @@
     <c-swiper :items="adsImages"></c-swiper>
     <ul class="b-categories bgc1 u-mb20">
       <li
-        v-for="item in categoriesList.items"
+        v-for="item in categoriesTree"
         :key="item.id"
         class="b-categories__item fs22 u-tac"
         @click="handleGoCategories(item.id)">
@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import CSwiper from '@/components/swiper'
 import CSearch from '@/components/search'
 
@@ -83,6 +83,9 @@ export default {
       adsList: state => state['public/ads'].list,
       categoriesList: state => state['public/categories'].list,
       productsList: state => state['public/products'].list
+    }),
+    ...mapGetters({
+      categoriesTree: 'public/categories/tree'
     }),
     adsImages () {
       return this.adsList.items.map(item => this.$helpers.getImageById(item.picture))
@@ -102,12 +105,9 @@ export default {
     getCategoriesList () {
       return this.$store.dispatch('public/categories/getList', {
         query: {
-          alias: 'products',
-          where: {
-            parentId: {
-              $eq: 0
-            }
-          }
+          offset: 0,
+          limit: 1000,
+          alias: 'products'
         }
       })
     },

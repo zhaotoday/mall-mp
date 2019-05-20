@@ -38,8 +38,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import arrayToTree from 'array-to-tree'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
   data () {
@@ -57,11 +56,9 @@ export default {
       id: state => state['public/categories'].id,
       list: state => state['public/categories'].list
     }),
-    tree () {
-      return arrayToTree(this.list.items, {
-        parentProperty: 'parentId'
-      }) || []
-    }
+    ...mapGetters({
+      tree: 'public/categories/tree'
+    })
   },
   async onLoad () {
     await this.getList()
@@ -69,12 +66,17 @@ export default {
   async onShow () {
     if (this.id) {
       this.cSidebar.index = this.tree.findIndex(item => item.id === this.id)
+    } else {
+      this.cSidebar.index = 0
     }
+    this.$store.dispatch('public/categories/setId', { id: 0 })
   },
   methods: {
     getList () {
       return this.$store.dispatch('public/categories/getList', {
         query: {
+          offset: 0,
+          limit: 1000,
           alias: 'products'
         }
       })

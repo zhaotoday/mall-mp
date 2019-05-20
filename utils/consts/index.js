@@ -1,7 +1,7 @@
 import ORDER_STATUSES from './order-statuses'
 
 // 接口地址
-// const API_URL = 'http://localhost:3004/api/v1'
+// const API_URL = 'http://localhost:3005/api/v1'
 const API_URL = 'https://api.fzsc.cn/api/v1'
 
 // 登录页
