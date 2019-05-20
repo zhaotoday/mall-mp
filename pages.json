@@ -1,6 +1,12 @@
 {
   "pages": [
     {
+      "path": "pages/tab-bar/categories/index",
+      "style": {
+        "navigationBarTitleText": "分类"
+      }
+    },
+    {
       "path": "pages/tab-bar/my/index",
       "style": {
         "navigationBarTitleText": "我的"
@@ -10,12 +16,6 @@
       "path": "pages/tab-bar/cart/index",
       "style": {
         "navigationBarTitleText": "购物车"
-      }
-    },
-    {
-      "path": "pages/tab-bar/categories/index",
-      "style": {
-        "navigationBarTitleText": "分类"
       }
     },
     {

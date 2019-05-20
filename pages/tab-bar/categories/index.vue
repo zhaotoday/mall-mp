@@ -4,7 +4,7 @@
       class="b-sidebar bgc6"
       scroll-y>
       <li
-        v-for="(item, index) in list.items"
+        v-for="(item, index) in tree"
         :key="item.id"
         :class="[ 'b-sidebar__item', 'fs24', { 'is-active': index === cSidebar.index } ]"
         @click="handleClickSidebarItem(index)">

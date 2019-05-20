@@ -12,7 +12,6 @@
     @include e(item) {
       @include text--middle(px2rpx(80px));
       @include block--center;
-      @include text--overflow;
 
       position: relative;
       color: map-get($colors, c10);
@@ -21,7 +20,9 @@
 
       p {
         @include position--absolute(50%, null, null, 50%);
+        @include text--overflow;
 
+        width: px2rpx(140px);
         transform: translate(-50%, -50%);
         line-height: 100%;
         z-index: 1;
