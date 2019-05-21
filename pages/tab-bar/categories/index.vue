@@ -12,10 +12,11 @@
       </li>
     </scroll-view>
     <scroll-view
-      v-if="!!tree[cSidebar.index].banner"
       class="b-main bgc1"
       scroll-y>
-      <div class="b-banner-wrap">
+      <div
+        v-if="!!tree[cSidebar.index].banner"
+        class="b-banner-wrap">
         <img
           class="b-banner"
           :src="$helpers.getImageById((tree[cSidebar.index] || {})['banner'])" />
