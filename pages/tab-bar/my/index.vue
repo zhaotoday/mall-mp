@@ -5,7 +5,7 @@
         class="c-avatar"
         src="./images/avatar.jpg" />
       <div class="b-info__name fs40">赵丽颖</div>
-      <div class="b-info__phone fs32">手机号：13950442340</div>
+      <div class="b-info__phone fs32">13950442340</div>
       <div class="b-card bgc1">
         <ul class="b-orders">
           <li
