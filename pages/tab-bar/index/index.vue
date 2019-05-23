@@ -29,40 +29,43 @@
               :src="$helpers.getImageById(item.pictures)" />
             <div class="c-products__info">
               <div class="c-products__name fs32">{{ item.name }}</div>
-              <div class="c-products__tag fs20">100 元/包</div>
-              <div class="c-products__price c5 fs40">
-                <span class="fs20">￥</span>
-                {{ item.price }}
-              </div>
+              <template v-if="!!item.price">
+                <div class="c-products__tag fs20">
+                  {{ item.price }} 元 / {{ $helpers.getItem($consts.PRODUCT_UNITS, 'value', item.unit)['label'] }}
+                </div>
+                <div class="c-products__price c5 fs38">
+                  <span class="fs20">￥</span>
+                  {{ item.price }} 元
+                </div>
+              </template>
             </div>
-            <div class="c-products__cart c-icon c-icon--add-bg"></div>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="c-card bgc1">
-      <div class="c-card__head yellow has-border fs32">
-        经常购买
-      </div>
-      <div class="c-card__body">
-        <ul class="c-products">
-          <li
-            v-for="item in productsList.items"
-            :key="item.id"
-            class="c-products__item">
-            <img
-              class="c-products__image"
-              :src="$helpers.getImageById(item.pictures)" />
-            <div class="c-products__info">
-              <div class="c-products__name fs32">{{ item.name }}</div>
-              <div class="c-products__desc fs22">香甜可口 夏日首选</div>
-              <div class="c-products__tag fs20">100 元/包</div>
-              <div class="c-products__price c5 fs40">
-                <span class="fs20">￥</span>
-                {{ item.price }}
+            <template v-if="!!item.price">
+              <div class="c-products__cart c-icon c-icon--add-bg"></div>
+            </template>
+            <template v-else>
+              <div
+                v-show="!item.visible"
+                :class="[ 'c-products__cart', 'c-icon', `c-icon--${item.price ? 'add-bg' : 'arrow-down'}` ]"
+                @click="handleToggleSpecification(item)">
               </div>
+              <div
+                v-show="item.visible"
+                class="c-products__cart c-icon c-icon--arrow-up"
+                @click="handleToggleSpecification(item)">
+              </div>
+            </template>
+            <div
+              v-show="item.visible"
+              v-for="specification in item.specifications"
+              :key="specification.value"
+              class="c-products__specification">
+              <p class="c-products__tag fs20">{{ getUnitPrice(specification, item.unit) }}</p>
+              <p class="c-products__price c5 fs38">
+                <span class="fs20">￥</span>
+                {{specification.price}} 元 / {{ specification.label }}
+              </p>
+              <div class="c-products__cart c-icon c-icon--add-bg"></div>
             </div>
-            <div class="c-products__cart c-icon c-icon--add-bg"></div>
           </li>
         </ul>
       </div>
@@ -77,11 +80,18 @@ import CSearch from '@/components/search'
 
 export default {
   components: { CSwiper, CSearch },
+  data () {
+    return {
+      productsList: {
+        items: [],
+        total: 0
+      }
+    }
+  },
   computed: {
     ...mapState({
       adsList: state => state['public/ads'].list,
-      categoriesList: state => state['public/categories'].list,
-      productsList: state => state['public/products'].list
+      categoriesList: state => state['public/categories'].list
     }),
     ...mapGetters({
       categoriesTree: 'public/categories/tree'
@@ -90,12 +100,19 @@ export default {
       return this.adsList.items.map(item => this.$helpers.getImageById(item.picture))
     }
   },
-  onLoad () {
+  async onLoad () {
     this.getAdsList()
     this.getCategoriesList()
-    this.getProductsList()
+    this.productsList = await this.getProductsList()
   },
   methods: {
+    getUnitPrice (specification, unit) {
+      const { value, price } = specification
+      const number = parseInt(value.split(':')[1], 10)
+      const unitLabel = this.$helpers.getItem(this.$consts.PRODUCT_UNITS, 'value', unit)['label']
+
+      return `${price / number} 元 / ${unitLabel}`
+    },
     getAdsList () {
       return this.$store.dispatch('public/ads/getList', {
         query: {}
@@ -110,16 +127,27 @@ export default {
         }
       })
     },
-    getProductsList () {
-      return this.$store.dispatch('public/products/getList', {
+    async getProductsList () {
+      const { items, total } = await this.$store.dispatch('public/products/getList', {
         query: {}
       })
+
+      return {
+        items: items.map(item => ({
+          ...item,
+          visible: false
+        })) || [],
+        total
+      }
     },
     handleGoCategories (id) {
       this.$store.dispatch('public/categories/setId', { id })
       this.$wx.switchTab({
         url: '/pages/tab-bar/categories/index'
       })
+    },
+    handleToggleSpecification (item) {
+      this.productsList.items.find(product => product.id === item.id)['visible'] = !item.visible
     }
   }
 }

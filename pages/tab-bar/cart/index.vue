@@ -14,22 +14,49 @@
           :src="$helpers.getImageById(item.pictures)" />
         <div class="c-products__info">
           <div class="c-products__name fs32">{{ item.name }}</div>
-          <div class="c-products__desc fs22">香甜可口 夏日首选</div>
-          <div class="c-products__tag fs20">100 元/包</div>
-          <div class="c-products__price c5 fs40">
-            <span class="fs20">￥</span>
-            {{ item.price }}
-          </div>
+          <template v-if="!!item.price">
+            <div class="c-products__tag fs20">
+              {{ item.price }} 元 / {{ $helpers.getItem($consts.PRODUCT_UNITS, 'value', item.unit)['label'] }}
+            </div>
+            <div class="c-products__price c5 fs38">
+              <span class="fs20">￥</span>
+              {{ item.price }} 元
+            </div>
+          </template>
         </div>
-        <c-number-input></c-number-input>
+        <template v-if="!!item.price">
+          <c-number-input></c-number-input>
+        </template>
+        <template v-else>
+          <div
+            v-show="!item.visible"
+            :class="[ 'c-products__cart', 'c-icon', `c-icon--${item.price ? 'add-bg' : 'arrow-down'}` ]"
+            @click="handleToggleSpecification(item)">
+          </div>
+          <div
+            v-show="item.visible"
+            class="c-products__cart c-icon c-icon--arrow-up"
+            @click="handleToggleSpecification(item)">
+          </div>
+        </template>
+        <div
+          v-show="item.visible"
+          v-for="specification in item.specifications"
+          :key="specification.value"
+          class="c-products__specification">
+          <p class="c-products__tag fs20">{{ getUnitPrice(specification, item.unit) }}</p>
+          <p class="c-products__price c5 fs38">
+            <span class="fs20">￥</span>
+            {{specification.price}} 元 / {{ specification.label }}
+          </p>
+          <c-number-input></c-number-input>
+        </div>
       </li>
     </ul>
-    <c-cart-manager></c-cart-manager>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import CCheckbox from '@/components/checkbox'
 import CCartManager from '../../../components/cart-manager/index'
 import CNumberInput from '../../../components/number-input/index'
@@ -37,21 +64,39 @@ import CNumberInput from '../../../components/number-input/index'
 export default {
   components: { CNumberInput, CCartManager, CCheckbox },
   data () {
-    return {}
+    return {
+      productsList: {
+        items: [],
+        total: 0
+      }
+    }
   },
-  computed: {
-    ...mapState({
-      productsList: state => state['public/products'].list
-    })
-  },
-  onLoad () {
-    this.getProductsList()
+  async onLoad () {
+    this.productsList = await this.getProductsList()
   },
   methods: {
-    getProductsList () {
-      return this.$store.dispatch('public/products/getList', {
+    getUnitPrice (specification, unit) {
+      const { value, price } = specification
+      const number = parseInt(value.split(':')[1], 10)
+      const unitLabel = this.$helpers.getItem(this.$consts.PRODUCT_UNITS, 'value', unit)['label']
+
+      return `${price / number} 元 / ${unitLabel}`
+    },
+    async getProductsList () {
+      const { items, total } = await this.$store.dispatch('public/products/getList', {
         query: {}
       })
+
+      return {
+        items: items.map(item => ({
+          ...item,
+          visible: true
+        })) || [],
+        total
+      }
+    },
+    handleToggleSpecification (item) {
+      this.productsList.items.find(product => product.id === item.id)['visible'] = !item.visible
     }
   }
 }

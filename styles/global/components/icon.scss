@@ -25,4 +25,16 @@
       background-image: cdn("components/icon/#{$value}.png");
     }
   }
+
+  @include m(arrow-up, arrow-down) {
+    @include size(px2rpx(48px), px2rpx(48px));
+  }
+
+  @include m(arrow-up) {
+    background-image: cdn("components/icon/arrow-up.png");
+  }
+
+  @include m(arrow-down) {
+    background-image: cdn("components/icon/arrow-down.png");
+  }
 }

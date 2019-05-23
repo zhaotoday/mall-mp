@@ -1,4 +1,5 @@
 import ORDER_STATUSES from './order-statuses'
+import PRODUCT_UNITS from './product-units'
 
 // 接口地址
 // const API_URL = 'http://localhost:3005/api/v1'
@@ -10,5 +11,6 @@ const LOGIN_PAGE = '/pages/login/index'
 export default {
   API_URL,
   LOGIN_PAGE,
-  ORDER_STATUSES
+  ORDER_STATUSES,
+  PRODUCT_UNITS
 }
