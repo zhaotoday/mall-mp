@@ -29,15 +29,15 @@
               :src="$helpers.getImageById(item.pictures)" />
             <div class="c-products__info">
               <div class="c-products__name fs32">{{ item.name }}</div>
-              <template v-if="!!item.price">
-                <div class="c-products__tag fs20">
+              <div class="c-products__price c5 fs38">
+                <span class="fs20">￥</span>
+                <template v-if="!!item.price">
                   {{ item.price }} 元 / {{ $helpers.getItem($consts.PRODUCT_UNITS, 'value', item.unit)['label'] }}
-                </div>
-                <div class="c-products__price c5 fs38">
-                  <span class="fs20">￥</span>
-                  {{ item.price }} 元
-                </div>
-              </template>
+                </template>
+                <template v-else>
+                  {{ getPriceRange(item) }}
+                </template>
+              </div>
             </div>
             <template v-if="!!item.price">
               <div class="c-products__cart c-icon c-icon--add-bg"></div>
@@ -59,10 +59,12 @@
               v-for="specification in item.specifications"
               :key="specification.value"
               class="c-products__specification">
-              <p class="c-products__tag fs20">{{ getUnitPrice(specification, item.unit) }}</p>
               <p class="c-products__price c5 fs38">
                 <span class="fs20">￥</span>
-                {{specification.price}} 元 / {{ specification.label }}
+                {{ getUnitPrice(specification, item.unit) }}
+              </p>
+              <p class="c-products__tag fs20">
+                {{ specification.price }} 元 / {{ specification.label }}
               </p>
               <div class="c-products__cart c-icon c-icon--add-bg"></div>
             </div>
@@ -77,9 +79,11 @@
 import { mapState, mapGetters } from 'vuex'
 import CSwiper from '@/components/swiper'
 import CSearch from '@/components/search'
+import productsMixin from '@/mixins/products'
 
 export default {
   components: { CSwiper, CSearch },
+  mixins: [productsMixin],
   data () {
     return {
       productsList: {
@@ -106,13 +110,6 @@ export default {
     this.productsList = await this.getProductsList()
   },
   methods: {
-    getUnitPrice (specification, unit) {
-      const { value, price } = specification
-      const number = parseInt(value.split(':')[1], 10)
-      const unitLabel = this.$helpers.getItem(this.$consts.PRODUCT_UNITS, 'value', unit)['label']
-
-      return `${price / number} 元 / ${unitLabel}`
-    },
     getAdsList () {
       return this.$store.dispatch('public/ads/getList', {
         query: {}
@@ -145,9 +142,6 @@ export default {
       this.$wx.switchTab({
         url: '/pages/tab-bar/categories/index'
       })
-    },
-    handleToggleSpecification (item) {
-      this.productsList.items.find(product => product.id === item.id)['visible'] = !item.visible
     }
   }
 }

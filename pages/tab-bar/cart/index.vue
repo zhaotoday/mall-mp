@@ -14,15 +14,15 @@
           :src="$helpers.getImageById(item.pictures)" />
         <div class="c-products__info">
           <div class="c-products__name fs32">{{ item.name }}</div>
-          <template v-if="!!item.price">
-            <div class="c-products__tag fs20">
+          <div class="c-products__price c5 fs38">
+            <span class="fs20">￥</span>
+            <template v-if="!!item.price">
               {{ item.price }} 元 / {{ $helpers.getItem($consts.PRODUCT_UNITS, 'value', item.unit)['label'] }}
-            </div>
-            <div class="c-products__price c5 fs38">
-              <span class="fs20">￥</span>
-              {{ item.price }} 元
-            </div>
-          </template>
+            </template>
+            <template v-else>
+              {{ getPriceRange(item) }}
+            </template>
+          </div>
         </div>
         <template v-if="!!item.price">
           <c-number-input></c-number-input>
@@ -44,25 +44,30 @@
           v-for="specification in item.specifications"
           :key="specification.value"
           class="c-products__specification">
-          <p class="c-products__tag fs20">{{ getUnitPrice(specification, item.unit) }}</p>
           <p class="c-products__price c5 fs38">
             <span class="fs20">￥</span>
-            {{specification.price}} 元 / {{ specification.label }}
+            {{ getUnitPrice(specification, item.unit) }}
+          </p>
+          <p class="c-products__tag fs20">
+            {{ specification.price }} 元 / {{ specification.label }}
           </p>
           <c-number-input></c-number-input>
         </div>
       </li>
     </ul>
+    <c-cart-manager></c-cart-manager>
   </div>
 </template>
 
 <script>
 import CCheckbox from '@/components/checkbox'
-import CCartManager from '../../../components/cart-manager/index'
-import CNumberInput from '../../../components/number-input/index'
+import CCartManager from '@/components/cart-manager/index'
+import CNumberInput from '@/components/number-input/index'
+import productsMixin from '@/mixins/products'
 
 export default {
   components: { CNumberInput, CCartManager, CCheckbox },
+  mixins: [productsMixin],
   data () {
     return {
       productsList: {
@@ -75,13 +80,6 @@ export default {
     this.productsList = await this.getProductsList()
   },
   methods: {
-    getUnitPrice (specification, unit) {
-      const { value, price } = specification
-      const number = parseInt(value.split(':')[1], 10)
-      const unitLabel = this.$helpers.getItem(this.$consts.PRODUCT_UNITS, 'value', unit)['label']
-
-      return `${price / number} 元 / ${unitLabel}`
-    },
     async getProductsList () {
       const { items, total } = await this.$store.dispatch('public/products/getList', {
         query: {}
@@ -94,9 +92,6 @@ export default {
         })) || [],
         total
       }
-    },
-    handleToggleSpecification (item) {
-      this.productsList.items.find(product => product.id === item.id)['visible'] = !item.visible
     }
   }
 }

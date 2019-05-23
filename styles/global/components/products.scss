@@ -51,6 +51,14 @@
     line-height: 100%;
   }
 
+  @include e(name) {
+    padding-top: px2rpx(40px);
+  }
+
+  @include e(price) {
+    padding-top: px2rpx(30px);
+  }
+
   @include e(tag) {
     @include text--middle(px2rpx(36px));
     @include padding(0, px2rpx(20px), 0, px2rpx(20px));
@@ -73,8 +81,13 @@
     border-top: 1px dotted map-get($colors, c12);
 
     @include c(products) {
+      @include e(price) {
+        padding-top: 0;
+      }
+
       @include e(tag) {
-        margin-top: 0;
+        margin-top: px2rpx(30px);
+        margin-bottom: 0;
       }
 
       @include e(cart) {
