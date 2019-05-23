@@ -29,7 +29,6 @@
               :src="$helpers.getImageById(item.pictures)" />
             <div class="c-products__info">
               <div class="c-products__name fs32">{{ item.name }}</div>
-              <div class="c-products__desc fs22">香甜可口 夏日首选</div>
               <div class="c-products__tag fs20">100 元/包</div>
               <div class="c-products__price c5 fs40">
                 <span class="fs20">￥</span>
