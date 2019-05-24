@@ -17,7 +17,7 @@
           <div class="c-products__price c5 fs38">
             <span class="fs20">￥</span>
             <template v-if="!!item.price">
-              {{ item.price }} 元 / {{ $helpers.getItem($consts.PRODUCT_UNITS, 'value', item.unit)['label'] }}
+              {{ item.price }} {{item.unit ? `元 / ${$helpers.getItem($consts.PRODUCT_UNITS, 'value', item.unit)['label']}` : '' }}
             </template>
             <template v-else>
               {{ getPriceRange(item) }}
