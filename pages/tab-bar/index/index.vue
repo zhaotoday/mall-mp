@@ -1,5 +1,5 @@
 <template>
-  <div class="p-index">
+  <div class="p-index u-pb20">
     <c-search></c-search>
     <c-swiper :items="adsImages"></c-swiper>
     <ul class="b-categories bgc1 u-mb20">
@@ -14,7 +14,7 @@
         <div class="b-categories__name">{{ item.name }}</div>
       </li>
     </ul>
-    <div class="c-card bgc1 u-mb20">
+    <div class="c-card bgc1">
       <div class="c-card__head green has-border fs32">
         热销产品
       </div>
@@ -29,10 +29,11 @@
               :src="$helpers.getImageById(item.pictures)" />
             <div class="c-products__info">
               <div class="c-products__name fs32">{{ item.name }}</div>
-              <div class="c-products__price c5 fs38">
+              <div class="c-products__price c5 fs30">
                 <span class="fs20">￥</span>
                 <template v-if="!!item.price">
-                  {{ item.price }} {{item.unit ? `元 / ${$helpers.getItem($consts.PRODUCT_UNITS, 'value', item.unit)['label']}` : '' }}
+                  {{ item.price }} {{item.unit ? `元/${$helpers.getItem($consts.PRODUCT_UNITS, 'value',
+                  item.unit)['label']}` : '' }}
                 </template>
                 <template v-else>
                   {{ getPriceRange(item) }}
@@ -40,7 +41,20 @@
               </div>
             </div>
             <template v-if="!!item.price">
-              <div class="c-products__cart c-icon c-icon--add-bg"></div>
+              <template v-if="!item.number">
+                <div
+                  class="c-products__cart c-icon c-icon--add-bg"
+                  @click="handleAddNumber(item)">
+                </div>
+              </template>
+              <template v-else>
+                <c-number-input
+                  :key="item.id"
+                  :number="item.number"
+                  @add="handleAddNumber(item)"
+                  @subtract="handleSubtractNumber(item)">
+                </c-number-input>
+              </template>
             </template>
             <template v-else>
               <div
@@ -59,7 +73,7 @@
               v-for="specification in item.specifications"
               :key="specification.value"
               class="c-products__specification">
-              <p class="c-products__price c5 fs38">
+              <p class="c-products__price c5 fs30">
                 <span class="fs20">￥</span>
                 {{ getUnitPrice(specification, item.unit) }}
               </p>
@@ -80,9 +94,10 @@ import { mapState, mapGetters } from 'vuex'
 import CSwiper from '@/components/swiper'
 import CSearch from '@/components/search'
 import productsMixin from '@/mixins/products'
+import CNumberInput from '@/components/number-input/index'
 
 export default {
-  components: { CSwiper, CSearch },
+  components: { CNumberInput, CSwiper, CSearch },
   mixins: [productsMixin],
   data () {
     return {
@@ -132,7 +147,14 @@ export default {
       return {
         items: items.map(item => ({
           ...item,
-          visible: false
+          visible: false,
+          number: 0,
+          specifications: item.specifications
+            ? item.specifications.map(item => ({
+              ...item,
+              number: 0
+            }))
+            : []
         })) || [],
         total
       }

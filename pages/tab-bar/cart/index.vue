@@ -14,10 +14,10 @@
           :src="$helpers.getImageById(item.pictures)" />
         <div class="c-products__info">
           <div class="c-products__name fs32">{{ item.name }}</div>
-          <div class="c-products__price c5 fs38">
+          <div class="c-products__price c5 fs30">
             <span class="fs20">￥</span>
             <template v-if="!!item.price">
-              {{ item.price }} {{item.unit ? `元 / ${$helpers.getItem($consts.PRODUCT_UNITS, 'value', item.unit)['label']}` : '' }}
+              {{ item.price }} {{item.unit ? `元/${$helpers.getItem($consts.PRODUCT_UNITS, 'value', item.unit)['label']}` : '' }}
             </template>
             <template v-else>
               {{ getPriceRange(item) }}
@@ -44,7 +44,7 @@
           v-for="specification in item.specifications"
           :key="specification.value"
           class="c-products__specification">
-          <p class="c-products__price c5 fs38">
+          <p class="c-products__price c5 fs30">
             <span class="fs20">￥</span>
             {{ getUnitPrice(specification, item.unit) }}
           </p>

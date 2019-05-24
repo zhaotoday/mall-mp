@@ -1,7 +1,5 @@
 @import "../../../styles/utils/index";
 
 @include p(cart) {
-  @include c(products) {
-    margin-bottom: px2rpx(96px + 20px);
-  }
+  padding-bottom: px2rpx(96px + 20px);
 }
