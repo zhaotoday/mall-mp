@@ -7,7 +7,8 @@
         class="c-products__item">
         <c-checkbox
           class="c-products__checkbox"
-          :checked="true">
+          :checked="item.checked"
+          @change="handleCheckboxChange(item)">
         </c-checkbox>
         <img
           class="c-products__image"
@@ -82,7 +83,10 @@
         </div>
       </li>
     </ul>
-    <c-cart-manager></c-cart-manager>
+    <c-cart-manager
+      :cart="cart"
+      @check="handleCartManagerCheck">
+    </c-cart-manager>
   </div>
 </template>
 
@@ -141,6 +145,13 @@ export default {
           }
         }) || [],
         total
+      }
+    },
+    handleCartManagerCheck (all) {
+      if (all) {
+        this.cart = this.cart.map(item => ({ ...item, checked: true }))
+      } else {
+        this.cart = this.cart.map(item => ({ ...item, checked: false }))
       }
     }
   }

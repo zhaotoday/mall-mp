@@ -3,10 +3,11 @@
     <div class="c-cart-manager__checked bgc11 fs28">
       <c-checkbox
         class="c-cart-manager__checkbox"
-        :checked="true">
+        :checked="!cart.find(item => !item.checked)"
+        @change="handleCheckboxChange">
       </c-checkbox>
-      <div class="fs28">已选中（2）</div>
-      <div class="c-cart-manager__money fs32">￥23.68</div>
+      <div class="fs28">已选中（{{ checkedProducts.length }}）</div>
+      <div class="c-cart-manager__money fs32">￥{{ totalPrice }} 元</div>
     </div>
     <div class="c-cart-manager__settle bgc5 fs32 u-tac">去结算</div>
   </div>
@@ -18,7 +19,41 @@ import CCheckbox from '../checkbox/index'
 export default {
   name: 'c-cart-manager',
   components: { CCheckbox },
-  props: {}
+  props: {
+    cart: {
+      type: Array,
+      default: () => []
+    }
+  },
+  computed: {
+    checkedProducts () {
+      return this.cart.filter(item => item.checked)
+    },
+    totalPrice () {
+      let totalPrice = 0
+
+      this.checkedProducts.forEach(product => {
+        if (product.price) {
+          totalPrice += product.price * product.number
+        } else {
+          product.specifications.forEach(specification => {
+            totalPrice += specification.price * specification.number
+          })
+        }
+      })
+
+      return totalPrice
+    }
+  },
+  methods: {
+    handleCheckboxChange () {
+      if (this.cart.find(item => !item.checked)) {
+        this.$emit('check', true)
+      } else {
+        this.$emit('check', false)
+      }
+    }
+  }
 }
 </script>
 
