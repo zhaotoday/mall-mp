@@ -24,7 +24,7 @@ export default {
       const number = parseInt(value.split(':')[1], 10)
       const unitLabel = this.$helpers.getItem(this.$consts.PRODUCT_UNITS, 'value', unit)['label']
 
-      return `${price / number} 元/${unitLabel}`
+      return `${parseFloat((price / number).toFixed(2))} 元/${unitLabel}`
     },
     async getCart () {
       const { items } = await this.$store.dispatch('wx/carts/getList', {
@@ -50,16 +50,34 @@ export default {
     handleToggleSpecification (item) {
       this.productsList.items.find(product => product.id === item.id)['visible'] = !item.visible
     },
-    async handleAddNumber (item) {
-      if (item.number < 99) {
-        this.productsList.items.find(product => product.id === item.id)['number'] += 1
-        this.updateCart()
+    async handleAddNumber (item, specification) {
+      if (specification) {
+        if (specification.number < 99) {
+          this.productsList.items
+            .find(product => product.id === item.id)['specifications']
+            .find(item => item.value === specification.value)['number'] += 1
+          this.updateCart()
+        }
+      } else {
+        if (item.number < 99) {
+          this.productsList.items.find(product => product.id === item.id)['number'] += 1
+          this.updateCart()
+        }
       }
     },
-    async handleSubtractNumber (item) {
-      if (item.number > 0) {
-        this.productsList.items.find(product => product.id === item.id)['number'] -= 1
-        this.updateCart()
+    async handleSubtractNumber (item, specification) {
+      if (specification) {
+        if (specification.number > 0) {
+          this.productsList.items
+            .find(product => product.id === item.id)['specifications']
+            .find(item => item.value === specification.value)['number'] -= 1
+          this.updateCart()
+        }
+      } else {
+        if (item.number > 0) {
+          this.productsList.items.find(product => product.id === item.id)['number'] -= 1
+          this.updateCart()
+        }
       }
     }
   }

@@ -38,7 +38,7 @@ export default class extends REST {
       options.query._ = new Date().getTime()
     }
 
-    options.loading && wxb.showLoading()
+    // options.loading && wxb.showLoading()
 
     return new Promise(resolve => {
       super.request(method, options)

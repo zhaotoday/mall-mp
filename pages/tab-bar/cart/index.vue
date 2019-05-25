@@ -65,7 +65,20 @@
           <p class="c-products__tag fs20">
             {{ specification.price }} 元 / {{ specification.label }}
           </p>
-          <c-number-input></c-number-input>
+          <template v-if="!specification.number">
+            <div
+              class="c-products__cart c-icon c-icon--add-bg"
+              @click="handleAddNumber(item, specification)">
+            </div>
+          </template>
+          <template v-else>
+            <c-number-input
+              :key="specification.value"
+              :number="specification.number"
+              @add="handleAddNumber(item, specification)"
+              @subtract="handleSubtractNumber(item, specification)">
+            </c-number-input>
+          </template>
         </div>
       </li>
     </ul>
@@ -109,13 +122,21 @@ export default {
 
           return {
             ...item,
-            visible: false,
+            visible: cartProduct
+              ? !!(cartProduct.specifications.find(cartSpecification => !!cartSpecification.number))
+              : false,
             number: cartProduct ? cartProduct.number : 0,
             specifications: item.specifications
-              ? item.specifications.map(item => ({
-                ...item,
-                number: 0
-              }))
+              ? item.specifications.map(specification => {
+                const cartSpecification = cartProduct
+                  ? cartProduct.specifications.find(cartSpecification => cartSpecification.value === specification.value)
+                  : null
+
+                return {
+                  ...specification,
+                  number: cartSpecification ? cartSpecification.number : 0
+                }
+              })
               : []
           }
         }) || [],
