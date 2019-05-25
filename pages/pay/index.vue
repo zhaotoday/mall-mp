@@ -19,10 +19,16 @@
         商品数
         <div class="c-list__extra c8 fs28">2 件</div>
       </div>
-      <div class="c-list__item is-link">
+      <picker
+        class="c-list__item is-link"
+        @change="handlePayWayChange"
+        v-model="cPayWay.index"
+        :range="cPayWay.range">
         支付方式
-        <div class="c-list__extra c8 fs28">在线支付</div>
-      </div>
+        <div class="c-list__extra c8 fs28">
+          {{ $consts.PAY_WAYS[cPayWay.index].label }}
+        </div>
+      </picker>
       <div class="c-list__item">
         商品总价
         <div class="c-list__extra c8 fs28">￥59.7 元</div>
@@ -34,13 +40,34 @@
     </div>
     <div class="b-pay bgc1">
       <div class="b-pay__money c5 fs32">￥59.7 元</div>
-      <div class="b-pay__submit bgc5 c1 fs32 u-tac">支付</div>
+      <div
+        class="b-pay__submit bgc5 c1 fs32 u-tac"
+        @click="handlePay">
+        支付
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data () {
+    return {
+      cPayWay: {
+        index: 0,
+        range: this.$consts.PAY_WAYS.map(item => item.label)
+      }
+    }
+  },
+  methods: {
+    handlePayWayChange (e) {
+      this.cPayWay.index = e.detail.value
+    },
+    handlePay () {
+      this.$store.dispatch('wx/payments/postAction', {})
+    }
+  }
+}
 </script>
 
 <style
