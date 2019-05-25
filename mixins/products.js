@@ -40,12 +40,23 @@ export default {
       return items[0] ? items[0].data : {}
     },
     async updateCart () {
-      return this.$store.dispatch('wx/carts/postAction', {
+      await this.$store.dispatch('wx/carts/postAction', {
         body: {
           type: 'UPDATE',
-          data: this.productsList.items
+          data: this.productsList.items.filter(item => {
+            return item.price
+              ? !!item.number
+              : !!item.specifications.find(specification => !!specification.number)
+          }).map(item => {
+            return {
+              ...item,
+              specifications: item.specifications.filter(item => !!item.number)
+            }
+          })
         }
       })
+
+      this.cart = await this.getCart()
     },
     handleToggleSpecification (item) {
       this.productsList.items.find(product => product.id === item.id)['visible'] = !item.visible

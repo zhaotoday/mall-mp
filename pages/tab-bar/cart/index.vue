@@ -2,7 +2,7 @@
   <div class="p-cart">
     <ul class="c-products is-editable bgc1 u-mt20">
       <li
-        v-for="item in productsList.items"
+        v-for="item in cart"
         :key="item.id"
         class="c-products__item">
         <c-checkbox
