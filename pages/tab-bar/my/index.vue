@@ -3,9 +3,9 @@
     <div class="b-info bgc4 c1">
       <img
         class="c-avatar"
-        src="./images/avatar.jpg" />
-      <div class="b-info__name fs40">赵丽颖</div>
-      <div class="b-info__phone fs32">13950442340</div>
+        :src="user.avatarUrl" />
+      <div class="b-info__name fs40">{{ user.nickName }}</div>
+      <div class="b-info__phone fs32">{{ user.phoneNumber || '[请绑定手机号]' }}</div>
       <div class="b-card bgc1">
         <ul class="b-orders">
           <li
@@ -17,7 +17,7 @@
         </ul>
       </div>
     </div>
-    <div class="b-list c-list bgc1 fs32">
+    <div class="b-list c-list bgc1 fs30">
       <div class="c-list__item has-icon is-link">
         <i class="c-icon c-icon--address"></i>
         收货地址
@@ -46,7 +46,18 @@
 </template>
 
 <script>
-export default {}
+export default {
+  onShow () {
+    if (!this.$auth.loggedIn()) {
+      this.$wxb.navigateTo({ url: this.$consts.LOGIN_PAGE })
+    }
+  },
+  computed: {
+    user () {
+      return this.$auth.get()['user']
+    }
+  }
+}
 </script>
 
 <style

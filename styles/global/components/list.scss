@@ -1,6 +1,6 @@
 @include c(list) {
   @include e(item) {
-    @include text--middle(px2rpx(104px));
+    @include text--middle(px2rpx(100px));
 
     position: relative;
     border-bottom: 1px solid map-get($colors, c12);
@@ -14,12 +14,24 @@
       text-indent: px2rpx(40px + 16px);
     }
 
+    @include s(is-height-auto) {
+      @include padding(px2rpx(25px), null, px2rpx(25px));
+
+      height: auto;
+    }
+
     @include s(is-link) {
       background: {
         image: cdn("components/list/is-link.png");
         size: px2rpx(24px) px2rpx(32px);
         repeat: no-repeat;
         position: right px2rpx(40px) center;
+      }
+
+      @include c(list) {
+        @include e(extra) {
+          right: px2rpx(80px);
+        }
       }
     }
 
@@ -40,8 +52,13 @@
     }
   }
 
+  @include e(desc) {
+    @include padding(px2rpx(10px), null, px2rpx(10px));
+    line-height: 100%;
+  }
+
   @include e(extra) {
-    @include position--absolute(50%, px2rpx(40px + 24px + 16px));
+    @include position--absolute(50%, px2rpx(40px));
 
     transform: translateY(-50%);
     line-height: 100%;
