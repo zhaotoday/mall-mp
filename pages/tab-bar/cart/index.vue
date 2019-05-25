@@ -17,7 +17,8 @@
           <div class="c-products__price c5 fs30">
             <span class="fs20">￥</span>
             <template v-if="!!item.price">
-              {{ item.price }} {{item.unit ? `元/${$helpers.getItem($consts.PRODUCT_UNITS, 'value', item.unit)['label']}` : '' }}
+              {{ item.price }} {{item.unit ? `元/${$helpers.getItem($consts.PRODUCT_UNITS, 'value', item.unit)['label']}`
+              : '' }}
             </template>
             <template v-else>
               {{ getPriceRange(item) }}
@@ -25,7 +26,20 @@
           </div>
         </div>
         <template v-if="!!item.price">
-          <c-number-input></c-number-input>
+          <template v-if="!item.number">
+            <div
+              class="c-products__cart c-icon c-icon--add-bg"
+              @click="handleAddNumber(item)">
+            </div>
+          </template>
+          <template v-else>
+            <c-number-input
+              :key="item.id"
+              :number="item.number"
+              @add="handleAddNumber(item)"
+              @subtract="handleSubtractNumber(item)">
+            </c-number-input>
+          </template>
         </template>
         <template v-else>
           <div
@@ -76,7 +90,11 @@ export default {
       }
     }
   },
-  async onLoad () {
+  async onShow () {
+    if (this.$auth.loggedIn()) {
+      this.cart = await this.getCart()
+    }
+
     this.productsList = await this.getProductsList()
   },
   methods: {
@@ -86,10 +104,21 @@ export default {
       })
 
       return {
-        items: items.map(item => ({
-          ...item,
-          visible: true
-        })) || [],
+        items: items.map(item => {
+          const cartProduct = this.cart.find(product => product.id === item.id)
+
+          return {
+            ...item,
+            visible: false,
+            number: cartProduct ? cartProduct.number : 0,
+            specifications: item.specifications
+              ? item.specifications.map(item => ({
+                ...item,
+                number: 0
+              }))
+              : []
+          }
+        }) || [],
         total
       }
     }
