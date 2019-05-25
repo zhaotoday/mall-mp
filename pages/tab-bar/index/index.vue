@@ -119,9 +119,14 @@ export default {
       return this.adsList.items.map(item => this.$helpers.getImageById(item.picture))
     }
   },
-  async onLoad () {
-    this.getAdsList()
-    this.getCategoriesList()
+  async onShow () {
+    await this.getAdsList()
+    await this.getCategoriesList()
+
+    if (this.$auth.loggedIn()) {
+      this.cart = await this.getCart()
+    }
+
     this.productsList = await this.getProductsList()
   },
   methods: {
@@ -145,17 +150,21 @@ export default {
       })
 
       return {
-        items: items.map(item => ({
-          ...item,
-          visible: false,
-          number: 0,
-          specifications: item.specifications
-            ? item.specifications.map(item => ({
-              ...item,
-              number: 0
-            }))
-            : []
-        })) || [],
+        items: items.map(item => {
+          const cartProduct = this.cart.find(product => product.id === item.id)
+
+          return {
+            ...item,
+            visible: false,
+            number: cartProduct ? cartProduct.number : 0,
+            specifications: item.specifications
+              ? item.specifications.map(item => ({
+                ...item,
+                number: 0
+              }))
+              : []
+          }
+        }) || [],
         total
       }
     },

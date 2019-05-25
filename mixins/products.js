@@ -1,4 +1,9 @@
 export default {
+  data () {
+    return {
+      cart: []
+    }
+  },
   methods: {
     getPriceRange (product) {
       const { specifications, unit } = product
@@ -21,24 +26,40 @@ export default {
 
       return `${price / number} 元/${unitLabel}`
     },
-    handleToggleSpecification (item) {
-      this.productsList.items.find(product => product.id === item.id)['visible'] = !item.visible
-    },
-    handleAddNumber (item) {
-      if (item.number < 99) {
-        this.productsList.items.find(product => product.id === item.id)['number'] += 1
-      }
+    async getCart () {
+      const { items } = await this.$store.dispatch('wx/carts/getList', {
+        query: {
+          where: {
+            wxUserId: {
+              $eq: this.$auth.get()['user'].id
+            }
+          }
+        }
+      })
 
-      this.$store.dispatch('wx/carts/post', {
+      return items[0] ? items[0].data : {}
+    },
+    async updateCart () {
+      return this.$store.dispatch('wx/carts/postAction', {
         body: {
           type: 'UPDATE',
           data: this.productsList.items
         }
       })
     },
-    handleSubtractNumber (item) {
+    handleToggleSpecification (item) {
+      this.productsList.items.find(product => product.id === item.id)['visible'] = !item.visible
+    },
+    async handleAddNumber (item) {
+      if (item.number < 99) {
+        this.productsList.items.find(product => product.id === item.id)['number'] += 1
+        this.updateCart()
+      }
+    },
+    async handleSubtractNumber (item) {
       if (item.number > 0) {
         this.productsList.items.find(product => product.id === item.id)['number'] -= 1
+        this.updateCart()
       }
     }
   }

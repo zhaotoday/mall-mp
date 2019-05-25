@@ -14,8 +14,8 @@ export default {
     return data
   },
 
-  post ({ commit }, { body }) {
-    return new Model().POST({ body })
+  post ({ commit }, { loading = false, body }) {
+    return new Model().POST({ loading, body })
   },
 
   put ({ commit }, { id, body }) {
@@ -26,7 +26,7 @@ export default {
     return new Model().DELETE({ id })
   },
 
-  postAction ({ commit }, { query, body }) {
-    return new Model().addPath('actions').POST({ query, body })
+  postAction ({ commit }, { loading = false, query, body }) {
+    return new Model().addPath('actions').POST({ loading, query, body })
   }
 }
