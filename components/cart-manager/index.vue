@@ -19,6 +19,7 @@
 
 <script>
 import CCheckbox from '../checkbox/index'
+import cartUtils from '@/utils/cart'
 
 export default {
   name: 'c-cart-manager',
@@ -34,19 +35,7 @@ export default {
       return this.cart.filter(item => item.checked)
     },
     totalPrice () {
-      let totalPrice = 0
-
-      this.checkedProducts.forEach(product => {
-        if (product.price) {
-          totalPrice += product.price * product.number
-        } else {
-          product.specifications.forEach(specification => {
-            totalPrice += specification.price * specification.number
-          })
-        }
-      })
-
-      return totalPrice
+      return cartUtils.getTotalPrice(this.checkedProducts)
     }
   },
   methods: {
@@ -62,7 +51,7 @@ export default {
         body: { type: 'CLOSE' }
       })
 
-      this.$wx.navigateTo({ url: `/pages/pay/index?cardId=${id}` })
+      this.$wx.navigateTo({ url: `/pages/pay/index?cartId=${id}` })
     }
   }
 }

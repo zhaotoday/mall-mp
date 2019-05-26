@@ -1,15 +1,15 @@
 {
   "pages": [
     {
-      "path": "pages/pay/index",
-      "style": {
-        "navigationBarTitleText": "结算"
-      }
-    },
-    {
       "path": "pages/tab-bar/index/index",
       "style": {
         "navigationBarTitleText": "东街口"
+      }
+    },
+    {
+      "path": "pages/pay/index",
+      "style": {
+        "navigationBarTitleText": "结算"
       }
     },
     {
