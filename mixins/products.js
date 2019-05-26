@@ -27,17 +27,11 @@ export default {
       return `${parseFloat((price / number).toFixed(2))} 元/${unitLabel}`
     },
     async getCart () {
-      const { items } = await this.$store.dispatch('wx/carts/getList', {
-        query: {
-          where: {
-            wxUserId: {
-              $eq: this.$auth.get()['user'].id
-            }
-          }
-        }
+      const { data } = await this.$store.dispatch('wx/carts/postAction', {
+        body: { type: 'GET' }
       })
 
-      return items[0] ? items[0].data : []
+      return data ? data.data : []
     },
     getCartData () {
       return this.productsList.items.filter(item => {

@@ -9,7 +9,11 @@
       <div class="fs28">已选中（{{ checkedProducts.length }}）</div>
       <div class="c-cart-manager__money fs32">￥{{ totalPrice }} 元</div>
     </div>
-    <div class="c-cart-manager__settle bgc5 fs32 u-tac">去结算</div>
+    <div
+      class="c-cart-manager__settle bgc5 fs32 u-tac"
+      @click="handleGoToPay">
+      去结算
+    </div>
   </div>
 </template>
 
@@ -52,6 +56,13 @@ export default {
       } else {
         this.$emit('check', false)
       }
+    },
+    async handleGoToPay () {
+      const { data: { id } } = await this.$store.dispatch('wx/carts/postAction', {
+        body: { type: 'CLOSE' }
+      })
+
+      this.$wx.navigateTo({ url: `/pages/pay/index?cardId=${id}` })
     }
   }
 }

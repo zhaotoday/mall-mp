@@ -53,18 +53,29 @@
 export default {
   data () {
     return {
+      cartId: 0,
       cPayWay: {
         index: 0,
         range: this.$consts.PAY_WAYS.map(item => item.label)
       }
     }
   },
+  onShow () {
+    this.cartId = this.$mp.query.cartId || 6
+  },
   methods: {
     handlePayWayChange (e) {
       this.cPayWay.index = e.detail.value
     },
-    handlePay () {
-      this.$store.dispatch('wx/payments/postAction', {})
+    async handlePay () {
+      const { data } = await this.$store.dispatch('wx/payments/postAction', {
+        body: {
+          type: 'CREATE_UNIFIED_ORDER'
+        }
+      })
+
+      const res = await this.$wx.requestPayment(data)
+      console.log(res)
     }
   }
 }
