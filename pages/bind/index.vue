@@ -1,39 +1,34 @@
 <template>
-  <scroll-view class="p-bind">
-    <CLogo />
-    <p class="pb-tip c4 fs24">请绑定手机号，以便为您提供更好的服务。</p>
-    <div class="pb-telephone-input c-input">
-      <input
-        class="c2 fs28"
-        placeholder-class="c6"
-        type="number"
-        placeholder="请输入手机号"
-        maxlength="11"
-        cursor-spacing="210rpx"
-        v-model.lazy="cForm.data.telephone" />
-    </div>
-    <div class="pb-check-code-input c-input">
-      <input
-        class="c2 fs28"
-        placeholder-class="c6"
-        type="number"
-        placeholder="请输入验证码"
-        maxlength="6"
-        cursor-spacing="210rpx"
-        v-model.lazy="cForm.data.checkCode" />
-      <div
-        :class="[ 'pb-check-code', 'fs28', { 'is-disabled': cCheckCode.disabled } ]"
-        @click="handleGetCheckCode">
-        {{ cCheckCode.message }}
+  <div class="p-bind">
+    <div class="b-list c-list bgc1 fs30">
+      <div class="c-list__item">
+        <input
+          class="c-list__input is-full c2 fs32"
+          placeholder-class="c19"
+          placeholder="请输入要绑定的手机号"
+          v-model="cForm.mobilePhone" />
+        <div
+          :class="[ 'pb-check-code', 'fs28', { 'is-disabled': cCheckCode.disabled } ]"
+          @click="handleGetCheckCode">
+          {{ cCheckCode.message }}
+        </div>
+      </div>
+      <div class="c-list__item">
+        <input
+          class="c-list__input is-full c2 fs32"
+          type="number"
+          placeholder-class="c19"
+          placeholder="请输入验证码"
+          maxlength="6"
+          v-model="cForm.checkCode" />
       </div>
     </div>
     <button
-      class="c-button c-button--1 bgc3 c1 fs32"
-      style="width: 640rpx;"
+      class="c-button w626 h86 bg1 c1 fs34"
       @click="handleConfirm">
       确定
     </button>
-  </scroll-view>
+  </div>
 </template>
 
 <script>
@@ -66,7 +61,7 @@ export default {
     async handleGetCheckCode () {
       if (this.cCheckCode.disabled) return
 
-      const { telephone } = this.cForm.data
+      const { telephone } = this.cForm
 
       if (!telephone) {
         this.$wx.showToast({ title: '手机号不能为空' })
@@ -100,7 +95,7 @@ export default {
       }, 1000)
     },
     async handleConfirm () {
-      const { telephone, checkCode } = this.cForm.data
+      const { telephone, checkCode } = this.cForm
 
       if (!telephone) {
         this.$wx.showToast({ title: '手机号不能为空' })
