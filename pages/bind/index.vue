@@ -1,43 +1,38 @@
 <template>
   <div class="p-bind">
-    <div class="b-list c-list bgc1 fs30">
+    <div class="c-list bgc1 fs30 u-mt20">
       <div class="c-list__item">
         <input
-          class="c-list__input is-full c2 fs32"
-          placeholder-class="c19"
+          class="c-list__input is-full fs32"
+          placeholder-class="c15"
           placeholder="请输入要绑定的手机号"
           v-model="cForm.mobilePhone" />
         <div
-          :class="[ 'pb-check-code', 'fs28', { 'is-disabled': cCheckCode.disabled } ]"
+          :class="[ 'b-check-code', 'fs28', { 'is-disabled': cCheckCode.disabled } ]"
           @click="handleGetCheckCode">
           {{ cCheckCode.message }}
         </div>
       </div>
       <div class="c-list__item">
         <input
-          class="c-list__input is-full c2 fs32"
+          class="c-list__input is-full fs32"
           type="number"
-          placeholder-class="c19"
+          placeholder-class="c15"
           placeholder="请输入验证码"
           maxlength="6"
           v-model="cForm.checkCode" />
       </div>
     </div>
     <button
-      class="c-button w626 h86 bg1 c1 fs34"
+      class="c-button w670 h76 bgc4 c1 fs32"
       @click="handleConfirm">
-      确定
+      提交
     </button>
   </div>
 </template>
 
 <script>
-import CLogo from '@/components/logo'
-
 export default {
-  components: {
-    CLogo
-  },
   data () {
     return {
       cForm: {
@@ -50,30 +45,30 @@ export default {
     }
   },
   methods: {
-    getCheckCode (telephone) {
+    getCheckCode (mobilePhone) {
       return this.$store.dispatch('wx/wxUsers/postAction', {
         body: {
           type: 'GET_CHECK_CODE',
-          telephone
+          mobilePhone
         }
       })
     },
     async handleGetCheckCode () {
       if (this.cCheckCode.disabled) return
 
-      const { telephone } = this.cForm
+      const { mobilePhone } = this.cForm
 
-      if (!telephone) {
+      if (!mobilePhone) {
         this.$wx.showToast({ title: '手机号不能为空' })
         return
       }
 
-      if (!/^1\d{2}\s?\d{4}\s?\d{4}$/.test(telephone)) {
+      if (!/^1\d{2}\s?\d{4}\s?\d{4}$/.test(mobilePhone)) {
         this.$wx.showToast({ title: '手机号格式错误' })
         return
       }
 
-      await this.getCheckCode(telephone)
+      await this.getCheckCode(mobilePhone)
 
       this.$wx.showToast({ title: '验证码获取成功' })
 
@@ -95,14 +90,14 @@ export default {
       }, 1000)
     },
     async handleConfirm () {
-      const { telephone, checkCode } = this.cForm
+      const { mobilePhone, checkCode } = this.cForm
 
-      if (!telephone) {
+      if (!mobilePhone) {
         this.$wx.showToast({ title: '手机号不能为空' })
         return
       }
 
-      if (!/^1\d{2}\s?\d{4}\s?\d{4}$/.test(telephone)) {
+      if (!/^1\d{2}\s?\d{4}\s?\d{4}$/.test(mobilePhone)) {
         this.$wx.showToast({ title: '手机号格式错误' })
         return
       }
@@ -119,8 +114,8 @@ export default {
 
       await this.$store.dispatch('wx/wxUsers/postAction', {
         body: {
-          type: 'BIND_TELEPHONE',
-          telephone,
+          type: 'BIND_mobilePhone',
+          mobilePhone,
           checkCode
         }
       })

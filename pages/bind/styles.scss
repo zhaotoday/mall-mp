@@ -1,46 +1,7 @@
 @import '../../styles/utils/index';
 
 @include p(bind) {
-  @include size(100%, 100%);
-
-  background: {
-    color: map-get($colors, c6);
-    image: cdn("components/logo/bg-reverse.png");
-    size: px2rpx(778px * 0.7) px2rpx(926px * 0.7);
-    position: right px2rpx(-210px) bottom px2rpx(-120px);
-    repeat: no-repeat;
-  }
-
-  @include b(logo-wrap) {
-    @include padding(px2rpx(148px), null, px2rpx(123px));
-
-    text-align: center;
-  }
-
-  @include b(title) {
-    @include margin(null, px2rpx(40px), null, px2rpx(40px));
-
-    line-height: 100%;
-    padding-bottom: px2rpx(36px);
-  }
-
-  @include pb(telephone-input, check-code-input) {
-    @include block--center;
-  }
-
-  @include pb(telephone-input) {
-    margin-bottom: px2rpx(40px);
-  }
-
-  @include pb(check-code-input) {
-    margin-bottom: px2rpx(60px);
-
-    input {
-      width: 67%;
-    }
-  }
-
-  @include pb(check-code) {
+  @include b(check-code) {
     @include position--absolute(50%, 0);
     @include padding(null, px2rpx(40px), null, px2rpx(40px));
     @include text--middle(px2rpx(88px));
@@ -53,5 +14,11 @@
     &.is-disabled {
       color: map-get($colors, c7);
     }
+  }
+
+  @include c(button) {
+    @include position--fixed(null, null, px2rpx(130px), 50%);
+
+    transform: translateX(-50%);
   }
 }
