@@ -1,0 +1,8 @@
+@include c(tag) {
+  &.h34 {
+    @include text--middle(px2rpx(34px));
+    @include padding(null, px2rpx(17px), null, px2rpx(17px));
+
+    border-radius: px2rpx(17px);
+  }
+}
