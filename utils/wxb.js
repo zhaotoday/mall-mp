@@ -8,6 +8,10 @@ const navigateInterceptor = {
     if (options.requiresLogin && !auth.loggedIn()) {
       options.url = consts.LOGIN_PAGE
     }
+
+    if (options.requiresBind && !auth.phoneNumberBound()) {
+      options.url = consts.BIND_PAGE
+    }
   }
 }
 

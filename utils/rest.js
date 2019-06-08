@@ -18,6 +18,10 @@ export default class extends REST {
       options.body = {}
     }
 
+    if (typeof options.showError === 'undefined') {
+      options.showError = true
+    }
+
     if (typeof options.loading === 'undefined') {
       options.loading = true
     }
@@ -52,11 +56,11 @@ export default class extends REST {
           options.loading && wxb.hideLoading()
 
           if (res.statusCode === 500) {
-            wxb.showToast({ title: '服务器出错' })
+            options.showError && wxb.showToast({ title: '服务器出错' })
           } else if (res.data.error.code === 'AUTHORIZATION/UNAUTHORIZED') {
             wxb.navigateTo({ url: consts.LOGIN_PAGE })
           } else {
-            wxb.showToast({ title: res.data.error.message })
+            options.showError && wxb.showToast({ title: res.data.error.message })
           }
         })
     })
