@@ -22,18 +22,18 @@ export default {
   components: { CLogo },
   methods: {
     async handleGetUserInfo (e) {
-      const { iv, encryptedData } = e.mp.detail
       const getSettingRes = await this.$wx.getSetting()
-      const loginRes = await this.$wx.login({
-        withCredentials: true
-      })
 
       if (!getSettingRes.authSetting['scope.userInfo']) {
         this.$wx.showToast({ title: '授权登录后才能进行下一步操作' })
       } else {
+        const loginRes = await this.$wx.login()
+        const { iv, encryptedData } = await this.$wx.getUserInfo({
+          withCredentials: true
+        })
         const wxUsersPostActionRes = await this.$store.dispatch('public/wxUsers/postAction', {
           body: {
-            type: 'GET_MP_USER_INFO',
+            type: 'MP_GET_USER_INFO',
             code: loginRes.code,
             iv,
             encryptedData,
@@ -41,12 +41,16 @@ export default {
           }
         })
         const { wxUser, token } = wxUsersPostActionRes.data
-        const url = this.$mp.query.from
-          ? '/' + utils.url.decode(this.$mp.query.from)
-          : '/pages/tab-bar/index/index'
+        const { from, action } = this.$mp.query
+        const url = from ? `/${utils.url.decode(from)}` : this.$consts.INDEX_PAGE
 
         this.$auth.login({ user: wxUser, token })
-        this.$wx.switchTab({ url })
+
+        try {
+          await this.$wx.navigateTo({ url })
+        } catch (e) {
+          await this.$wx.switchTab({ url })
+        }
       }
     }
   }
