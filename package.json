@@ -20,6 +20,7 @@
     "array-to-tree": "^3.3.0",
     "jt-helpers": "0.0.6",
     "jt-rest": "0.0.8",
+    "jt-time": "0.0.7",
     "mp-client": "0.0.28",
     "mpvue": "^2.0.5",
     "sass-utils": "^1.0.21",

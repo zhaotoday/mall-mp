@@ -1,13 +1,28 @@
 <script>
 export default {
-  onLaunch: function () {
-    console.log('App Launch')
+  onLaunch () {
+    this.setOpenId()
   },
-  onShow: function () {
+  onShow () {
     console.log('App Show')
   },
-  onHide: function () {
+  onHide () {
     console.log('App Hide')
+  },
+  methods: {
+    async setOpenId () {
+      if (!this.$auth.get()['openId']) {
+        const { code } = await this.$wx.login({
+          withCredentials: true
+        })
+
+        const { data: { openId } } = await this.$store.dispatch('public/wxUsers/postAction', {
+          body: { type: 'MP_CODE_TO_SESSION', code }
+        })
+
+        this.$auth.setOpenId({ openId })
+      }
+    }
   }
 }
 </script>
