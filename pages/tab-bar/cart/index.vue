@@ -148,11 +148,7 @@ export default {
       }
     },
     handleCartManagerCheck (all) {
-      if (all) {
-        this.cart = this.cart.map(item => ({ ...item, checked: true }))
-      } else {
-        this.cart = this.cart.map(item => ({ ...item, checked: false }))
-      }
+      this.cart = this.cart.map(item => ({ ...item, checked: all }))
     }
   }
 }

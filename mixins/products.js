@@ -58,6 +58,8 @@ export default {
       this.productsList.items.find(product => product.id === item.id)['visible'] = !item.visible
     },
     async handleAddNumber (item, specification) {
+      await this.loggedIn()
+
       if (specification) {
         if (specification.number < 99) {
           this.productsList.items
@@ -76,6 +78,8 @@ export default {
       }
     },
     async handleSubtractNumber (item, specification) {
+      await this.loggedIn()
+
       if (specification) {
         if (specification.number > 0) {
           this.productsList.items
