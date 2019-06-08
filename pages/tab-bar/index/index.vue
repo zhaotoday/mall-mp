@@ -103,16 +103,16 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 import CSwiper from '@/components/swiper'
 import CSearch from '@/components/search'
+import categoriesMixin from '@/mixins/categories'
 import productsMixin from '@/mixins/products'
 import CNumberInput from '@/components/number-input/index'
-import carts from '../../../models/wx/carts'
 
 export default {
   components: { CNumberInput, CSwiper, CSearch },
-  mixins: [productsMixin],
+  mixins: [categoriesMixin, productsMixin],
   data () {
     return {
       productsList: {
@@ -123,11 +123,7 @@ export default {
   },
   computed: {
     ...mapState({
-      adsList: state => state['public/ads'].list,
-      categoriesList: state => state['public/categories'].list
-    }),
-    ...mapGetters({
-      categoriesTree: 'public/categories/tree'
+      adsList: state => state['public/ads'].list
     }),
     adsImages () {
       return this.adsList.items.map(item => this.$helpers.getImageById(item.picture))
@@ -147,15 +143,6 @@ export default {
     getAdsList () {
       return this.$store.dispatch('public/ads/getList', {
         query: {}
-      })
-    },
-    getCategoriesList () {
-      return this.$store.dispatch('public/categories/getList', {
-        query: {
-          offset: 0,
-          limit: 1000,
-          alias: 'products'
-        }
       })
     },
     async getProductsList () {
@@ -192,9 +179,7 @@ export default {
     },
     handleGoCategories (id) {
       this.$store.dispatch('public/categories/setId', { id })
-      this.$wx.switchTab({
-        url: '/pages/tab-bar/categories/index'
-      })
+      this.$wx.switchTab({ url: '/pages/tab-bar/categories/index' })
     }
   }
 }

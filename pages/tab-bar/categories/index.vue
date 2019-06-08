@@ -4,7 +4,7 @@
       class="b-sidebar bgc6"
       scroll-y>
       <li
-        v-for="(item, index) in tree"
+        v-for="(item, index) in categoriesTree"
         :key="item.id"
         :class="[ 'b-sidebar__item', 'fs24', { 'is-active': index === cSidebar.index } ]"
         @click="handleClickSidebarItem(index)">
@@ -15,16 +15,16 @@
       class="b-main bgc1"
       scroll-y>
       <div
-        v-if="!!tree[cSidebar.index].banner"
+        v-if="!!categoriesTree[cSidebar.index].banner"
         class="b-banner-wrap">
         <img
           class="b-banner"
-          :src="$helpers.getImageById((tree[cSidebar.index] || {})['banner'])" />
+          :src="$helpers.getImageById((categoriesTree[cSidebar.index] || {})['banner'])" />
       </div>
       <ul class="b-categories">
         <li
           class="b-categories__item"
-          v-for="item in (tree[cSidebar.index] || {}).children || []"
+          v-for="item in (categoriesTree[cSidebar.index] || {}).children || []"
           :key="item.id">
           <img
             class="b-categories__image"
@@ -39,49 +39,29 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapState } from 'vuex'
+import categoriesMixin from '@/mixins/categories'
 
 export default {
+  mixins: [categoriesMixin],
   data () {
     return {
-      cMain: {
-        items: {}
-      },
-      cSidebar: {
-        index: 0
-      }
+      cSidebar: { index: 0 }
     }
   },
-  computed: {
-    ...mapState({
-      id: state => state['public/categories'].id,
-      list: state => state['public/categories'].list
-    }),
-    ...mapGetters({
-      tree: 'public/categories/tree'
-    })
-  },
-  async onLoad () {
-    await this.getList()
+  computed: mapState({
+    id: state => state['public/categories'].id
+  }),
+  onLoad () {
+    this.getCategoriesList()
   },
   async onShow () {
-    if (this.id) {
-      this.cSidebar.index = this.tree.findIndex(item => item.id === this.id)
-    } else {
-      this.cSidebar.index = 0
-    }
+    this.cSidebar.index = this.id
+      ? this.categoriesTree.findIndex(item => item.id === this.id)
+      : 0
     this.$store.dispatch('public/categories/setId', { id: 0 })
   },
   methods: {
-    getList () {
-      return this.$store.dispatch('public/categories/getList', {
-        query: {
-          offset: 0,
-          limit: 1000,
-          alias: 'products'
-        }
-      })
-    },
     handleClickSidebarItem (index) {
       this.cSidebar.index = index
     }

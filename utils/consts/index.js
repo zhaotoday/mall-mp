@@ -7,7 +7,7 @@ import PAY_WAYS from './pay-ways'
 const API_URL = 'https://api.fjnm.cn/api/v1'
 
 // 首页
-const INDEX_PAGE = '/page/index/index'
+const INDEX_PAGE = '/pages/tab-bar/index/index'
 
 // 登录页
 const LOGIN_PAGE = '/pages/login/index'
