@@ -56,6 +56,7 @@ export default {
     },
     handleToggleSpecification (item) {
       this.productsList.items.find(product => product.id === item.id)['visible'] = !item.visible
+      this.cart = this.getCartData()
     },
     async handleAddNumber (item, specification) {
       await this.loggedIn()
