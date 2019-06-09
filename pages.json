@@ -1,6 +1,18 @@
 {
   "pages": [
     {
+      "path": "pages/products/detail/index",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/products/list/index",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    },
+    {
       "path": "pages/addresses/form/index",
       "style": {
         "navigationBarTitleText": ""
