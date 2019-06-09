@@ -19,6 +19,29 @@
       @include padding(px2rpx(15px), null, px2rpx(20px));
     }
 
+    @include e(foot) {
+      position: relative;
+      height: px2rpx(72px);
+
+      @include c(icon-tag) {
+        @include position--absolute(50%);
+
+        transform: translateY(-50%);
+
+        @include m(set, unset) {
+          left: 0;
+        }
+
+        @include m(edit) {
+          right: px2rpx(150px);
+        }
+
+        @include m(del) {
+          right: 0;
+        }
+      }
+    }
+
     @include c(tag) {
       @include position--absolute(0, 0);
     }

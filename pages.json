@@ -1,15 +1,15 @@
 {
   "pages": [
     {
-      "path": "pages/tab-bar/index/index",
-      "style": {
-        "navigationBarTitleText": "东街口"
-      }
-    },
-    {
       "path": "pages/addresses/list/index",
       "style": {
         "navigationBarTitleText": "地址管理"
+      }
+    },
+    {
+      "path": "pages/tab-bar/index/index",
+      "style": {
+        "navigationBarTitleText": "东街口"
       }
     },
     {
