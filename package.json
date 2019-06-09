@@ -25,7 +25,7 @@
     "mpvue": "^2.0.5",
     "sass-utils": "^1.0.21",
     "vuex": "^3.1.0",
-    "wx-bridge": "0.0.11"
+    "wx-bridge": "0.0.19"
   },
   "devDependencies": {
     "node-sass": "^4.11.0",

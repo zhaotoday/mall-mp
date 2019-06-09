@@ -1,6 +1,12 @@
 {
   "pages": [
     {
+      "path": "pages/addresses/form/index",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    },
+    {
       "path": "pages/addresses/list/index",
       "style": {
         "navigationBarTitleText": "地址管理"
@@ -16,12 +22,6 @@
       "path": "pages/bind/index",
       "style": {
         "navigationBarTitleText": "绑定手机号"
-      }
-    },
-    {
-      "path": "pages/addresses/form/index",
-      "style": {
-        "navigationBarTitleText": "新增地址"
       }
     },
     {

@@ -3,7 +3,7 @@
 @include p(addresses-list) {
   @include b(list) {
     @include e(item) {
-      @include padding(px2rpx(36px), px2rpx(32px), null, px2rpx(32px));
+      @include padding(px2rpx(32px), px2rpx(32px), null, px2rpx(32px));
     }
 
     @include e(head) {
@@ -45,5 +45,11 @@
     @include c(tag) {
       @include position--absolute(0, 0);
     }
+  }
+
+  @include c(button) {
+    @include position--absolute(null, null, px2rpx(60px), 50%);
+
+    transform: translateX(-50%);
   }
 }
