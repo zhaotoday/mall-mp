@@ -26,4 +26,8 @@
   @include b(price) {
     padding-bottom: px2rpx(34px);
   }
+
+  @include c(guarantees) {
+    margin-top: px2rpx(-30px);
+  }
 }

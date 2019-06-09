@@ -5,6 +5,7 @@
     @include position--absolute(50%, px2rpx(40px));
 
     transform: translateY(-50%);
+    line-height: 0;
 
     @include c(tag) {
       margin-left: px2rpx(20px);
@@ -15,6 +16,7 @@
     @include position--absolute(50%, null, null, px2rpx(138px));
 
     transform: translateY(-50%);
+    line-height: 0;
 
     @include c(tag) {
       margin-right: px2rpx(20px);

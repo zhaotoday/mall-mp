@@ -7,12 +7,6 @@
       }
     },
     {
-      "path": "pages/products/list/index",
-      "style": {
-        "navigationBarTitleText": ""
-      }
-    },
-    {
       "path": "pages/addresses/form/index",
       "style": {
         "navigationBarTitleText": ""
@@ -22,6 +16,12 @@
       "path": "pages/addresses/list/index",
       "style": {
         "navigationBarTitleText": "地址管理"
+      }
+    },
+    {
+      "path": "pages/products/list/index",
+      "style": {
+        "navigationBarTitleText": ""
       }
     },
     {
