@@ -29,8 +29,8 @@
   }
 
   @include e(body) {
-    @include m(m30) {
-      @include margin(null, px2rpx(30px), px2rpx(30px), px2rpx(30px));
+    @include m(p30) {
+      @include padding(null, px2rpx(30px), px2rpx(30px), px2rpx(30px));
     }
   }
 }

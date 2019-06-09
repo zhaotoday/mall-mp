@@ -45,21 +45,24 @@
         </ul>
       </div>
     </div>
-    <div class="c-panel bgc1">
+    <div class="c-panel bgc1 u-mb20">
       <div class="c-panel__head">
         <div class="c-panel__title fs32">详细信息</div>
       </div>
-      <div class="c-panel__body c-panel__body--m30">
+      <div class="c-panel__body c-panel__body--p30">
         {{ detail.content }}
       </div>
     </div>
+    <c-product-actions></c-product-actions>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import CProductActions from '../../../components/product-actions/index'
 
 export default {
+  components: { CProductActions },
   computed: mapState({
     detail: state => state['public/products'].detail
   }),

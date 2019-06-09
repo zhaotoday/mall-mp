@@ -1,6 +1,8 @@
 @import '../../../styles/utils/index';
 
 @include p(products-detail) {
+  padding-bottom: px2rpx(96px);
+
   @include b(picture) {
     @include block--center;
     @include size(px2rpx(500px), px2rpx(500px));
