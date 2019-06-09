@@ -23,6 +23,7 @@
     "jt-time": "0.0.7",
     "mp-client": "0.0.28",
     "mpvue": "^2.0.5",
+    "mpvue-wxparse": "^0.6.5",
     "sass-utils": "^1.0.21",
     "vuex": "^3.1.0",
     "wx-bridge": "0.0.19"

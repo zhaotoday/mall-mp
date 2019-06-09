@@ -49,8 +49,8 @@
       <div class="c-panel__head">
         <div class="c-panel__title fs32">详细信息</div>
       </div>
-      <div class="c-panel__body c-panel__body--p30">
-        {{ detail.content }}
+      <div class="c-panel__body c-panel__body--p30 fs24">
+        <wx-parse :content="detail.content"></wx-parse>
       </div>
     </div>
     <c-product-actions></c-product-actions>
@@ -60,9 +60,10 @@
 <script>
 import { mapState } from 'vuex'
 import CProductActions from '../../../components/product-actions/index'
+import WxParse from 'mpvue-wxparse'
 
 export default {
-  components: { CProductActions },
+  components: { CProductActions, WxParse },
   computed: mapState({
     detail: state => state['public/products'].detail
   }),
