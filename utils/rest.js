@@ -9,7 +9,7 @@ export default class extends REST {
    * 重写父类 request 方法，按业务场景定制功能
    * @override
    */
-  request (method = 'GET', { id, query = {}, body = {}, showLoading = true, showError = true }) {
+  request (method = 'GET', { id, query = {}, body = {}, showLoading = false, showError = true }) {
     if (auth.loggedIn()) {
       const userId = auth.get()['user']['id']
 
@@ -32,10 +32,14 @@ export default class extends REST {
     return new Promise(resolve => {
       super.request(method, { id, query, body })
         .then(res => {
+          showLoading && wxb.hideLoading()
+
           // 在这里可对 res 进行包装
           resolve(res.data)
         })
         .catch(res => {
+          showLoading && wxb.hideLoading()
+
           if (res.statusCode === 500) {
             showError && wxb.showToast({ title: '服务器出错' })
           } else if (res.data.error.code === 'AUTHORIZATION/UNAUTHORIZED') {
@@ -43,9 +47,6 @@ export default class extends REST {
           } else {
             showError && wxb.showToast({ title: res.data.error.message })
           }
-        })
-        .finally(() => {
-          showLoading && wxb.hideLoading()
         })
     })
   }

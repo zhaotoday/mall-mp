@@ -1,6 +1,12 @@
 {
   "pages": [
     {
+      "path": "pages/tab-bar/index/index",
+      "style": {
+        "navigationBarTitleText": "东街口"
+      }
+    },
+    {
       "path": "pages/products/search/index",
       "style": {
         "navigationBarTitleText": "搜索"
@@ -28,12 +34,6 @@
       "path": "pages/products/list/index",
       "style": {
         "navigationBarTitleText": ""
-      }
-    },
-    {
-      "path": "pages/tab-bar/index/index",
-      "style": {
-        "navigationBarTitleText": "东街口"
       }
     },
     {

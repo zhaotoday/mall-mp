@@ -1,3 +1,7 @@
+## 注意
+
+- 用 uni-app 发行小程序后，请将构建代码下的 static 文件夹删除（static 里的图片最终是放到 CDN 上），然后再发布版本；
+
 ## 参考
 
 - [uni-app 官方文档](https://uniapp.dcloud.io/)
