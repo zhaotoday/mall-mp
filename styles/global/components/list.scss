@@ -1,21 +1,31 @@
 @include c(list) {
+  $__item-height: 100px;
+  $__item-border-bottom-color: map-get($colors, c12);
+  $__item-margin-left: 40px;
+  $__item-has-icon-text-indent: 56px;
+  $__item-is-adaptable-padding: 25px;
+  $__extra-right: 40px;
+  $__value-height: 106px;
+  $__value-left: 138px;
+  $__value-width: 400px;
+
   @include e(item) {
-    @include text--middle(px2rpx(100px));
+    @include text--middle(px2rpx($__item-height));
 
     position: relative;
-    border-bottom: 1px solid map-get($colors, c12);
-    margin-left: px2rpx(40px);
+    border-bottom: 1px solid $__item-border-bottom-color;
+    margin-left: px2rpx($__item-margin-left);
 
     &:last-child {
       border-bottom: 0;
     }
 
     @include s(has-icon) {
-      text-indent: px2rpx(40px + 16px);
+      text-indent: px2rpx($__item-has-icon-text-indent);
     }
 
-    @include s(is-height-auto) {
-      @include padding(px2rpx(25px), null, px2rpx(25px));
+    @include s(is-adaptable) {
+      @include padding(px2rpx($__item-is-adaptable-padding), null, px2rpx($__item-is-adaptable-padding));
 
       height: auto;
     }
@@ -35,7 +45,7 @@
       }
     }
 
-    @include s(is-contact) {
+    @include s(is-button) {
       text-align: left;
       background-color: map-get($colors, c1);
       padding: 0;
@@ -54,45 +64,28 @@
 
   @include e(desc) {
     @include padding(px2rpx(10px), null, px2rpx(10px));
+
     line-height: 100%;
   }
 
   @include e(extra) {
-    @include position--absolute(50%, px2rpx(40px));
+    @include position--absolute(50%, px2rpx($__extra-right));
 
     transform: translateY(-50%);
     line-height: 100%;
   }
 
-  @include e(input) {
+  @include e(value) {
     @include position--absolute(50%);
-    @include text--middle(px2rpx(106px));
+    @include text--middle(px2rpx($__value-height));
 
     transform: translateY(-50%);
     border: 0;
-    left: px2rpx(138px);
-    width: px2rpx(400px);
+    left: px2rpx($__value-left);
+    width: px2rpx($__value-width);
 
     @include s(is-full) {
       left: 0;
     }
-  }
-
-  @include e(value) {
-    @include position--absolute(50%);
-
-    transform: translateY(-50%);
-    left: px2rpx(138px);
-    min-width: px2rpx(400px);
-  }
-
-  @include e(operation) {
-    @include position--absolute(50%, 0);
-    @include text--middle(px2rpx(60px));
-
-    transform: translateY(-50%);
-    width: px2rpx(200px);
-    text-align: center;
-    border-left: 1px solid map-get($colors, c9);
   }
 }

@@ -4,7 +4,7 @@
       <li class="c-list__item">
         收货人
         <input
-          class="c-list__input fs32"
+          class="c-list__value fs32"
           placeholder-class="c15"
           placeholder="收货人姓名"
           v-model="cForm.mobilePhone" />
@@ -16,7 +16,7 @@
       <li class="c-list__item">
         手机号
         <input
-          class="c-list__input fs32"
+          class="c-list__value fs32"
           placeholder-class="c15"
           placeholder="配送员联系您的手机号"
           v-model="cForm.mobilePhone" />
@@ -24,7 +24,7 @@
       <li class="c-list__item is-link">
         小区
         <input
-          class="c-list__input fs32"
+          class="c-list__value fs32"
           placeholder-class="c15"
           placeholder="小区/写字楼等"
           v-model="cForm.mobilePhone" />
@@ -32,7 +32,7 @@
       <li class="c-list__item">
         收货人
         <input
-          class="c-list__input fs32"
+          class="c-list__value fs32"
           placeholder-class="c15"
           placeholder="楼号/单元/门牌号"
           v-model="cForm.mobilePhone" />

@@ -35,7 +35,7 @@
         申请成为商家
       </div>
       <button
-        class="c-list__item is-contact has-icon is-link fs32"
+        class="c-list__item is-button has-icon is-link fs32"
         open-type="contact">
         <i class="c-icon c-icon--service"></i>
         客户服务

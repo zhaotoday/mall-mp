@@ -1,7 +1,7 @@
 <template>
   <div class="p-pay">
     <div class="c-list bgc1 fs28 u-mt20">
-      <div class="c-list__item has-icon is-link is-height-auto">
+      <div class="c-list__item has-icon is-link is-adaptable">
         <i class="c-icon c-icon--address"></i>
         <p class="c-list__desc">赵金添 1395442340</p>
         <p class="c-list__desc">福州市仓山区学军路198号</p>

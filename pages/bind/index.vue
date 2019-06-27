@@ -3,7 +3,7 @@
     <div class="c-list bgc1 fs30 u-mt20">
       <div class="c-list__item">
         <input
-          class="c-list__input is-full fs32"
+          class="c-list__value is-full fs32"
           placeholder-class="c15"
           placeholder="请输入要绑定的手机号"
           v-model="cForm.mobilePhone" />
@@ -15,7 +15,7 @@
       </div>
       <div class="c-list__item">
         <input
-          class="c-list__input is-full fs32"
+          class="c-list__value is-full fs32"
           type="number"
           placeholder-class="c15"
           placeholder="请输入验证码"
