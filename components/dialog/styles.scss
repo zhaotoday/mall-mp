@@ -1,0 +1,38 @@
+@import "../../styles/utils/index";
+
+@include c(dialog) {
+  @include position--fixed(50%, null, null, 50%);
+
+  transform: translate(-50%, -50%);
+  z-index: map-get($z-indexes, c-dialog);
+  width: px2rpx(560px);
+  background-color: map-get($colors, c1);
+  border-radius: px2rpx(8px);
+  overflow: hidden;
+
+  @include e(title) {
+    @include padding(px2rpx(60px), px2rpx(30px), px2rpx(50px), px2rpx(30px));
+
+    line-height: 140%;
+  }
+
+  @include e(content) {
+    @include padding(null, px2rpx(30px), px2rpx(50px), px2rpx(30px));
+
+    line-height: 150%;
+  }
+
+  @include e(foot) {
+    border-top: 1px solid map-get($colors, c9);
+
+    li {
+      @include text--middle(px2rpx(100px));
+
+      border-right: 1px solid map-get($colors, c9);
+
+      &:last-child {
+        border-right: 0;
+      }
+    }
+  }
+}
