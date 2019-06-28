@@ -1,14 +1,16 @@
 <template>
   <div class="p-addresses-list">
     <ul
-      v-for="item in 5"
+      v-for="item in list.items"
       :key="item"
       class="b-list u-mt20">
       <li class="b-list__item bgc1">
         <div class="b-list__head">
-          <h2 class="b-list__title fs28">浦上大道金港路8号 金山桔园泰园</h2>
-          <p class="b-list__desc c9 fs24">赵金添 13890998888</p>
-          <div class="c-tag h34 bdc5 c5 fs20">公司</div>
+          <h2 class="b-list__title fs28">{{ item.address + item.room }}</h2>
+          <p class="b-list__desc c9 fs24">{{ item.name }} {{ item.phoneNumber }}</p>
+          <div class="c-tag h34 bdc5 c5 fs20">
+            {{ $helpers.getItem($consts.PRODUCT_UNITS, 'value', item.unit)['label'] }}
+          </div>
         </div>
         <div class="b-list__foot fs24">
           <div class="c-icon-tag c-icon-tag--set">设为默认</div>
@@ -25,11 +27,9 @@
   </div>
 </template>
 
-<script>
-export default {}
-</script>
+<script src="./script.js"></script>
 
 <style
   lang="scss"
-  src="./styles.scss">
+  src="./style.scss">
 </style>
