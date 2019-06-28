@@ -1,6 +1,7 @@
 import ORDER_STATUSES from './order-statuses'
 import PRODUCT_UNITS from './product-units'
 import PAY_WAYS from './pay-ways'
+import ADDRESS_TAGS from './address-tags'
 
 // 接口地址
 // const API_URL = 'http://localhost:3005/api/v1'
@@ -22,5 +23,6 @@ export default {
   BIND_PAGE,
   ORDER_STATUSES,
   PRODUCT_UNITS,
-  PAY_WAYS
+  PAY_WAYS,
+  ADDRESS_TAGS
 }
