@@ -12,6 +12,12 @@ export default {
       return this.$store.dispatch('wx/addresses/getList', {
         query: {}
       })
+    },
+    setDefault (item) {
+      console.log(item)
+    },
+    del (item) {
+      console.log(item)
     }
   }
 }

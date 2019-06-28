@@ -9,13 +9,25 @@
           <h2 class="b-list__title fs28">{{ item.address + item.room }}</h2>
           <p class="b-list__desc c9 fs24">{{ item.name }} {{ item.phoneNumber }}</p>
           <div class="c-tag h34 bdc5 c5 fs20">
-            {{ $helpers.getItem($consts.PRODUCT_UNITS, 'value', item.unit)['label'] }}
+            {{ $helpers.getItem($consts.ADDRESS_TAGS, 'value', item.tag)['label'] }}
           </div>
         </div>
         <div class="b-list__foot fs24">
-          <div class="c-icon-tag c-icon-tag--set">设为默认</div>
-          <div class="c-icon-tag c-icon-tag--edit">编辑</div>
-          <div class="c-icon-tag c-icon-tag--del">删除</div>
+          <div
+            class="c-icon-tag c-icon-tag--set"
+            @click="setDefault(item)">
+            设为默认
+          </div>
+          <div
+            class="c-icon-tag c-icon-tag--edit"
+            @click="navigateTo(`/pages/addresses/form/index?id=${item.id}`)">
+            编辑
+          </div>
+          <div
+            class="c-icon-tag c-icon-tag--del"
+            @click="del">
+            删除
+          </div>
         </div>
       </li>
     </ul>
