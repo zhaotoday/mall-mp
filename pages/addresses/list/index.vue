@@ -25,7 +25,7 @@
           </div>
           <div
             class="c-icon-tag c-icon-tag--del"
-            @click="del">
+            @click="del(item)">
             删除
           </div>
         </div>

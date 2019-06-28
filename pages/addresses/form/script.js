@@ -11,10 +11,27 @@ export default {
       }
     }
   },
-  onShow () {
-    this.$wx.setNavigationBarTitle({ title: '新增地址' })
+  async onShow () {
+    this.id = this.$mp.query.id
+
+    if (this.id) {
+      this.$wx.setNavigationBarTitle({
+        title: '修改地址'
+      })
+      this.cForm = await this.getDetail()
+      console.log(this.cForm, 33)
+    } else {
+      this.$wx.setNavigationBarTitle({
+        title: '新增地址'
+      })
+    }
   },
   methods: {
+    getDetail () {
+      return this.$store.dispatch('wx/addresses/getDetail', {
+        id: this.id
+      })
+    },
     changeTag (key, item) {
       this.cForm[key] = item.value
     },
