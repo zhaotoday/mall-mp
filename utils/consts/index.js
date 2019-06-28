@@ -2,6 +2,7 @@ import ORDER_STATUSES from './order-statuses'
 import PRODUCT_UNITS from './product-units'
 import PAY_WAYS from './pay-ways'
 import ADDRESS_TAGS from './address-tags'
+import GENDERS from './genders'
 
 // 接口地址
 // const API_URL = 'http://localhost:3005/api/v1'
@@ -24,5 +25,6 @@ export default {
   ORDER_STATUSES,
   PRODUCT_UNITS,
   PAY_WAYS,
-  ADDRESS_TAGS
+  ADDRESS_TAGS,
+  GENDERS
 }

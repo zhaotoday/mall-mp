@@ -1,7 +1,7 @@
 @import '../../../styles/utils/index';
 
 @include p(addresses-form) {
-  @include b(gender) {
+  @include b(genders) {
     @include position--absolute(50%, px2rpx(40px));
 
     transform: translateY(-50%);
