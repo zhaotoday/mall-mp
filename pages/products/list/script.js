@@ -6,13 +6,19 @@ export default {
   components: {
     CSearch
   },
+  data () {
+    return {
+      keywords: ''
+    }
+  },
+  onShow () {
+    this.keywords = this.$mp.query.keywords
+  },
   methods: {
     search () {
       const value = this.$refs.search.getValue().trim()
 
-      this.$wx.navigateTo({
-        url: `/pages/products/index?keyword=${value}`
-      })
+      console.log(value)
     },
     clearHistory () {
       this.$wx.removeStorageSync(SEARCH_HISTORY)

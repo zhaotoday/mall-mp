@@ -8,12 +8,19 @@ export default {
     hasSubmit: {
       type: Boolean,
       default: false
+    },
+    defaultValue: {
+      type: String,
+      default: ''
     }
   },
   data () {
     return {
       value: ''
     }
+  },
+  created () {
+    this.value = this.defaultValue
   },
   methods: {
     handleConfirm () {

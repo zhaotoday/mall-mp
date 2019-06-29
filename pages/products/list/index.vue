@@ -2,7 +2,7 @@
   <div class="p-products-list">
     <c-search
       ref="search"
-      auto-focus
+      :default-value="keywords"
       has-submit
       @confirm="search">
     </c-search>
