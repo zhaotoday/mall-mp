@@ -1,6 +1,12 @@
 {
   "pages": [
     {
+      "path": "pages/products/list/index",
+      "style": {
+        "navigationBarTitleText": "搜索结果"
+      }
+    },
+    {
       "path": "pages/products/search/index",
       "style": {
         "navigationBarTitleText": "搜索"
@@ -37,19 +43,7 @@
       }
     },
     {
-      "path": "pages/products/search/index",
-      "style": {
-        "navigationBarTitleText": "搜索"
-      }
-    },
-    {
       "path": "pages/products/detail/index",
-      "style": {
-        "navigationBarTitleText": ""
-      }
-    },
-    {
-      "path": "pages/products/list/index",
       "style": {
         "navigationBarTitleText": ""
       }

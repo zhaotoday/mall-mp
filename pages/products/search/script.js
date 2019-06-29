@@ -11,7 +11,7 @@ export default {
       const value = this.$refs.search.getValue().trim()
 
       this.$wx.navigateTo({
-        url: `/pages/products/index?keyword=${value}`
+        url: `/pages/products/list/index?keyword=${value}`
       })
     },
     clearHistory () {
