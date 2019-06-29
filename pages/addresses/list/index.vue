@@ -21,7 +21,7 @@
           <div
             class="c-icon-tag c-icon-tag--edit"
             @click="navigateTo(`/pages/addresses/form/index?id=${item.id}`)">
-            编辑
+            修改
           </div>
           <div
             class="c-icon-tag c-icon-tag--del"
