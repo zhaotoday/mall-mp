@@ -32,7 +32,13 @@
 </template>
 
 <script>
+import { utils } from 'mp-client'
+import CLogo from '@/components/logo'
+
 export default {
+  components: {
+    CLogo
+  },
   data () {
     return {
       cForm: {
@@ -45,30 +51,30 @@ export default {
     }
   },
   methods: {
-    getCheckCode (mobilePhone) {
+    getCheckCode (phoneNumber) {
       return this.$store.dispatch('wx/wxUsers/postAction', {
         body: {
           type: 'GET_CHECK_CODE',
-          mobilePhone
+          phoneNumber
         }
       })
     },
     async handleGetCheckCode () {
       if (this.cCheckCode.disabled) return
 
-      const { mobilePhone } = this.cForm
+      const { phoneNumber } = this.cForm.data
 
-      if (!mobilePhone) {
+      if (!phoneNumber) {
         this.$wx.showToast({ title: '手机号不能为空' })
         return
       }
 
-      if (!/^1\d{2}\s?\d{4}\s?\d{4}$/.test(mobilePhone)) {
+      if (!/^1\d{2}\s?\d{4}\s?\d{4}$/.test(phoneNumber)) {
         this.$wx.showToast({ title: '手机号格式错误' })
         return
       }
 
-      await this.getCheckCode(mobilePhone)
+      await this.getCheckCode(phoneNumber)
 
       this.$wx.showToast({ title: '验证码获取成功' })
 
@@ -90,14 +96,14 @@ export default {
       }, 1000)
     },
     async handleConfirm () {
-      const { mobilePhone, checkCode } = this.cForm
+      const { phoneNumber, checkCode } = this.cForm.data
 
-      if (!mobilePhone) {
+      if (!phoneNumber) {
         this.$wx.showToast({ title: '手机号不能为空' })
         return
       }
 
-      if (!/^1\d{2}\s?\d{4}\s?\d{4}$/.test(mobilePhone)) {
+      if (!/^1\d{2}\s?\d{4}\s?\d{4}$/.test(phoneNumber)) {
         this.$wx.showToast({ title: '手机号格式错误' })
         return
       }
@@ -114,17 +120,27 @@ export default {
 
       await this.$store.dispatch('wx/wxUsers/postAction', {
         body: {
-          type: 'BIND_mobilePhone',
-          mobilePhone,
+          type: 'BIND_PHONE_NUMBER',
+          phoneNumber,
           checkCode
         }
       })
 
       this.$wx.showToast({ title: '绑定成功' })
 
-      this.$wx.navigateTo({
-        url: ''
-      })
+      await this.$helpers.sleep(1500)
+
+      const url = this.$mp.query.from
+        ? '/' + utils.url.decode(this.$mp.query.from)
+        : '/pages/index/index'
+
+      this.$auth.setPhoneNumber({ phoneNumber })
+
+      try {
+        await this.$wx.navigateTo({ url })
+      } catch (e) {
+        await this.$wx.switchTab({ url })
+      }
     }
   }
 }

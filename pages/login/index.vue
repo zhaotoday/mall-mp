@@ -1,6 +1,6 @@
 <template>
   <div class="p-login">
-    <div class="b-logo-wrap">
+    <div class="b-logo">
       <c-logo></c-logo>
     </div>
     <h2 class="b-title fs32">力软商城将获取以下授权：</h2>
