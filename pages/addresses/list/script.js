@@ -23,8 +23,18 @@ export default {
         query: {}
       })
     },
-    setDefault (item) {
-      console.log(item)
+    async setDefault (item) {
+      await this.$store.dispatch('wx/addresses/postAction', {
+        showLoading: true,
+        body: {
+          type: 'SET_DEFAULT',
+          id: item.id
+        }
+      })
+      this.$wx.showToast({
+        title: '设置成功'
+      })
+      this.getList()
     },
     showDel (item) {
       this.cDel.id = item.id

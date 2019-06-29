@@ -22,6 +22,8 @@
         手机号
         <input
           class="c-list__value fs32"
+          type="number"
+          maxlength="11"
           placeholder-class="c15"
           placeholder="配送员联系您的手机号"
           v-model="cForm.phoneNumber" />

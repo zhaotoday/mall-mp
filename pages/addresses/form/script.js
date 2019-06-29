@@ -59,12 +59,18 @@ export default {
         return
       }
 
-      await this.$store.dispatch('wx/addresses/post', {
+      await this.$store.dispatch(`wx/addresses/${this.id ? 'put' : 'post'}`, {
         showLoading: true,
+        id: this.id,
         body: this.cForm
       })
 
-      this.$wx.showToast({ title: '新增成功' })
+      this.$wx.showToast({
+        title: this.id ? '修改成功' : '新增成功'
+      })
+
+      await this.$helpers.sleep(1500)
+      this.$wx.navigateBack()
     }
   }
 }

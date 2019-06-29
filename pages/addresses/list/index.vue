@@ -14,7 +14,7 @@
         </div>
         <div class="b-list__foot fs24">
           <div
-            class="c-icon-tag c-icon-tag--set"
+            :class="[ 'c-icon-tag', `c-icon-tag--${item.isDefault ? 'set' : 'unset'}` ]"
             @click="setDefault(item)">
             设为默认
           </div>
