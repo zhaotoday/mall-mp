@@ -1,4 +1,15 @@
 @import '../../styles/utils/index';
 
 @include p(search) {
+  @include b(title) {
+    @include margin(px2rpx(38px), px2rpx(30), px2rpx(24px), px2rpx(30px));
+
+    position: relative;
+  }
+
+  @include b(tags) {
+    @include e(item) {
+      @include margin(null, px2rpx(20px), px2rpx(20px));
+    }
+  }
 }
