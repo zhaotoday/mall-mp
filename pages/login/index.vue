@@ -46,6 +46,23 @@ export default {
 
         this.$auth.login({ user: wxUser, token })
 
+        switch (action) {
+          case 'showCoupon':
+            this.$wx.setStorageSync('clickGetCoupon', 1)
+            this.$wx.setStorageSync('showCoupon', 1)
+            break
+          case 'showReport':
+            this.$wx.setStorageSync('showReport', 1)
+            break
+          default:
+            break
+        }
+
+        this.$wx.hideLoading()
+        this.$wx.showToast({ title: '登录成功' })
+
+        await this.$helpers.sleep(1500)
+
         try {
           await this.$wx.navigateTo({ url })
         } catch (e) {
