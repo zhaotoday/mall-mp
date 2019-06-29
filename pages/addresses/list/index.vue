@@ -25,7 +25,7 @@
           </div>
           <div
             class="c-icon-tag c-icon-tag--del"
-            @click="del(item)">
+            @click="showDel(item)">
             删除
           </div>
         </div>
@@ -36,6 +36,13 @@
       @click="navigateTo('/pages/addresses/form/index')">
       新增地址
     </button>
+    <c-dialog
+      :visible="cDel.visible"
+      title="请确认"
+      content="确认删除地址？"
+      @cancel="cDel.visible = false"
+      @confirm="confirmDel">
+    </c-dialog>
   </div>
 </template>
 

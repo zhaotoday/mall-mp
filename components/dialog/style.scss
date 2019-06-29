@@ -1,13 +1,16 @@
 @import "../../styles/utils/index";
 
 @include c(dialog) {
+  $background-color: map-get($colors, c1);
+  $border-color: map-get($colors, c12);
+  $border-radius: 8px;
+
   @include position--fixed(50%, null, null, 50%);
 
   transform: translate(-50%, -50%);
+  background-color: $background-color;
+  border-radius: px2rpx($border-radius);
   z-index: map-get($z-indexes, c-dialog);
-  width: px2rpx(560px);
-  background-color: map-get($colors, c1);
-  border-radius: px2rpx(8px);
   overflow: hidden;
 
   @include e(title) {
@@ -23,12 +26,12 @@
   }
 
   @include e(foot) {
-    border-top: 1px solid map-get($colors, c9);
+    border-top: 1px solid $border-color;
 
     li {
       @include text--middle(px2rpx(100px));
 
-      border-right: 1px solid map-get($colors, c9);
+      border-right: 1px solid $border-color;
 
       &:last-child {
         border-right: 0;

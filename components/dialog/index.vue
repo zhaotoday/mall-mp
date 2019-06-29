@@ -16,19 +16,19 @@
       </div>
       <div
         v-if="content"
-        class="c-dialog__content u-tac c6 fs28">
+        class="c-dialog__content u-tac c10 fs28">
         {{ content }}
       </div>
       <slot name="body"></slot>
       <ul class="c-dialog__foot o-grid u-tac fs32">
         <li
-          v-if="cancel"
+          v-if="showCancel"
           class="o-grid__cell"
           @click="$emit('cancel')">
-          取消
+          {{ cancelText }}
         </li>
         <li
-          :class="[ 'o-grid__cell', confirmDisabled ? 'c19' : 'c7' ]"
+          :class="[ 'o-grid__cell', confirmDisabled ? 'c19' : 'c4' ]"
           @click="handleConfirm">
           {{ confirmText }}
         </li>
@@ -37,50 +37,9 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'c-dialog',
-  props: {
-    visible: {
-      type: Boolean,
-      default: false
-    },
-    title: {
-      type: String,
-      default: ''
-    },
-    content: {
-      type: String,
-      default: ''
-    },
-    cancel: {
-      type: Boolean,
-      default: true
-    },
-    confirmText: {
-      type: String,
-      default: '确定'
-    },
-    confirmDisabled: {
-      type: Boolean,
-      default: false
-    },
-    width: {
-      type: String,
-      default: '560'
-    }
-  },
-  methods: {
-    handleConfirm () {
-      if (!this.confirmDisabled) {
-        this.$emit('confirm')
-      }
-    }
-  }
-}
-</script>
+<script src="./script.js"></script>
 
 <style
   lang="scss"
-  src="./styles.scss">
+  src="./style.scss">
 </style>
