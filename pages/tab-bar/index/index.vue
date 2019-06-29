@@ -1,6 +1,6 @@
 <template>
   <div class="p-index u-pb20">
-    <c-search></c-search>
+    <c-search @focus="navigateTo('/pages/search/index')"></c-search>
     <c-swiper :items="adsImages"></c-swiper>
     <ul class="b-categories bgc1 u-mb20">
       <li
