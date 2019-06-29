@@ -15,6 +15,10 @@ export default {
     list: state => state['wx/addresses'].list
   }),
   onShow () {
+    this.$wx.setNavigationBarTitle({
+      title: '收获地址'
+    })
+
     this.getList()
   },
   methods: {
@@ -31,9 +35,11 @@ export default {
           id: item.id
         }
       })
+
       this.$wx.showToast({
         title: '设置成功'
       })
+
       this.getList()
     },
     showDel (item) {
@@ -42,12 +48,15 @@ export default {
     },
     async confirmDel () {
       this.cDel.visible = false
+
       await this.$store.dispatch('wx/addresses/del', {
         id: this.cDel.id
       })
+
       this.$wx.showToast({
         title: '删除成功'
       })
+
       this.getList()
     }
   }

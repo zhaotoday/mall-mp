@@ -16,13 +16,13 @@ export default {
 
     if (this.id) {
       this.$wx.setNavigationBarTitle({
-        title: '修改地址'
+        title: '修改收获地址'
       })
+
       this.cForm = await this.getDetail()
-      console.log(this.cForm, 33)
     } else {
       this.$wx.setNavigationBarTitle({
-        title: '新增地址'
+        title: '新增收获地址'
       })
     }
   },
@@ -70,6 +70,7 @@ export default {
       })
 
       await this.$helpers.sleep(1500)
+
       this.$wx.navigateBack()
     }
   }

@@ -18,7 +18,9 @@
       </div>
     </div>
     <div class="b-list c-list bgc1 fs30">
-      <div class="c-list__item has-icon is-link">
+      <div
+        class="c-list__item has-icon is-link"
+        @click="navigateTo('/pages/addresses/list/index')">
         <i class="c-icon c-icon--address"></i>
         收货地址
       </div>
@@ -45,22 +47,9 @@
   </div>
 </template>
 
-<script>
-export default {
-  onShow () {
-    if (!this.$auth.loggedIn()) {
-      this.$wxb.navigateTo({ url: this.$consts.LOGIN_PAGE })
-    }
-  },
-  computed: {
-    user () {
-      return this.$auth.get()['user']
-    }
-  }
-}
-</script>
+<script src="./script.js"></script>
 
 <style
   lang="scss"
-  src="./styles.scss">
+  src="./style.scss">
 </style>
