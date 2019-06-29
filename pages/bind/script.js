@@ -12,6 +12,11 @@ export default {
       }
     }
   },
+  onLoad () {
+    this.$wx.setNavigationBarTitle({
+      title: this.$mp.query.modify ? '更换手机号' : '绑定手机号'
+    })
+  },
   methods: {
     getCheckCode (phoneNumber) {
       return this.$store.dispatch('wx/wxUsers/postAction', {
