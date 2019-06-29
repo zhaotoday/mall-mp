@@ -1,6 +1,6 @@
-@import '../../styles/utils/index';
+@import '../../../styles/utils/index';
 
-@include p(search) {
+@include p(products-search) {
   padding-bottom: px2rpx(160px);
 
   @include b(title) {

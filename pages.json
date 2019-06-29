@@ -1,7 +1,7 @@
 {
   "pages": [
     {
-      "path": "pages/search/index",
+      "path": "pages/products/search/index",
       "style": {
         "navigationBarTitleText": "搜索"
       }

@@ -1,6 +1,11 @@
 <template>
   <div class="p-products-list">
-    products list
+    <c-search
+      ref="search"
+      auto-focus
+      has-submit
+      @confirm="search">
+    </c-search>
   </div>
 </template>
 
