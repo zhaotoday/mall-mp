@@ -1,1 +1,7 @@
-export default {}
+import CSearch from '@/components/search'
+
+export default {
+  components: {
+    CSearch
+  }
+}

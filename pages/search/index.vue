@@ -1,6 +1,6 @@
 <template>
   <div class="p-search">
-    search
+    <c-search has-submit></c-search>
   </div>
 </template>
 
