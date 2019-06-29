@@ -4,10 +4,18 @@
       <input
         class="fs28"
         placeholder="输入要搜索的商品名称"
+        confirm-type="search"
+        :auto-focus="autoFocus"
+        v-model="value"
         @focus="$emit('focus')"
+        @confirm="handleConfirm"
       />
     </div>
-    <div class="c-search__submit c1 fs28">搜索</div>
+    <div
+      class="c-search__submit c1 fs28"
+      @click="handleConfirm">
+      搜索
+    </div>
   </div>
 </template>
 

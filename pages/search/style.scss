@@ -1,13 +1,26 @@
 @import '../../styles/utils/index';
 
 @include p(search) {
+  padding-bottom: px2rpx(160px);
+
   @include b(title) {
-    @include margin(px2rpx(38px), px2rpx(30), px2rpx(24px), px2rpx(30px));
+    @include margin(px2rpx(38px), px2rpx(30px), px2rpx(24px), px2rpx(30px));
 
     position: relative;
   }
 
+  @include c(icon) {
+    @include m(del) {
+      @include position--absolute(50%, px2rpx(-10px));
+
+      transform: translateY(-50%);
+      border: px2rpx(10px) solid transparent;
+    }
+  }
+
   @include b(tags) {
+    @include margin(null, px2rpx(10px), px2rpx(40px), px2rpx(30px));
+
     @include e(item) {
       @include margin(null, px2rpx(20px), px2rpx(20px));
     }
