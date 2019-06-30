@@ -22,11 +22,9 @@ export default {
     change (index) {
       if (this.mappedItems[index].sortable) {
         if (this.current === index) {
-          if (this.mappedItems[index].dir === 'up') {
-            this.mappedItems[index].dir = 'down'
-          } else {
-            this.mappedItems[index].dir = 'up'
-          }
+          this.mappedItems[index].dir = this.mappedItems[index].dir === 'up'
+            ? 'down'
+            : 'up'
         } else {
           this.mappedItems = this.mappedItems.map((item, itemIndex) => ({
             ...item,

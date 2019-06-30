@@ -6,7 +6,10 @@
       :default-value="keywords"
       @confirm="search">
     </c-search>
-    <c-sort :items="$consts.PRODUCT_SORT_ITEMS"></c-sort>
+    <c-sort
+      :items="$consts.PRODUCT_SORT_ITEMS"
+      @change="handleSortChange">
+    </c-sort>
   </div>
 </template>
 

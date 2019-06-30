@@ -16,6 +16,9 @@ export default {
       const value = this.$refs.search.getValue().trim()
 
       console.log(value)
+    },
+    handleSortChange (item) {
+      console.log(item)
     }
   }
 }
