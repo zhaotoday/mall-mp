@@ -1,7 +1,5 @@
 import CSearch from '@/components/search'
 
-const SEARCH_HISTORY = 'searchHistory'
-
 export default {
   components: {
     CSearch
@@ -19,9 +17,6 @@ export default {
       const value = this.$refs.search.getValue().trim()
 
       console.log(value)
-    },
-    clearHistory () {
-      this.$wx.removeStorageSync(SEARCH_HISTORY)
     }
   }
 }
