@@ -4,6 +4,7 @@ import PRODUCT_SORT_ITEMS from './product-sort-items'
 import PAY_WAYS from './pay-ways'
 import ADDRESS_TAGS from './address-tags'
 import GENDERS from './genders'
+import COUPON_STATUSES from './coupon-statuses'
 
 // 接口地址
 // const API_URL = 'http://localhost:3005/api/v1'
@@ -28,5 +29,6 @@ export default {
   PRODUCT_SORT_ITEMS,
   PAY_WAYS,
   ADDRESS_TAGS,
-  GENDERS
+  GENDERS,
+  COUPON_STATUSES
 }

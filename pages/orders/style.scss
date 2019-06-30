@@ -33,6 +33,7 @@
     @include e(foot) {
       @include padding(px2rpx(16px), null, px2rpx(16px));
 
+      line-height: 100%;
       text-align: right;
       padding-right: px2rpx(30px);
       border-top: 1px solid map-get($colors, c12);
