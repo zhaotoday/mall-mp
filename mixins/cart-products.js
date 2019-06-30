@@ -6,8 +6,6 @@ export default {
       cartProducts: []
     }
   },
-  computed: {
-  },
   methods: {
     getNumber (item, specification) {
       const cartProduct = this.cartProducts.find(product => product.id === item.id)
@@ -21,13 +19,6 @@ export default {
       } else {
         return 0
       }
-    },
-    isVisible (item) {
-      const cartProduct = this.cartProducts.find(product => product.id === item.id)
-
-      return cartProduct
-        ? !!(cartProduct.specifications.find(item => !!item.number))
-        : false
     },
     getCartProducts () {
       return this.$wx.getStorageSync(CART_PRODUCTS) || []
@@ -74,6 +65,9 @@ export default {
       }
 
       this.setCartProducts(this.cartProducts)
+    },
+    handleCheckboxChange (item) {
+      this.cartProducts.find(product => product.id === item.id)['checked'] = !item.checked
     }
   }
 }
