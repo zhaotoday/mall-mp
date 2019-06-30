@@ -16,7 +16,7 @@
     </ul>
     <div class="c-card bgc1">
       <div class="c-card__head green has-border fs32">
-        热销产品
+        热销产品{{cartProducts.length}}
       </div>
       <div class="c-card__body">
         <ul class="c-products">
@@ -45,9 +45,9 @@
             <template v-if="item.price">
               <c-number-input
                 :key="item.id"
-                :number="item.number"
-                @add="handleAddNumber(item)"
-                @subtract="handleSubtractNumber(item)">
+                :number="cartProducts.find(product => product.id === item.id) ? cartProducts.find(product => product.id === item.id)['number'] : 0"
+                @add="addNumber(item)"
+                @subtract="subtractNumber(item)">
               </c-number-input>
             </template>
             <template v-else>
@@ -70,9 +70,9 @@
               </p>
               <c-number-input
                 :key="specification.value"
-                :number="specification.number"
-                @add="handleAddNumber(item, specification)"
-                @subtract="handleSubtractNumber(item, specification)">
+                :number="getNumber(item, specification)"
+                @add="addNumber(item, specification)"
+                @subtract="subtractNumber(item, specification)">
               </c-number-input>
             </div>
           </li>
@@ -88,11 +88,12 @@ import CSwiper from '@/components/swiper'
 import CSearch from '@/components/search'
 import categoriesMixin from '@/mixins/categories'
 import productsMixin from '@/mixins/products'
+import cartProductsMxins from '@/mixins/cart-products'
 import CNumberInput from '@/components/number-input/index'
 
 export default {
   components: { CNumberInput, CSwiper, CSearch },
-  mixins: [categoriesMixin, productsMixin],
+  mixins: [categoriesMixin, productsMixin, cartProductsMxins],
   data () {
     return {
       productsList: {
@@ -116,6 +117,7 @@ export default {
     if (this.$auth.loggedIn()) {
       this.cart = await this.getCart()
     }
+    this.cartProducts = this.getCartProducts()
 
     this.productsList = await this.getProductsList()
   },
@@ -132,7 +134,7 @@ export default {
 
       return {
         items: items.map(item => {
-          const cartProduct = this.cart.find(product => product.id === item.id)
+          const cartProduct = this.cartProducts.find(product => product.id === item.id)
 
           return {
             ...item,

@@ -1,7 +1,11 @@
 export default {
   data () {
     return {
-      cart: []
+      cart: [],
+      productsList: {
+        items: [],
+        total: 0
+      }
     }
   },
   methods: {

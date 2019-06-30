@@ -99,54 +99,12 @@ import productsMixin from '@/mixins/products'
 export default {
   components: { CNumberInput, CCartManager, CCheckbox },
   mixins: [productsMixin],
-  data () {
-    return {
-      productsList: {
-        items: [],
-        total: 0
-      }
-    }
-  },
   async onShow () {
     if (this.$auth.loggedIn()) {
       this.cart = await this.getCart()
     }
-
-    this.productsList = await this.getProductsList()
   },
   methods: {
-    async getProductsList () {
-      const { items, total } = await this.$store.dispatch('public/products/getList', {
-        query: {}
-      })
-
-      return {
-        items: items.map(item => {
-          const cartProduct = this.cart.find(product => product.id === item.id)
-
-          return {
-            ...item,
-            visible: cartProduct
-              ? !!(cartProduct.specifications.find(cartSpecification => !!cartSpecification.number))
-              : false,
-            number: cartProduct ? cartProduct.number : 0,
-            specifications: item.specifications
-              ? item.specifications.map(specification => {
-                const cartSpecification = cartProduct
-                  ? cartProduct.specifications.find(cartSpecification => cartSpecification.value === specification.value)
-                  : null
-
-                return {
-                  ...specification,
-                  number: cartSpecification ? cartSpecification.number : 0
-                }
-              })
-              : []
-          }
-        }) || [],
-        total
-      }
-    },
     handleCartManagerCheck (all) {
       this.cart = this.cart.map(item => ({ ...item, checked: all }))
     }
