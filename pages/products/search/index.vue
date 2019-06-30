@@ -3,7 +3,7 @@
     <c-search
       ref="search"
       auto-focus
-      has-submit
+      show-submit
       @confirm="search">
     </c-search>
     <h2 class="b-title fs28">

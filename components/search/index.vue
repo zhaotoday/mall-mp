@@ -1,5 +1,5 @@
 <template>
-  <div :class="[ 'c-search', 'bgc4', { 'has-submit': hasSubmit } ]">
+  <div :class="[ 'c-search', 'bgc4', { 'has-submit': showSubmit } ]">
     <div class="c-search__input bgc1">
       <input
         class="fs28"

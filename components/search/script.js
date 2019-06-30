@@ -5,7 +5,7 @@ export default {
       type: Boolean,
       default: false
     },
-    hasSubmit: {
+    showSubmit: {
       type: Boolean,
       default: false
     },
