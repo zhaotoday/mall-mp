@@ -2,8 +2,8 @@
   <div class="p-products-list">
     <c-search
       ref="search"
-      :default-value="keywords"
       has-submit
+      :default-value="keywords"
       @confirm="search">
     </c-search>
   </div>
