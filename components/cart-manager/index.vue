@@ -3,7 +3,7 @@
     <div class="c-cart-manager__checked bgc11 fs28">
       <c-checkbox
         class="c-cart-manager__checkbox"
-        :checked="!cart.find(item => !item.checked)"
+        :checked="!cartProducts.find(item => !item.checked)"
         @change="handleCheckboxChange">
       </c-checkbox>
       <div class="fs28">已选中（{{ checkedProducts.length }}）</div>
@@ -25,14 +25,14 @@ export default {
   name: 'c-cart-manager',
   components: { CCheckbox },
   props: {
-    cart: {
+    cartProducts: {
       type: Array,
       default: () => []
     }
   },
   computed: {
     checkedProducts () {
-      return this.cart.filter(item => item.checked)
+      return this.cartProducts.filter(item => item.checked)
     },
     totalPrice () {
       return cartUtils.getTotalPrice(this.checkedProducts)
@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     handleCheckboxChange () {
-      if (this.cart.find(item => !item.checked)) {
+      if (this.cartProducts.find(item => !item.checked)) {
         this.$emit('check', true)
       } else {
         this.$emit('check', false)

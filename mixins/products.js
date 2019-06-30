@@ -1,12 +1,4 @@
 export default {
-  data () {
-    return {
-      productsList: {
-        items: [],
-        total: 0
-      }
-    }
-  },
   methods: {
     getPriceRange (product) {
       const { specifications, unit } = product
@@ -29,8 +21,8 @@ export default {
 
       return `${parseFloat((price / number).toFixed(2))} 元/${unitLabel}`
     },
-    handleToggleSpecification (item) {
-      this.productsList.items.find(product => product.id === item.id)['visible'] = !item.visible
+    toggleSpecification (items, item) {
+      items.find(product => product.id === item.id)['visible'] = !item.visible
     }
   }
 }

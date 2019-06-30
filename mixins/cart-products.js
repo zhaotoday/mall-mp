@@ -6,6 +6,9 @@ export default {
       cartProducts: []
     }
   },
+  created () {
+    this.cartProducts = this.getCartProducts()
+  },
   methods: {
     getNumber (item, specification) {
       const cartProduct = this.cartProducts.find(product => product.id === item.id)
@@ -67,7 +70,11 @@ export default {
       this.setCartProducts(this.cartProducts)
     },
     handleCheckboxChange (item) {
+      console.log(item)
       this.cartProducts.find(product => product.id === item.id)['checked'] = !item.checked
+    },
+    handleCartManagerCheck (all) {
+      this.cartProducts = this.cartProducts.map(item => ({ ...item, checked: all }))
     }
   }
 }

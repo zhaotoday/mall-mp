@@ -16,7 +16,7 @@
     </ul>
     <div class="c-card bgc1">
       <div class="c-card__head green has-border fs32">
-        热销产品{{cartProducts.length}}
+        热销产品
       </div>
       <div class="c-card__body">
         <ul class="c-products">
@@ -53,7 +53,7 @@
             <template v-else>
               <div
                 :class="[ 'c-products__cart c-icon', `c-icon--arrow-${item.visible ? 'up' : 'down'}` ]"
-                @click.stop="handleToggleSpecification(item)">
+                @click.stop="toggleSpecification(productsList.items, item)">
               </div>
             </template>
             <div
@@ -114,11 +114,6 @@ export default {
     await this.getAdsList()
     await this.getCategoriesList()
 
-    if (this.$auth.loggedIn()) {
-      this.cart = await this.getCart()
-    }
-    this.cartProducts = this.getCartProducts()
-
     this.productsList = await this.getProductsList()
   },
   methods: {
@@ -141,6 +136,7 @@ export default {
             visible: cartProduct
               ? !!(cartProduct.specifications.find(cartSpecification => !!cartSpecification.number))
               : false,
+            checked: false,
             number: cartProduct ? cartProduct.number : 0,
             specifications: item.specifications
               ? item.specifications.map(specification => {
