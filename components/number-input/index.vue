@@ -1,13 +1,18 @@
 <template>
   <div class="c-number-input">
     <div
+      v-if="number"
       class="c-number-input__subtract"
-      @click="$emit('subtract')">
+      @click.stop="$emit('subtract')">
     </div>
-    <div class="c-number-input__number fs28 u-tac">{{ number }}</div>
+    <div
+      v-if="number"
+      class="c-number-input__number fs28 u-tac">
+      {{ number }}
+    </div>
     <div
       class="c-number-input__add"
-      @click="$emit('add')">
+      @click.stop="$emit('add')">
     </div>
   </div>
 </template>
@@ -18,7 +23,7 @@ export default {
   props: {
     number: {
       type: Number,
-      default: 1
+      default: 0
     }
   }
 }

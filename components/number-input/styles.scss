@@ -1,20 +1,15 @@
 @import "../../styles/utils/index";
 
 @include c(number-input) {
-  @include size(px2rpx(168px), px2rpx(48px));
-
-  box-sizing: border-box;
-  border: 1px solid map-get($colors, c14);
-  border-radius: px2rpx(48px);
-  display: flex;
-
   @include e(subtract, number, add) {
-    flex: 1;
+    float: left;
   }
 
   @include e(subtract, add) {
+    @include size(px2rpx(48px), px2rpx(48px));
+
     background: {
-      size: px2rpx(20px) px2rpx(20px);
+      size: 100% 100%;
       position: center center;
       repeat: no-repeat;
     }
@@ -29,8 +24,8 @@
   }
 
   @include e(number) {
-    line-height: px2rpx(48px);
-    border-left: 1px solid map-get($colors, c14);
-    border-right: 1px solid map-get($colors, c14);
+    @include text--middle(px2rpx(48px));
+
+    width: px2rpx(56px);
   }
 }
