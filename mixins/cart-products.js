@@ -22,14 +22,13 @@ export default {
         return 0
       }
     },
-    /*
     isVisible (item) {
       const cartProduct = this.cartProducts.find(product => product.id === item.id)
 
       return cartProduct
         ? !!(cartProduct.specifications.find(item => !!item.number))
         : false
-    },*/
+    },
     getCartProducts () {
       return this.$wx.getStorageSync(CART_PRODUCTS) || []
     },

@@ -45,7 +45,7 @@
             <template v-if="item.price">
               <c-number-input
                 :key="item.id"
-                :number="cartProducts.find(product => product.id === item.id) ? cartProducts.find(product => product.id === item.id)['number'] : 0"
+                :number="getNumber(item)"
                 @add="addNumber(item)"
                 @subtract="subtractNumber(item)">
               </c-number-input>
