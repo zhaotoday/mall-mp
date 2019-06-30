@@ -1,6 +1,18 @@
 {
   "pages": [
     {
+      "path": "pages/orders/index",
+      "style": {
+        "navigationBarTitleText": "我的订单"
+      }
+    },
+    {
+      "path": "pages/tab-bar/index/index",
+      "style": {
+        "navigationBarTitleText": "东街口"
+      }
+    },
+    {
       "path": "pages/products/list/index",
       "style": {
         "navigationBarTitleText": "搜索结果"
@@ -10,12 +22,6 @@
       "path": "pages/products/search/index",
       "style": {
         "navigationBarTitleText": "搜索"
-      }
-    },
-    {
-      "path": "pages/tab-bar/index/index",
-      "style": {
-        "navigationBarTitleText": "东街口"
       }
     },
     {

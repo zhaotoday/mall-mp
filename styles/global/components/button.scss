@@ -1,9 +1,10 @@
 @include c(button) {
-  $widths: 670;
-  $heights: 76;
+  $widths: 670, 160;
+  $heights: 76, 48;
   $border-radii: 0;
 
   text-align: center;
+  display: inline-block;
 
   &::after {
     border: none;

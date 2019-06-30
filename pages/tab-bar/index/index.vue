@@ -23,7 +23,8 @@
           <li
             v-for="item in productsList.items"
             :key="item.id"
-            class="c-products__item">
+            class="c-products__item"
+          @click="navigateTo(`/pages/products/detail/index?id=${item.id}`)">
             <img
               class="c-products__image"
               :src="$helpers.getImageById(item.pictures)" />
