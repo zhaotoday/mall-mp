@@ -1,5 +1,6 @@
 import ORDER_STATUSES from './order-statuses'
 import PRODUCT_UNITS from './product-units'
+import PRODUCT_SORT_ITEMS from './product-sort-items'
 import PAY_WAYS from './pay-ways'
 import ADDRESS_TAGS from './address-tags'
 import GENDERS from './genders'
@@ -24,6 +25,7 @@ export default {
   BIND_PAGE,
   ORDER_STATUSES,
   PRODUCT_UNITS,
+  PRODUCT_SORT_ITEMS,
   PAY_WAYS,
   ADDRESS_TAGS,
   GENDERS

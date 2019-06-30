@@ -1,9 +1,8 @@
 import CSearch from '@/components/search'
+import CSort from '@/components/sort'
 
 export default {
-  components: {
-    CSearch
-  },
+  components: { CSearch, CSort },
   data () {
     return {
       keywords: ''

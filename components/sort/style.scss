@@ -1,5 +1,45 @@
 @import "../../styles/utils/index";
 
 @include c(sort) {
-  
+  $__item_height: 72px;
+  $__item-is-active_color: map-get($colors, c4);
+
+  @include e(item) {
+    @include text--middle(px2rpx($__item_height));
+
+    @include s(is-active) {
+      color: $__item-is-active_color;
+    }
+
+    @include s(is-sortable, is-up, is-down) {
+      &::after {
+        @include size(px2rpx(24px), px2rpx(24px));
+
+        position: relative;
+        top: px2rpx(1px);
+        content: '';
+        display: inline-block;
+        margin-left: px2rpx(5px);
+        background-size: 100% 100%;
+      }
+    }
+
+    @include s(is-sortable) {
+      &::after {
+        background-image: cdn("components/sort/sort-normal.png");
+      }
+    }
+
+    @include s(is-up, is-down) {
+      &::after {
+        background-image: cdn("components/sort/sort-active.png");
+      }
+    }
+
+    @include s(is-up) {
+      &::after {
+        transform: rotate(180deg);
+      }
+    }
+  }
 }
