@@ -24,7 +24,9 @@
         <i class="c-icon c-icon--address"></i>
         收货地址
       </div>
-      <div class="c-list__item has-icon is-link">
+      <div
+        class="c-list__item has-icon is-link"
+        @click="navigateTo('/pages/coupons/index')">
         <i class="c-icon c-icon--coupon"></i>
         优惠券
       </div>
@@ -32,7 +34,9 @@
         <i class="c-icon c-icon--collection"></i>
         我的收藏
       </div>
-      <div class="c-list__item has-icon is-link">
+      <div
+        v-if="false"
+        class="c-list__item has-icon is-link">
         <i class="c-icon c-icon--to-be-business"></i>
         申请成为商家
       </div>
