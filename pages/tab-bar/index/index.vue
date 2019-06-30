@@ -24,49 +24,36 @@
             v-for="item in productsList.items"
             :key="item.id"
             class="c-products__item"
-          @click="navigateTo(`/pages/products/detail/index?id=${item.id}`)">
+            @click="navigateTo(`/pages/products/detail/index?id=${item.id}`)">
             <img
               class="c-products__image"
-              :src="$helpers.getImageById(item.pictures)" />
+              :src="$helpers.getImageById(item.pictures)"
+            />
             <div class="c-products__info">
               <div class="c-products__name fs32">{{ item.name }}</div>
               <div class="c-products__price c5 fs30">
                 <span class="fs20">￥</span>
                 <template v-if="!!item.price">
-                  {{ item.price }} {{item.unit ? `元/${$helpers.getItem($consts.PRODUCT_UNITS, 'value',
-                  item.unit)['label']}` : '' }}
+                  {{ item.price }}
+                  {{ item.unit ? `元/${$helpers.getItem($consts.PRODUCT_UNITS, 'value', item.unit)['label']}` : '' }}
                 </template>
                 <template v-else>
                   {{ getPriceRange(item) }}
                 </template>
               </div>
             </div>
-            <template v-if="!!item.price">
-              <template v-if="!item.number">
-                <div
-                  class="c-products__cart c-icon c-icon--add-bg"
-                  @click="handleAddNumber(item)">
-                </div>
-              </template>
-              <template v-else>
-                <c-number-input
-                  :key="item.id"
-                  :number="item.number"
-                  @add="handleAddNumber(item)"
-                  @subtract="handleSubtractNumber(item)">
-                </c-number-input>
-              </template>
+            <template v-if="item.price">
+              <c-number-input
+                :key="item.id"
+                :number="item.number"
+                @add="handleAddNumber(item)"
+                @subtract="handleSubtractNumber(item)">
+              </c-number-input>
             </template>
             <template v-else>
               <div
-                v-show="!item.visible"
-                :class="[ 'c-products__cart', 'c-icon', `c-icon--${item.price ? 'add-bg' : 'arrow-down'}` ]"
-                @click="handleToggleSpecification(item)">
-              </div>
-              <div
-                v-show="item.visible"
-                class="c-products__cart c-icon c-icon--arrow-up"
-                @click="handleToggleSpecification(item)">
+                :class="[ 'c-products__cart c-icon', `c-icon--arrow-${item.visible ? 'up' : 'down'}` ]"
+                @click.stop="handleToggleSpecification(item)">
               </div>
             </template>
             <div
@@ -81,20 +68,12 @@
               <p class="c-products__tag fs20">
                 {{ specification.price }} 元 / {{ specification.label }}
               </p>
-              <template v-if="!specification.number">
-                <div
-                  class="c-products__cart c-icon c-icon--add-bg"
-                  @click="handleAddNumber(item, specification)">
-                </div>
-              </template>
-              <template v-else>
-                <c-number-input
-                  :key="specification.value"
-                  :number="specification.number"
-                  @add="handleAddNumber(item, specification)"
-                  @subtract="handleSubtractNumber(item, specification)">
-                </c-number-input>
-              </template>
+              <c-number-input
+                :key="specification.value"
+                :number="specification.number"
+                @add="handleAddNumber(item, specification)"
+                @subtract="handleSubtractNumber(item, specification)">
+              </c-number-input>
             </div>
           </li>
         </ul>
@@ -148,7 +127,7 @@ export default {
     },
     async getProductsList () {
       const { items, total } = await this.$store.dispatch('public/products/getList', {
-        query: {}
+        query: { limit: 1000 }
       })
 
       return {
