@@ -17,19 +17,9 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'c-number-input',
-  props: {
-    number: {
-      type: Number,
-      default: 0
-    }
-  }
-}
-</script>
+<script src="./script.js"></script>
 
 <style
   lang="scss"
-  src="./styles.scss">
+  src="./style.scss">
 </style>
