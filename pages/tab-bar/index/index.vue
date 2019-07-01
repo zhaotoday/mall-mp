@@ -7,7 +7,7 @@
         v-for="item in categoriesTree"
         :key="item.id"
         class="b-categories__item fs22 u-tac"
-        @click="handleGoCategories(item.id)">
+        @click="goCategories(item.id)">
         <img
           class="b-categories__image"
           :src="$helpers.getImageById(item.icon)" />
@@ -111,8 +111,8 @@ export default {
     }
   },
   async onShow () {
-    await this.getAdsList()
-    await this.getCategoriesList()
+    this.getAdsList()
+    this.getCategoriesList()
 
     this.productsList = await this.getProductsList()
   },
@@ -155,7 +155,7 @@ export default {
         total
       }
     },
-    handleGoCategories (id) {
+    goCategories (id) {
       this.$store.dispatch('public/categories/setId', { id })
       this.$wx.switchTab({ url: '/pages/tab-bar/categories/index' })
     }
@@ -165,5 +165,5 @@ export default {
 
 <style
   lang="scss"
-  src="./styles.scss">
+  src="./index.scss">
 </style>
