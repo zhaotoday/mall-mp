@@ -49,8 +49,9 @@
       <div class="c-panel__head">
         <div class="c-panel__title fs32">详细信息</div>
       </div>
-      <div class="c-panel__body c-panel__body--p30 fs24">
-        <wx-parse :content="detail.content"></wx-parse>
+      <div
+        class="c-panel__body c-panel__body--p30 fs24"
+        v-html="detail.content">
       </div>
     </div>
     <c-product-actions></c-product-actions>
