@@ -38,7 +38,7 @@
             <i class="c-icon c-icon--pay"></i>
             <h2 class="c-guarantees__title fs28">支付方式</h2>
             <p class="c-guarantees__desc c9 fs24">
-              在线支付：支付宝、微信、余额<br />
+              在线支付：微信<br />
               货到付款：现金、支付宝、微信、银行卡
             </p>
           </li>
