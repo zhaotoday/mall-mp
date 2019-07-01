@@ -100,7 +100,7 @@ export default {
 
       const url = this.$mp.query.from
         ? '/' + utils.url.decode(this.$mp.query.from)
-        : this.$consts.INDEX_PAGE
+        : this.$consts.HOME_PAGE
 
       this.$auth.setPhoneNumber({ phoneNumber })
 

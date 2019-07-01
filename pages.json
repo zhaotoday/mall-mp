@@ -1,7 +1,7 @@
 {
   "pages": [
     {
-      "path": "pages/tab-bar/index/index",
+      "path": "pages/tab-bar/home/index",
       "style": {
         "navigationBarTitleText": "东街口"
       }
@@ -98,9 +98,9 @@
     "backgroundColor": "#ffffff",
     "list": [
       {
-        "pagePath": "pages/tab-bar/index/index",
-        "iconPath": "static/tab-bar/index.png",
-        "selectedIconPath": "static/tab-bar/index-hl.png",
+        "pagePath": "pages/tab-bar/home/index",
+        "iconPath": "static/tab-bar/home.png",
+        "selectedIconPath": "static/tab-bar/home-hl.png",
         "text": "首页"
       },
       {

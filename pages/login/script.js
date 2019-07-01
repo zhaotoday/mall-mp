@@ -26,7 +26,7 @@ export default {
         })
         const { wxUser, token } = wxUsersPostActionRes.data
         const { from } = this.$mp.query
-        const url = from ? `/${utils.url.decode(from)}` : this.$consts.INDEX_PAGE
+        const url = from ? `/${utils.url.decode(from)}` : this.$consts.HOME_PAGE
 
         this.$auth.login({ user: wxUser, token })
         this.$wx.showToast({ title: '登录成功' })

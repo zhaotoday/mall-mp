@@ -11,7 +11,7 @@ import COUPON_STATUSES from './coupon-statuses'
 const API_URL = 'https://api.fjnm.cn/api/v1'
 
 // 首页
-const INDEX_PAGE = '/pages/tab-bar/index/index'
+const HOME_PAGE = '/pages/tab-bar/home/index'
 
 // 登录页
 const LOGIN_PAGE = '/pages/login/index'
@@ -21,7 +21,7 @@ const BIND_PAGE = '/pages/bind/index'
 
 export default {
   API_URL,
-  INDEX_PAGE,
+  HOME_PAGE,
   LOGIN_PAGE,
   BIND_PAGE,
   ORDER_STATUSES,
