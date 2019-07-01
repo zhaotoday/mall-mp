@@ -71,5 +71,5 @@ export default {
 
 <style
   lang="scss"
-  src="./styles.scss">
+  src="./index.scss">
 </style>
