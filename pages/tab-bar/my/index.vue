@@ -51,9 +51,9 @@
   </div>
 </template>
 
-<script src="./index.js"></script>
+<script src="./script.js"></script>
 
 <style
   lang="scss"
-  src="./index.scss">
+  src="./style.scss">
 </style>
