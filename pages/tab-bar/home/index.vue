@@ -21,7 +21,7 @@
       <div class="c-card__body">
         <ul class="c-products">
           <li
-            v-for="item in productsList.items"
+            v-for="item in hotProductsList.items"
             :key="item.id"
             class="c-products__item"
             @click="navigateTo(`/pages/products/detail/index?id=${item.id}`)">
@@ -53,7 +53,7 @@
             <template v-else>
               <div
                 :class="[ 'c-products__cart c-icon', `c-icon--arrow-${item.visible ? 'up' : 'down'}` ]"
-                @click.stop="toggleSpecification(productsList.items, item)">
+                @click.stop="toggleSpecification(hotProductsList.items, item)">
               </div>
             </template>
             <div
@@ -86,5 +86,5 @@
 
 <style
   lang="scss"
-  src="./index.scss">
+  src="./style.scss">
 </style>

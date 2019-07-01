@@ -11,7 +11,7 @@ export default {
   mixins: [categoriesMixin, productsMixin, cartProductsMxins],
   data () {
     return {
-      productsList: {
+      hotProductsList: {
         items: [],
         total: 0
       }
@@ -29,7 +29,7 @@ export default {
     this.getAdsList()
     this.getCategoriesList()
 
-    this.productsList = await this.getProductsList()
+    this.hotProductsList = await this.getProductsList()
   },
   methods: {
     getAdsList () {
