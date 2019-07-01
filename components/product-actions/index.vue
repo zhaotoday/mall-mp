@@ -5,16 +5,9 @@
   </div>
 </template>
 
-<script>
-import CCheckbox from '../checkbox/index'
-import cartUtils from '@/utils/cart'
-
-export default {
-  name: 'c-product-actions'
-}
-</script>
+<script src="./script.js"></script>
 
 <style
   lang="scss"
-  src="./styles.scss">
+  src="./style.scss">
 </style>
