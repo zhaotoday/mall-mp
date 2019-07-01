@@ -86,10 +86,10 @@
 import { mapState } from 'vuex'
 import CSwiper from '@/components/swiper'
 import CSearch from '@/components/search'
+import CNumberInput from '@/components/number-input/index'
 import categoriesMixin from '@/mixins/categories'
 import productsMixin from '@/mixins/products'
 import cartProductsMxins from '@/mixins/cart-products'
-import CNumberInput from '@/components/number-input/index'
 
 export default {
   components: { CNumberInput, CSwiper, CSearch },
