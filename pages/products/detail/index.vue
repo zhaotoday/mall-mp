@@ -24,14 +24,14 @@
             <i class="c-icon c-icon--delivery"></i>
             <h2 class="c-guarantees__title fs28">配送服务</h2>
             <p class="c-guarantees__desc c9 fs24">
-              该商品支持次日达，由产品名称配送
+              该商品支持次日送达
             </p>
           </li>
           <li class="c-guarantees__item">
             <i class="c-icon c-icon--after-sale"></i>
             <h2 class="c-guarantees__title fs28">售后服务</h2>
             <p class="c-guarantees__desc c9 fs24">
-              该商品支持签收起8小时内有质量问题可退
+              该商品支持签收起 8 小时内有质量问题可退
             </p>
           </li>
           <li class="c-guarantees__item">
