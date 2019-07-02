@@ -13,7 +13,7 @@
       @click.stop="$emit('subtract')">
       -
     </div>
-    <div class="c-add-to-cart__number fs28 u-tac">
+    <div class="c-add-to-cart__number fs32 u-tac">
       {{ number }}
     </div>
     <div

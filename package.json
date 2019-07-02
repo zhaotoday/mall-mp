@@ -24,7 +24,7 @@
     "mp-client": "0.0.28",
     "sass-utils": "^1.0.21",
     "vuex": "^3.1.0",
-    "wx-bridge": "0.0.19"
+    "wx-bridge": "0.0.21"
   },
   "devDependencies": {
     "node-sass": "^4.11.0",

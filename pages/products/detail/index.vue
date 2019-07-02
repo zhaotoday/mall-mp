@@ -16,6 +16,7 @@
       </div>
     </div>
     <c-specifications
+      v-if="detail.specifications[0]"
       :items="detail.specifications"
       @change="handleSpecificationChange">
     </c-specifications>

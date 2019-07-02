@@ -4,9 +4,11 @@
       ref="search"
       auto-focus
       show-submit
-      @confirm="search">
+      @confirm="search()">
     </c-search>
-    <h2 class="b-title fs28">
+    <h2
+      v-show="history[0]"
+      class="b-title fs28">
       历史搜索
       <i
         class="c-icon c-icon--del"
@@ -15,19 +17,21 @@
     </h2>
     <ul class="b-tags">
       <li
-        v-for="item in 8"
-        :key="item"
-        class="b-tags__item c-tag h60 bgc7 c10 fs28">
-        好又多
+        v-for="(item, index) in history"
+        :key="index"
+        class="b-tags__item c-tag h60 bgc7 c10 fs26"
+        @click="search(item)">
+        {{ item }}
       </li>
     </ul>
-    <h2 class="b-title fs28">历史搜索</h2>
+    <h2 class="b-title fs28">热门搜索</h2>
     <ul class="b-tags">
       <li
-        v-for="item in 8"
-        :key="item"
-        class="b-tags__item c-tag h60 bgc7 c10 fs28">
-        好又多
+        v-for="(item, index) in hotKeywords"
+        :key="index"
+        class="b-tags__item c-tag h60 bgc7 c10 fs26"
+        @click="search(item)">
+        {{ item }}
       </li>
     </ul>
   </div>
