@@ -2,7 +2,7 @@
   <div
     v-if="!number"
     class="bgc4 c1 fs32 u-tac"
-    @click="$emit('add')">
+    @click="handleAdd">
     加入购物车
   </div>
   <div

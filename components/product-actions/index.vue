@@ -7,15 +7,21 @@
     <div class="c-product-actions__add-cart">
       <c-add-to-cart
         v-if="specificationIndex === -1"
-        :number="getNumber(item)"
-        @add="addNumber(item)"
-        @add="subtractNumber(item)">
+        :key="-1"
+        :detail="detail"
+        :specification-index="specificationIndex"
+        :number="getNumber(detail)"
+        @add="addNumber(detail)"
+        @subtract="subtractNumber(detail)">
       </c-add-to-cart>
       <c-add-to-cart
         v-else
-        :number="getNumber(item, item.specifications[specificationIndex].specification)"
-        @add="addNumber(item, item.specifications[specificationIndex].specification)"
-        @add="subtractNumber(item, item.specifications[specificationIndex].specification)">
+        :key="detail.specifications[specificationIndex].value"
+        :detail="detail"
+        :specification-index="specificationIndex"
+        :number="getNumber(detail, detail.specifications[specificationIndex])"
+        @add="addNumber(detail, detail.specifications[specificationIndex])"
+        @subtract="subtractNumber(detail, detail.specifications[specificationIndex])">
       </c-add-to-cart>
     </div>
   </div>

@@ -2,7 +2,7 @@ export default {
   name: 'c-specifications',
   data () {
     return {
-      index: 0,
+      current: -1,
       range: []
     }
   },
@@ -14,6 +14,7 @@ export default {
   },
   methods: {
     handleChange (e) {
+      this.current = +e.detail.value
       this.$emit('change', e)
     }
   }

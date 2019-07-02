@@ -23,6 +23,9 @@ export default {
   computed: {
     collected () {
       return !!this.collectedProductIds.find(item => item === this.item.id)
+    },
+    detail () {
+      return this.item
     }
   },
   async created () {
