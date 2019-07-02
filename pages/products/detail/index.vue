@@ -8,14 +8,29 @@
           :src="$helpers.getImageById(detail.pictures)" />
       </div>
       <div class="b-name u-tac fs40">{{ detail.name }}</div>
-      <div class="b-price u-tac">
+      <div
+        v-if="detail.price"
+        class="b-price u-tac">
         <span class="c5 fs20">￥</span>
-        <span class="c5 fs50">12.34</span>
-        <span class="c9 fs20">/￥20.54</span>
+        <span class="c5 fs50">{{ detail.price }}</span>
       </div>
     </div>
-    <div class="c-panel bgc1">
-      <div class="c-panel__head u-mb20">
+    <c-specificatins></c-specificatins>
+
+    <picker
+      bindchange="bindPickerChange"
+      value="{{index}}"
+      range="{{array}}">
+      <div class="c-list bgc1 fs30 u-mb20">
+        <div class="c-list__item is-link">
+          规格
+          <div class="c-list__extra c8 fs28">请选择规格</div>
+        </div>
+      </div>
+    </picker>
+
+    <div class="c-panel bgc1 u-mb20">
+      <div class="c-panel__head">
         <div class="c-panel__title fs32">服务保障</div>
       </div>
       <div class="c-panel__body u-mb20">
