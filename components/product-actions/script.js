@@ -9,10 +9,6 @@ export default {
     item: {
       type: Object,
       default: () => ({})
-    },
-    specificationIndex: {
-      type: Number,
-      default: -1
     }
   },
   data () {

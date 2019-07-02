@@ -8,6 +8,7 @@ export default {
   },
   methods: {
     getNumber (item, specification) {
+      console.log(item, specification, 3333)
       const cartProduct = this.cartProducts.find(product => product.id === item.id)
 
       if (cartProduct) {
@@ -51,6 +52,7 @@ export default {
       this.$wx.setStorageSync(CART_PRODUCTS, value)
     },
     async addNumber (item, specification) {
+      console.log(item, this.cartProducts, 555)
       if (!this.cartProducts.find(product => product.id === item.id)) {
         this.cartProducts.push(item)
       }
@@ -91,7 +93,6 @@ export default {
       this.setCartProducts(this.cartProducts)
     },
     handleCheckboxChange (item) {
-      console.log(item)
       this.cartProducts.find(product => product.id === item.id)['checked'] = !item.checked
     },
     handleCartManagerCheck (all) {

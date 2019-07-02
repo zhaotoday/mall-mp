@@ -5,24 +5,7 @@
       @click="collect">
     </div>
     <div class="c-product-actions__add-cart">
-      <c-add-to-cart
-        v-if="specificationIndex === -1"
-        :key="-1"
-        :detail="detail"
-        :specification-index="specificationIndex"
-        :number="getNumber(detail)"
-        @add="addNumber(detail)"
-        @subtract="subtractNumber(detail)">
-      </c-add-to-cart>
-      <c-add-to-cart
-        v-else
-        :key="detail.specifications[specificationIndex].value"
-        :detail="detail"
-        :specification-index="specificationIndex"
-        :number="getNumber(detail, detail.specifications[specificationIndex])"
-        @add="addNumber(detail, detail.specifications[specificationIndex])"
-        @subtract="subtractNumber(detail, detail.specifications[specificationIndex])">
-      </c-add-to-cart>
+      <slot name="add-cart"></slot>
     </div>
   </div>
 </template>

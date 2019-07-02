@@ -16,14 +16,18 @@ export default {
   },
   methods: {
     handleAdd () {
-      if (this.detail.specifications[0] && this.specificationIndex === -1) {
+      console.log(this.detail.specifications, this.specificationIndex, 33)
+      if (this.detail.specifications.length && this.specificationIndex === -1) {
         this.$wx.showToast({
           title: '请选择规格'
         })
         return
       }
 
+      console.log(1)
+
       this.$emit('add')
+      console.log(2)
     }
   }
 }

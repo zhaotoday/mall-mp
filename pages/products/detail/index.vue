@@ -18,9 +18,8 @@
     <c-specifications
       v-if="detail.specifications[0]"
       :items="detail.specifications"
-      @change="handleSpecificationChange">
+      @change="changeSpecification">
     </c-specifications>
-
     <div class="c-panel bgc1 u-mb20">
       <div class="c-panel__head">
         <div class="c-panel__title fs32">服务保障</div>
@@ -61,9 +60,31 @@
         v-html="detail.content">
       </div>
     </div>
-    <c-product-actions
-      :item="detail"
-      :specification-index="cSpecifications.current">
+    <c-product-actions :item="detail">
+      <div slot="add-cart">
+        <template v-if="detail.id && !detail.specifications.length">
+          <c-add-to-cart
+            :key="-1"
+            :detail="detail"
+            :specification-index="-1"
+            :number="getNumber(detail)"
+            @add="addNumber(detail)"
+            @subtract="subtractNumber(detail)">
+          </c-add-to-cart>
+        </template>
+        <template v-if="detail.id && detail.specifications.length">
+          <c-add-to-cart
+            v-for="(specification, index) in (detail.specifications || [])"
+            v-show="index === cSpecifications.current"
+            :key="index"
+            :detail="detail"
+            :specification-index="cSpecifications.current"
+            :number="getNumber(detail, specification)"
+            @add="addNumber(detail, specification)"
+            @subtract="subtractNumber(detail, specification)">
+          </c-add-to-cart>
+        </template>
+      </div>
     </c-product-actions>
   </div>
 </template>
