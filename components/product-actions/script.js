@@ -1,9 +1,18 @@
+import CAddToCart from '../add-to-cart'
+import cartProductsMxins from '@/mixins/cart-products'
+
 export default {
   name: 'c-product-actions',
+  components: { CAddToCart },
+  mixins: [cartProductsMxins],
   props: {
     item: {
       type: Object,
       default: () => ({})
+    },
+    specificationIndex: {
+      type: Number,
+      default: -1
     }
   },
   data () {

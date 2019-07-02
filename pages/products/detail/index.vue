@@ -15,19 +15,10 @@
         <span class="c5 fs50">{{ detail.price }}</span>
       </div>
     </div>
-    <c-specificatins></c-specificatins>
-
-    <picker
-      bindchange="bindPickerChange"
-      value="{{index}}"
-      range="{{array}}">
-      <div class="c-list bgc1 fs30 u-mb20">
-        <div class="c-list__item is-link">
-          规格
-          <div class="c-list__extra c8 fs28">请选择规格</div>
-        </div>
-      </div>
-    </picker>
+    <c-specifications
+      :items="detail.specifications"
+      @change="handleSpecificationChange">
+    </c-specifications>
 
     <div class="c-panel bgc1 u-mb20">
       <div class="c-panel__head">
@@ -69,7 +60,10 @@
         v-html="detail.content">
       </div>
     </div>
-    <c-product-actions :item="detail"></c-product-actions>
+    <c-product-actions
+      :item="detail"
+      :specification-index="cSpecifications.current">
+    </c-product-actions>
   </div>
 </template>
 
