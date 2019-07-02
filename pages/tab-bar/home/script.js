@@ -29,6 +29,7 @@ export default {
     this.getAdsList()
     this.getCategoriesList()
 
+    this.cartProducts = this.getCartProducts()
     this.hotProductsList = await this.getProductsList()
   },
   methods: {
@@ -43,30 +44,7 @@ export default {
       })
 
       return {
-        items: items.map(item => {
-          const cartProduct = this.cartProducts.find(product => product.id === item.id)
-
-          return {
-            ...item,
-            visible: cartProduct
-              ? !!(cartProduct.specifications.find(cartSpecification => !!cartSpecification.number))
-              : false,
-            checked: false,
-            number: cartProduct ? cartProduct.number : 0,
-            specifications: item.specifications
-              ? item.specifications.map(specification => {
-                const cartSpecification = cartProduct
-                  ? cartProduct.specifications.find(cartSpecification => cartSpecification.value === specification.value)
-                  : null
-
-                return {
-                  ...specification,
-                  number: cartSpecification ? cartSpecification.number : 0
-                }
-              })
-              : []
-          }
-        }) || [],
+        items: items.map(item => this.addCartKeys(item)),
         total
       }
     },

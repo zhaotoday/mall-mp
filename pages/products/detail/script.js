@@ -1,31 +1,24 @@
-import { mapState } from 'vuex'
 import CProductActions from '@/components/product-actions'
 import CSpecifications from '@/components/specifications'
+import cartProductsMxins from '@/mixins/cart-products'
 
 export default {
   components: { CProductActions, CSpecifications },
+  mixins: [cartProductsMxins],
   data () {
     return {
       cSpecifications: {
         current: -1
-      }
+      },
+      detail: {}
     }
   },
-  computed: mapState({
-    detail: state => {
-      const detail = state['public/products'].detail
-
-      return detail.id ? {
-        ...detail,
-        number: 0,
-        specifications: (detail.specifications || []).map(item => ({ ...item, number: 0 }))
-      } : {}
-    }
-  }),
   async onShow () {
     this.id = this.$mp.query.id || 17
+    this.detail = this.addCartKeys(await this.getDetail())
+    console.log(this.detail, '---')
 
-    await this.getDetail()
+    this.cartProducts = this.getCartProducts()
     await this.$wx.setNavigationBarTitle({ title: this.detail.name })
   },
   methods: {

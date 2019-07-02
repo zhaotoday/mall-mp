@@ -10,6 +10,7 @@
       :items="$consts.PRODUCT_SORT_ITEMS"
       @change="handleSortChange">
     </c-sort>
+
   </div>
 </template>
 

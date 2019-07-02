@@ -6,9 +6,6 @@ export default {
       cartProducts: []
     }
   },
-  created () {
-    this.cartProducts = this.getCartProducts()
-  },
   methods: {
     getNumber (item, specification) {
       const cartProduct = this.cartProducts.find(product => product.id === item.id)
@@ -22,6 +19,30 @@ export default {
       } else {
         return 0
       }
+    },
+    addCartKeys (item) {
+      const cartProduct = this.cartProducts.find(product => product.id === item.id)
+
+      return item.id ? {
+        ...item,
+        visible: cartProduct
+          ? !!(cartProduct.specifications.find(cartSpecification => !!cartSpecification.number))
+          : false,
+        checked: true,
+        number: cartProduct ? cartProduct.number : 0,
+        specifications: item.specifications
+          ? item.specifications.map(specification => {
+            const cartSpecification = cartProduct
+              ? cartProduct.specifications.find(cartSpecification => cartSpecification.value === specification.value)
+              : null
+
+            return {
+              ...specification,
+              number: cartSpecification ? cartSpecification.number : 0
+            }
+          })
+          : []
+      } : {}
     },
     getCartProducts () {
       return this.$wx.getStorageSync(CART_PRODUCTS) || []

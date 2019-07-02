@@ -5,6 +5,9 @@ import productsMixin from '@/mixins/products'
 import cartProductsMxins from '@/mixins/cart-products'
 
 export default {
-  components: {CNumberInput, CCartManager, CCheckbox},
-  mixins: [productsMixin, cartProductsMxins]
+  components: { CNumberInput, CCartManager, CCheckbox },
+  mixins: [productsMixin, cartProductsMxins],
+  onShow () {
+    this.cartProducts = this.getCartProducts()
+  }
 }
