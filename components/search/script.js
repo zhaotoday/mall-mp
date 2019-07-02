@@ -19,8 +19,10 @@ export default {
       value: ''
     }
   },
-  created () {
-    this.value = this.defaultValue
+  watch: {
+    defaultValue () {
+      this.value = this.defaultValue
+    }
   },
   methods: {
     handleConfirm () {

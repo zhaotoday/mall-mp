@@ -10,6 +10,7 @@ export default {
   },
   onShow () {
     this.keywords = this.$mp.query.keywords
+    console.log(this.keywords)
   },
   methods: {
     search () {
