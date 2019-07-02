@@ -54,7 +54,7 @@
         v-html="detail.content">
       </div>
     </div>
-    <c-product-actions></c-product-actions>
+    <c-product-actions :item="detail"></c-product-actions>
   </div>
 </template>
 
