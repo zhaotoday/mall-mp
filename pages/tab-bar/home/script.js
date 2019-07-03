@@ -2,12 +2,13 @@ import { mapState } from 'vuex'
 import CSwiper from '@/components/swiper'
 import CSearch from '@/components/search'
 import CNumberInput from '@/components/number-input/index'
+import CProducts from '@/components/products'
 import categoriesMixin from '@/mixins/categories'
 import productsMixin from '@/mixins/products'
 import cartProductsMxins from '@/mixins/cart-products'
 
 export default {
-  components: { CNumberInput, CSwiper, CSearch },
+  components: { CNumberInput, CSwiper, CSearch, CProducts },
   mixins: [categoriesMixin, productsMixin, cartProductsMxins],
   data () {
     return {

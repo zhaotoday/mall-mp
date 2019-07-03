@@ -19,17 +19,21 @@
         热销产品
       </div>
       <div class="c-card__body">
+        {{hotProductsList.length}}
+        <!--
         <ul class="c-products">
           <li
             v-for="item in hotProductsList.items"
             :key="item.id"
-            class="c-products__item"
-            @click="navigateTo(`/pages/products/detail/index?id=${item.id}`)">
+            class="c-products__item">
             <img
               class="c-products__image"
               :src="$helpers.getImageById(item.pictures)"
+              @click="navigateTo(`/pages/products/detail/index?id=${item.id}`)"
             />
-            <div class="c-products__info">
+            <div
+              class="c-products__info"
+              @click="navigateTo(`/pages/products/detail/index?id=${item.id}`)">
               <div class="c-products__name fs32">{{ item.name }}</div>
               <div class="c-products__price c5 fs30">
                 <span class="fs20">￥</span>
@@ -77,6 +81,8 @@
             </div>
           </li>
         </ul>
+        -->
+        <c-products :items="hotProductsList.items"></c-products>
       </div>
     </div>
   </div>
