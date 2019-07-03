@@ -12,10 +12,9 @@ export default {
       default: () => []
     }
   },
-  computed: {
-    listItems () {
-      console.log(this.items, 333)
-      return this.items
+  methods: {
+    init () {
+      this.cartProducts = this.getCartProducts()
     }
   }
 }

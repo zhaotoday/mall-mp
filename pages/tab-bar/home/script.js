@@ -30,7 +30,7 @@ export default {
     this.getAdsList()
     this.getCategoriesList()
 
-    this.cartProducts = this.getCartProducts()
+    this.$refs.products.init()
     this.hotProductsList = await this.getProductsList()
   },
   methods: {
@@ -45,7 +45,7 @@ export default {
       })
 
       return {
-        items: items.map(item => this.addCartKeys(item)),
+        items: items.map(item => this.$refs.products.addCartKeys(item)),
         total
       }
     },
