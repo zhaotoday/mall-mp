@@ -8,7 +8,6 @@ export default {
   },
   methods: {
     getNumber (item, specification) {
-      console.log(item, specification, 3333)
       const cartProduct = this.cartProducts.find(product => product.id === item.id)
 
       if (cartProduct) {
@@ -52,13 +51,14 @@ export default {
       this.$wx.setStorageSync(CART_PRODUCTS, value)
     },
     async addNumber (item, specification) {
-      console.log(item, this.cartProducts, 555)
       if (!this.cartProducts.find(product => product.id === item.id)) {
         this.cartProducts.push(item)
       }
 
       if (specification) {
         if (specification.number < 99) {
+          this.cartProducts
+            .find(product => product.id === item.id)['visible'] = true
           this.cartProducts
             .find(product => product.id === item.id)['specifications']
             .find(item => item.value === specification.value)['number'] += 1
@@ -89,6 +89,8 @@ export default {
             .find(product => product.id === item.id)['number'] -= 1
         }
       }
+
+      this.cartProducts = this.cartProducts.filter(product => product.number || product.specifications.find(specification => specification.number))
 
       this.setCartProducts(this.cartProducts)
     },

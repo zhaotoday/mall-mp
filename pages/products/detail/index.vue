@@ -73,16 +73,26 @@
           </c-add-to-cart>
         </template>
         <template v-if="detail.id && detail.specifications.length">
-          <c-add-to-cart
+          <div v-if="cSpecifications.current === -1">
+            <c-add-to-cart
+              :detail="detail"
+              :specification-index="cSpecifications.current"
+              :number="0"
+              @add="addNumber(detail)">
+            </c-add-to-cart>
+          </div>
+          <div
             v-for="(specification, index) in (detail.specifications || [])"
             v-show="index === cSpecifications.current"
-            :key="index"
-            :detail="detail"
-            :specification-index="cSpecifications.current"
-            :number="getNumber(detail, specification)"
-            @add="addNumber(detail, specification)"
-            @subtract="subtractNumber(detail, specification)">
-          </c-add-to-cart>
+            :key="specification.value">
+            <c-add-to-cart
+              :detail="detail"
+              :specification-index="cSpecifications.current"
+              :number="getNumber(detail, specification)"
+              @add="addNumber(detail, detail.specifications[index])"
+              @subtract="subtractNumber(detail, detail.specifications[index])">
+            </c-add-to-cart>
+          </div>
         </template>
       </div>
     </c-product-actions>
