@@ -6,21 +6,27 @@
       @confirm="search()">
     </c-search>
     <map
+      id="map"
       class="b-map"
       :longitude="location.longitude"
       :latitude="location.latitude"
       scale="14"
-      show-location>
+      show-location
+      @regionchange="handleRegionChange">
     </map>
-    <ul class="c-list">
-      <li
-        v-for="item in addresses"
-        :key="item.id"
-        class="c-list__item is-adaptable">
-        <p class="c-list__desc fs28">{{ item.name }}</p>
-        <p class="c-list__desc c9 fs24">{{ item.address }}</p>
-      </li>
-    </ul>
+    <scroll-view
+      class="b-result"
+      scroll-y>
+      <ul class="c-list bgc1">
+        <li
+          v-for="item in addresses"
+          :key="item.id"
+          class="c-list__item is-adaptable">
+          <p class="c-list__desc fs28">{{ item.name }}</p>
+          <p class="c-list__desc c9 fs24">{{ item.address }}</p>
+        </li>
+      </ul>
+    </scroll-view>
   </div>
 </template>
 
