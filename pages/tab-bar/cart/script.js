@@ -5,11 +5,5 @@ import cartProductsMxins from '@/mixins/cart-products'
 
 export default {
   components: { CProducts, CCartManager },
-  mixins: [productsMixin, cartProductsMxins],
-  onShow () {
-    const cartProducts = this.getCartProducts()
-
-    this.$refs.products.init(cartProducts)
-    this.cartProducts = cartProducts
-  }
+  mixins: [productsMixin, cartProductsMxins]
 }

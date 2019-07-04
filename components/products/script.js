@@ -16,10 +16,5 @@ export default {
       type: Boolean,
       default: false
     }
-  },
-  methods: {
-    init (cartProducts) {
-      this.cartProducts = cartProducts || this.getCartProducts()
-    }
   }
 }

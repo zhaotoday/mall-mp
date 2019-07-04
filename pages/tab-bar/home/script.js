@@ -27,16 +27,9 @@ export default {
     }
   },
   async onShow () {
-    this.$store.dispatch('public/cartProducts/setItems', {
-      items: {
-        abc: 3333
-      }
-    })
-
     this.getAdsList()
     this.getCategoriesList()
 
-    this.$refs.products.init()
     this.hotProductsList = await this.getProductsList()
   },
   methods: {
@@ -51,7 +44,7 @@ export default {
       })
 
       return {
-        items: items.map(item => this.$refs.products.addCartKeys(item)),
+        items: items.map(item => this.$refs.hotProducts.addCartKeys(item)),
         total
       }
     },
