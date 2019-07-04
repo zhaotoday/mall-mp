@@ -11,6 +11,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   plugins: [
     createPersistedState({
+      paths: ['public/cartProducts'],
       storage: {
         getItem: key => wxb.getStorageSync(key),
         setItem: (key, value) => wxb.setStorageSync(key, value),
@@ -28,6 +29,7 @@ export default new Vuex.Store({
     'public/categories': require('./modules/public/categories').default,
     'public/helpers': require('./modules/public/helpers').default,
     'public/products': require('./modules/public/products').default,
+    'public/cartProducts': require('./modules/public/cart-products').default,
     'wx/wxUsers': require('./modules/wx/wx-users').default,
     'wx/points': require('./modules/wx/points').default,
     'wx/addresses': require('./modules/wx/addresses').default,

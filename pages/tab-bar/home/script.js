@@ -27,6 +27,12 @@ export default {
     }
   },
   async onShow () {
+    this.$store.dispatch('public/cartProducts/setItems', {
+      items: {
+        abc: 3333
+      }
+    })
+
     this.getAdsList()
     this.getCategoriesList()
 

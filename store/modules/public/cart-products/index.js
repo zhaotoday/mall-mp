@@ -3,11 +3,7 @@ import actions from './actions'
 import mutations from './mutations'
 
 const initState = {
-  list: {
-    items: [],
-    total: 0
-  },
-  detail: {}
+  items: []
 }
 
 export default {

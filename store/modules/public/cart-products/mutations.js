@@ -1,10 +1,10 @@
 import types from './types'
 
 export default {
-  [types.GET_LIST] (state, payload) {
-    state.list = payload.data
+  [types.SET_ITEMS] (state, { items }) {
+    state.items = items
   },
-  [types.GET_DETAIL] (state, payload) {
-    state.detail = payload.data
+  [types.GET_ITEMS] (state) {
+    return state.items
   }
 }
