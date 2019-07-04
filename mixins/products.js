@@ -21,8 +21,12 @@ export default {
 
       return `${parseFloat((price / number).toFixed(2))} 元/${unitLabel}`
     },
-    toggleSpecification (items, item) {
-      items.find(product => product.id === item.id)['visible'] = !item.visible
+    toggleSpecification (items, item, editable) {
+      if (editable) {
+        this.$store.dispatch('public/cartProducts/toggleSpecification', { item })
+      } else {
+        items.find(product => product.id === item.id)['visible'] = !item.visible
+      }
     }
   }
 }

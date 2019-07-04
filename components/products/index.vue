@@ -41,7 +41,7 @@
       <template v-else>
         <div
           :class="[ 'c-products__cart c-icon', `c-icon--arrow-${item.visible ? 'up' : 'down'}` ]"
-          @click.stop="toggleSpecification(items, item)">
+          @click.stop="toggleSpecification(items, item, editable)">
         </div>
       </template>
       <div

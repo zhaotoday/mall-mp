@@ -1,6 +1,9 @@
 import types from './types'
 
 export default {
+  toggleSpecification ({ commit }, { item }) {
+    commit(types.TOGGLE_SPECIFICATION, { item })
+  },
   addNumber ({ commit }, { item, specification }) {
     commit(types.ADD_NUMBER, { item, specification })
   },

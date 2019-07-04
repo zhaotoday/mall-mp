@@ -1,6 +1,7 @@
 import helpers from '@/utils/helpers/base'
 
 export default helpers.keyMirror({
+  TOGGLE_SPECIFICATION: null,
   ADD_NUMBER: null,
   SUBTRACT_NUMBER: null,
   CHECK_ITEM: null,
