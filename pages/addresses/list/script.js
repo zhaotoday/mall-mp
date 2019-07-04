@@ -58,6 +58,15 @@ export default {
       })
 
       this.getList()
+    },
+    select (item) {
+      if (this.$mp.query.select) {
+        this.$store.dispatch('wx/orders/setForm', {
+          key: 'address',
+          value: item
+        })
+        this.$wx.navigateBack()
+      }
     }
   }
 }

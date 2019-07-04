@@ -5,8 +5,8 @@
         class="c-list__item has-icon is-link is-adaptable"
         @click="navigateTo('/pages/addresses/list/index?select=1')">
         <i class="c-icon c-icon--address"></i>
-        <p class="c-list__desc">赵金添 1395442340</p>
-        <p class="c-list__desc">福州市仓山区学军路198号</p>
+        <p class="c-list__desc">{{ ordersForm.address.name }} {{ ordersForm.address.phoneNumber }}</p>
+        <p class="c-list__desc">{{ ordersForm.address.address + ordersForm.address.room }}</p>
       </div>
     </div>
     <div class="c-list bgc1 fs30 u-mt20">

@@ -4,7 +4,8 @@ import cartUtils from '@/utils/cart'
 export default {
   computed: {
     ...mapState({
-      cartDetail: state => state['wx/carts'].detail
+      cartDetail: state => state['wx/carts'].detail,
+      ordersForm: state => state['wx/orders'].form
     }),
     totalPrice () {
       return cartUtils.getTotalPrice(this.cartDetail.data)
@@ -25,13 +26,13 @@ export default {
   },
   methods: {
     getCartsDetail () {
-      this.$store.dispatch('wx/carts/getDetail', {id: this.cartId})
+      this.$store.dispatch('wx/carts/getDetail', { id: this.cartId })
     },
     handlePayWayChange (e) {
       this.cPayWay.index = e.detail.value
     },
     async handlePay () {
-      const {data} = await this.$store.dispatch('wx/payments/postAction', {
+      const { data } = await this.$store.dispatch('wx/payments/postAction', {
         body: {
           type: 'CREATE_UNIFIED_ORDER',
           cartId: parseInt(this.cartId, 10),

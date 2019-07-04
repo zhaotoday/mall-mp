@@ -4,7 +4,9 @@
       v-for="item in list.items"
       :key="item"
       class="b-list u-mt20">
-      <li class="b-list__item bgc1">
+      <li
+        class="b-list__item bgc1"
+        @click="select(item)">
         <div class="b-list__head">
           <h2 class="b-list__title fs28">{{ item.address + item.room }}</h2>
           <p class="b-list__desc c9 fs24">{{ item.name }} {{ item.phoneNumber }}</p>
@@ -15,17 +17,17 @@
         <div class="b-list__foot fs24">
           <div
             :class="[ 'c-icon-tag', `c-icon-tag--${item.isDefault ? 'set' : 'unset'}` ]"
-            @click="setDefault(item)">
+            @click.stop="setDefault(item)">
             设为默认
           </div>
           <div
             class="c-icon-tag c-icon-tag--edit"
-            @click="navigateTo(`/pages/addresses/form/index?id=${item.id}`)">
+            @click.stop="navigateTo(`/pages/addresses/form/index?id=${item.id}`)">
             修改
           </div>
           <div
             class="c-icon-tag c-icon-tag--del"
-            @click="showDel(item)">
+            @click.stop="showDel(item)">
             删除
           </div>
         </div>
