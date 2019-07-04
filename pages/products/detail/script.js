@@ -17,11 +17,8 @@ export default {
   },
   async onShow () {
     this.id = this.$mp.query.id || 17
-    this.cartProducts = this.getCartProducts()
     this.detail = this.addCartKeys(await this.getDetail())
 
-    await this.getDetail()
-    console.log(this.detail, '---', this.cartProducts)
     await this.$wx.setNavigationBarTitle({ title: this.detail.name })
   },
   methods: {
