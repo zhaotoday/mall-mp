@@ -7,7 +7,9 @@ export default {
   components: { CProducts, CCartManager },
   mixins: [productsMixin, cartProductsMxins],
   onShow () {
-    this.$refs.products.init()
-    this.cartProducts = this.getCartProducts()
+    const cartProducts = this.getCartProducts()
+
+    this.$refs.products.init(cartProducts)
+    this.cartProducts = cartProducts
   }
 }

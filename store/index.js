@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import createPersistedState from 'vuex-persistedstate'
+import wxb from '@/utils/wxb'
 import getters from './getters'
 import actions from './actions'
 import mutations from './mutations'
@@ -7,6 +9,15 @@ import mutations from './mutations'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  plugins: [
+    createPersistedState({
+      storage: {
+        getItem: key => wxb.getStorageSync(key),
+        setItem: (key, value) => wxb.setStorageSync(key, value),
+        removeItem: key => wxb.removeStorageSync(key)
+      }
+    })
+  ],
   state: {},
   getters,
   actions,

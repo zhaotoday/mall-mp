@@ -3,7 +3,6 @@
     <div class="bgc1 u-mt20">
       <c-products
         ref="products"
-        :items="cartProducts"
         editable>
       </c-products>
     </div>

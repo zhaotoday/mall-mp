@@ -92,6 +92,7 @@ export default {
 
       this.cartProducts = this.cartProducts.filter(product => product.number || product.specifications.find(specification => specification.number))
 
+      console.log(this.cartProducts, 2222)
       this.setCartProducts(this.cartProducts)
     },
     handleCheckboxChange (item) {

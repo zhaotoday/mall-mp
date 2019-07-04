@@ -18,8 +18,8 @@ export default {
     }
   },
   methods: {
-    init () {
-      this.cartProducts = this.getCartProducts()
+    init (cartProducts) {
+      this.cartProducts = cartProducts || this.getCartProducts()
     }
   }
 }
