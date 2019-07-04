@@ -12,6 +12,15 @@
       scale="14"
       show-location>
     </map>
+    <ul class="c-list">
+      <li
+        v-for="item in addresses"
+        :key="item.id"
+        class="c-list__item is-adaptable">
+        <p class="c-list__desc fs28">{{ item.name }}</p>
+        <p class="c-list__desc c9 fs24">{{ item.address }}</p>
+      </li>
+    </ul>
   </div>
 </template>
 
