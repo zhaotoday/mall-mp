@@ -1,6 +1,12 @@
 {
   "pages": [
     {
+      "path": "pages/pay/index",
+      "style": {
+        "navigationBarTitleText": "结算"
+      }
+    },
+    {
       "path": "pages/tab-bar/home/index",
       "style": {
         "navigationBarTitleText": "东街口"
@@ -64,12 +70,6 @@
       "path": "pages/products/detail/index",
       "style": {
         "navigationBarTitleText": ""
-      }
-    },
-    {
-      "path": "pages/pay/index",
-      "style": {
-        "navigationBarTitleText": "结算"
       }
     },
     {
