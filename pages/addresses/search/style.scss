@@ -1,0 +1,13 @@
+@import '../../../styles/utils/index';
+
+@include p(addresses-map) {
+  @include b(map) {
+    @include size(px2rpx(750px), px2rpx(400px));
+  }
+
+  @include b(result) {
+    @include position--fixed(px2rpx(498px), null, 0, 0);
+
+    width: 100%;
+  }
+}
