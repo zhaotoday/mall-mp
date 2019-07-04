@@ -3,7 +3,10 @@ import $consts from '@/utils/consts'
 
 export default {
   data () {
-    return { $consts }
+    return {
+      $consts,
+      loaded: false
+    }
   },
   onShareAppMessage () {
     return {

@@ -1,3 +1,8 @@
 @include c(empty) {
-  padding-top: px2rpx(100px);
+  padding-top: px2rpx(150px);
+
+  @include e(tip) {
+    line-height: 100%;
+    padding-top: px2rpx(20px);
+  }
 }

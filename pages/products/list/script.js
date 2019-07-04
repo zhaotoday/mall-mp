@@ -18,6 +18,7 @@ export default {
   async onLoad () {
     this.keywords = this.$mp.query.keywords
     this.productsList = await this.getProductsList()
+    this.loaded = true
   },
   methods: {
     async search () {
@@ -33,7 +34,7 @@ export default {
       })
 
       return {
-        items: items.map(item => this.$refs.products.addCartKeys(item)),
+        items: items.map(item => this.addCartKeys(item)),
         total
       }
     },
