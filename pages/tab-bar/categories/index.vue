@@ -25,7 +25,8 @@
         <li
           class="b-categories__item"
           v-for="item in (categoriesTree[cSidebar.index] || {}).children || []"
-          :key="item.id">
+          :key="item.id"
+          @click="navigateTo(`/pages/products/list/index?categoryId=${item.id}&categoryName=${item.name}`)">
           <img
             class="b-categories__image"
             :src="$helpers.getImageById(item.icon)" />

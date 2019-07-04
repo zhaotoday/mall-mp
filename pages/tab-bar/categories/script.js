@@ -14,7 +14,7 @@ export default {
   onLoad () {
     this.getCategoriesList()
   },
-  async onShow () {
+  async onLoad () {
     this.cSidebar.index = this.id
       ? this.categoriesTree.findIndex(item => item.id === this.id)
       : 0

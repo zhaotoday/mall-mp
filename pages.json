@@ -1,15 +1,15 @@
 {
   "pages": [
     {
-      "path": "pages/products/list/index",
-      "style": {
-        "navigationBarTitleText": "搜索结果"
-      }
-    },
-    {
       "path": "pages/tab-bar/home/index",
       "style": {
         "navigationBarTitleText": "东街口"
+      }
+    },
+    {
+      "path": "pages/products/list/index",
+      "style": {
+        "navigationBarTitleText": ""
       }
     },
     {

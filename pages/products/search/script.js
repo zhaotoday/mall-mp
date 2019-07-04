@@ -31,7 +31,7 @@ export default {
     saveHistory (keywords) {
       const searchHistory = this.$wx.getStorageSync(SEARCH_HISTORY) || []
 
-      if (!searchHistory.includes(keywords)) {
+      if (keywords && !searchHistory.includes(keywords)) {
         this.$wx.setStorageSync(SEARCH_HISTORY, [...searchHistory, keywords])
       }
     },

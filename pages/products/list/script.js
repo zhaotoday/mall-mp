@@ -16,7 +16,15 @@ export default {
     }
   },
   async onLoad () {
-    this.keywords = this.$mp.query.keywords
+    const { keywords, categoryId, categoryName } = this.$mp.query
+    this.keywords = keywords
+    this.categoryId = categoryId
+    this.categoryName = categoryName
+
+    this.$wx.setNavigationBarTitle({
+      title: this.categoryName ? this.categoryName : '搜索结果'
+    })
+
     this.productsList = await this.getProductsList()
     this.loaded = true
   },
@@ -28,7 +36,10 @@ export default {
     async getProductsList () {
       const { items, total } = await this.$store.dispatch('public/products/getList', {
         query: {
-          where: { name: { $like: this.keywords } },
+          where: {
+            name: { $like: this.keywords },
+            categoryId: this.categoryId
+          },
           limit: 1000
         }
       })
