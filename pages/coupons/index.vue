@@ -9,10 +9,7 @@
         {{ item.label }}
       </li>
     </ul>
-    <div class="c-empty u-tac">
-      <i class="c-icon c-icon--empty"></i>
-      <p class="c8 fs28">空空如也...</p>
-    </div>
+    <c-empty></c-empty>
   </div>
 </template>
 

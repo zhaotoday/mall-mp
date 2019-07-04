@@ -1,4 +1,7 @@
+import CEmpty from '@/components/empty'
+
 export default {
+  components: { CEmpty },
   data () {
     return {
       cTabs: {
