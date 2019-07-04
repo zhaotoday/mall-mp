@@ -1,6 +1,12 @@
 {
   "pages": [
     {
+      "path": "pages/products/list/index",
+      "style": {
+        "navigationBarTitleText": "搜索结果"
+      }
+    },
+    {
       "path": "pages/tab-bar/home/index",
       "style": {
         "navigationBarTitleText": "东街口"
@@ -16,12 +22,6 @@
       "path": "pages/coupons/index",
       "style": {
         "navigationBarTitleText": "我的优惠券"
-      }
-    },
-    {
-      "path": "pages/products/list/index",
-      "style": {
-        "navigationBarTitleText": "搜索结果"
       }
     },
     {

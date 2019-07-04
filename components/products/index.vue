@@ -1,5 +1,5 @@
 <template>
-  <ul :class="[ 'c-products', { 'is-editable':  editable } ]">
+  <ul :class="[ 'c-products bgc1', { 'is-editable':  editable } ]">
     <li
       v-for="item in items"
       :key="item.id"

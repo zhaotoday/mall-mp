@@ -10,7 +10,14 @@
       :items="$consts.PRODUCT_SORT_ITEMS"
       @change="handleSortChange">
     </c-sort>
-
+    <scroll-view
+      class="b-products"
+      scroll-y>
+      <c-products
+        ref="products"
+        :items="productsList.items">
+      </c-products>
+    </scroll-view>
   </div>
 </template>
 
