@@ -2,17 +2,8 @@
   <div class="p-addresses-map bgc1">
     <c-search
       placeholder="请输入小区/写字楼"
-      @focus="navigateTo('/pages/products/search/index')">
+      @confirm="search">
     </c-search>
-    <map
-      id="map"
-      class="b-map"
-      :longitude="location.longitude"
-      :latitude="location.latitude"
-      scale="14"
-      show-location
-      @regionchange="handleRegionChange">
-    </map>
     <scroll-view
       class="b-result"
       scroll-y>
