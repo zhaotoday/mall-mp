@@ -7,7 +7,12 @@ const initState = {
     items: [],
     total: 0
   },
-  detail: {}
+  detail: {},
+  form: {
+    address: {},
+    coupon: {},
+    remark: {}
+  }
 }
 
 export default {
