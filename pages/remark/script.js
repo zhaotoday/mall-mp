@@ -1,3 +1,5 @@
+import { mapState } from 'vuex'
+
 export default {
   data () {
     return {
@@ -5,6 +7,12 @@ export default {
         remark: ''
       }
     }
+  },
+  computed: mapState({
+    ordersForm: state => state['wx/orders'].form
+  }),
+  onShow () {
+    this.cForm.remark = this.ordersForm.remark.value
   },
   methods: {
     submit () {

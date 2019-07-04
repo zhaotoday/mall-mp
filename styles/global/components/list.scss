@@ -75,6 +75,15 @@
 
     transform: translateY(-50%);
     line-height: 100%;
+
+    &.w450 {
+      @include text--overflow(2);
+
+      width: px2rpx(450px);
+      word-break: break-all;
+      text-align: right;
+      line-height: 120%;
+    }
   }
 
   @include e(value) {

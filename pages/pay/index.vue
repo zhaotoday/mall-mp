@@ -7,7 +7,7 @@
         @click="navigateTo('/pages/addresses/list/index?select=1')">
         <i class="c-icon c-icon--address"></i>
         收货地址
-        <p class="c-list__extra c8 fs28">选择收货地址</p>
+        <p class="c-list__extra c8 fs28">请选择收货地址</p>
       </div>
       <div
         v-else
@@ -23,12 +23,22 @@
         优惠券
         <div class="c-list__extra c8 fs28">满 100 减 10</div>
       </div>
-      <div class="c-list__item is-link">
+      <div
+        class="c-list__item is-link"
+        @click="navigateTo('/pages/remark/index')">
         备注
+        <p
+          v-if="!ordersForm.remark.value"
+          class="c-list__extra c8 fs28">请填写备注</p>
+        <p
+          v-else
+          class="c-list__extra w450">
+          {{ ordersForm.remark.value }}
+        </p>
       </div>
       <div class="c-list__item">
         商品数
-        <div class="c-list__extra c8 fs28">{{ cartDetail.data.length }} 件</div>
+        <div class="c-list__extra c8 fs28">{{ cartProducts.length }} 件</div>
       </div>
       <picker
         class="c-list__item is-link"
