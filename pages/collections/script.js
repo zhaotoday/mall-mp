@@ -12,8 +12,9 @@ export default {
       }
     }
   },
-  async onLoad () {
+  async onShow () {
     this.productsList = await this.getProductsList()
+    this.loaded = true
   },
   methods: {
     async getProductsList () {
