@@ -1,0 +1,19 @@
+@import '../../styles/utils/index';
+
+@include p(remark) {
+  @include b(input) {
+    @include size(auto, px2rpx(300px));
+
+    border: 1px solid map-get($colors, c12);
+    margin: px2rpx(16px);
+    padding: px2rpx(16px);
+    display: block;
+    border-radius: px2rpx(8px);
+  }
+
+  @include c(button) {
+    @include position--fixed(null, null, px2rpx(60px), 50%);
+
+    transform: translateX(-50%);
+  }
+}

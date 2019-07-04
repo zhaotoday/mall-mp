@@ -2,6 +2,15 @@
   <div class="p-pay">
     <div class="c-list bgc1 fs28 u-mt20">
       <div
+        v-if="!ordersForm.address.id"
+        class="c-list__item has-icon is-link"
+        @click="navigateTo('/pages/addresses/list/index?select=1')">
+        <i class="c-icon c-icon--address"></i>
+        收货地址
+        <p class="c-list__extra c8 fs28">选择收货地址</p>
+      </div>
+      <div
+        v-else
         class="c-list__item has-icon is-link is-adaptable"
         @click="navigateTo('/pages/addresses/list/index?select=1')">
         <i class="c-icon c-icon--address"></i>

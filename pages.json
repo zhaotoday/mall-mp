@@ -1,6 +1,12 @@
 {
   "pages": [
     {
+      "path": "pages/remark/index",
+      "style": {
+        "navigationBarTitleText": "备注"
+      }
+    },
+    {
       "path": "pages/pay/index",
       "style": {
         "navigationBarTitleText": "结算"
