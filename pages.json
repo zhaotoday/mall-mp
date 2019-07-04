@@ -1,15 +1,15 @@
 {
   "pages": [
     {
-      "path": "pages/collections/index",
-      "style": {
-        "navigationBarTitleText": "我的收藏"
-      }
-    },
-    {
       "path": "pages/tab-bar/home/index",
       "style": {
         "navigationBarTitleText": "东街口"
+      }
+    },
+    {
+      "path": "pages/collections/index",
+      "style": {
+        "navigationBarTitleText": "我的收藏"
       }
     },
     {

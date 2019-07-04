@@ -31,7 +31,9 @@
         <i class="c-icon c-icon--coupon"></i>
         优惠券
       </div>
-      <div class="c-list__item has-icon is-link">
+      <div
+        class="c-list__item has-icon is-link"
+        @click="navigateTo('/pages/collections/index')">
         <i class="c-icon c-icon--collection"></i>
         我的收藏
       </div>
