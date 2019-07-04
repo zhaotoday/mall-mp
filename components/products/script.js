@@ -16,5 +16,10 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  methods: {
+    handleCheckboxChange (item) {
+      this.$store.dispatch('public/cartProducts/checkItem', { item })
+    }
   }
 }

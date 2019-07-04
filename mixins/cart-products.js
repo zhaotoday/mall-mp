@@ -47,12 +47,6 @@ export default {
     },
     subtractNumber (item, specification) {
       this.$store.dispatch('public/cartProducts/subtractNumber', { item, specification })
-    },
-    handleCheckboxChange (item) {
-      this.cartProducts.find(product => product.id === item.id)['checked'] = !item.checked
-    },
-    handleCartManagerCheck (all) {
-      this.cartProducts = this.cartProducts.map(item => ({ ...item, checked: all }))
     }
   }
 }

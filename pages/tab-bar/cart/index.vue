@@ -6,10 +6,7 @@
         editable>
       </c-products>
     </div>
-    <c-cart-manager
-      :cart-products="cartProducts"
-      @check="handleCartManagerCheck">
-    </c-cart-manager>
+    <c-cart-manager :cart-products="cartProducts"></c-cart-manager>
   </div>
 </template>
 

@@ -1,31 +1,24 @@
+import { mapGetters } from 'vuex'
 import CCheckbox from '../checkbox/index'
 import cartUtils from '@/utils/cart'
+import cartProductsMxins from '@/mixins/cart-products'
 
 export default {
   name: 'c-cart-manager',
   components: { CCheckbox },
-  props: {
-    cartProducts: {
-      type: Array,
-      default: () => []
-    }
-  },
+  mixins: [cartProductsMxins],
   computed: {
-    checkedProducts () {
-      return this.cartProducts.filter(item => item.checked)
-    },
+    ...mapGetters({
+      checkedProducts: 'public/cartProducts/checkedItems'
+    }),
     totalPrice () {
       return cartUtils.getTotalPrice(this.checkedProducts)
     }
   },
+  created () {
+    console.log(this.$store)
+  },
   methods: {
-    handleCheckboxChange () {
-      if (this.cartProducts.find(item => !item.checked)) {
-        this.$emit('check', true)
-      } else {
-        this.$emit('check', false)
-      }
-    },
     async handleGoToPay () {
       const { data: { id } } = await this.$store.dispatch('wx/carts/postAction', {
         body: { type: 'CLOSE' }
