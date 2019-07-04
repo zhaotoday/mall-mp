@@ -20,11 +20,7 @@ export default {
   },
   methods: {
     async handleGoToPay () {
-      const { data: { id } } = await this.$store.dispatch('wx/carts/postAction', {
-        body: { type: 'CLOSE' }
-      })
-
-      this.$wx.navigateTo({ url: `/pages/pay/index?cartId=${id}` })
+      this.$wx.navigateTo({ url: `/pages/pay/index` })
     }
   }
 }
