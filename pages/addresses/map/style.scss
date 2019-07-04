@@ -1,0 +1,7 @@
+@import '../../../styles/utils/index';
+
+@include p(addresses-map) {
+  @include b(map) {
+    @include size(px2rpx(750px), px2rpx(400px));
+  }
+}

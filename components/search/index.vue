@@ -3,7 +3,7 @@
     <div class="c-search__input bgc1">
       <input
         class="fs28"
-        placeholder="输入要搜索的商品名称"
+        :placeholder="placeholder"
         confirm-type="search"
         :auto-focus="autoFocus"
         v-model="value"

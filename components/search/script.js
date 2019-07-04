@@ -12,6 +12,10 @@ export default {
     defaultValue: {
       type: String,
       default: ''
+    },
+    placeholder: {
+      type: String,
+      default: '输入要搜索的商品名称'
     }
   },
   data () {

@@ -2,7 +2,6 @@
   <div class="p-products-search bgc1">
     <c-search
       ref="search"
-      auto-focus
       show-submit
       @confirm="search()">
     </c-search>

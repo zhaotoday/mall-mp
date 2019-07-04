@@ -1,6 +1,12 @@
 {
   "pages": [
     {
+      "path": "pages/addresses/map/index",
+      "style": {
+        "navigationBarTitleText": "选择"
+      }
+    },
+    {
       "path": "pages/tab-bar/home/index",
       "style": {
         "navigationBarTitleText": "东街口"
