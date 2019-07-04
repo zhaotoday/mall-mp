@@ -19,9 +19,11 @@
       </div>
     </div>
     <div class="c-list bgc1 fs30 u-mt20">
-      <div class="c-list__item is-link">
+      <div
+        class="c-list__item is-link"
+        @click="navigateTo('/pages/coupons/index?select=1')">
         优惠券
-        <div class="c-list__extra c8 fs28">满 100 减 10</div>
+        <div class="c-list__extra c8 fs28">请选择优惠券</div>
       </div>
       <div
         class="c-list__item is-link"
@@ -38,7 +40,7 @@
       </div>
       <div class="c-list__item">
         商品数
-        <div class="c-list__extra c8 fs28">{{ cartProducts.length }} 件</div>
+        <div class="c-list__extra fs28">{{ cartProducts.length }} 件</div>
       </div>
       <picker
         class="c-list__item is-link"
@@ -46,13 +48,13 @@
         v-model="cPayWay.index"
         :range="cPayWay.range">
         支付方式
-        <div class="c-list__extra c8 fs28">
+        <div class="c-list__extra fs28">
           {{ $consts.PAY_WAYS[cPayWay.index].label }}
         </div>
       </picker>
       <div class="c-list__item">
         商品总价
-        <div class="c-list__extra c8 fs28">￥{{ totalPrice }} 元</div>
+        <div class="c-list__extra fs28">￥{{ totalPrice }} 元</div>
       </div>
       <div class="c-list__item">
         合计

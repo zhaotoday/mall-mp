@@ -1,14 +1,16 @@
 import { mapState } from 'vuex'
 import cartUtils from '@/utils/cart'
+import cartProductsMxins from '@/mixins/cart-products'
 
 export default {
+  mixins: [cartProductsMxins],
   computed: {
     ...mapState({
       cartDetail: state => state['wx/carts'].detail,
       ordersForm: state => state['wx/orders'].form
     }),
     totalPrice () {
-      return cartUtils.getTotalPrice(this.cartDetail.data)
+      return cartUtils.getTotalPrice(this.cartProducts)
     }
   },
   data () {

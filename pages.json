@@ -1,6 +1,12 @@
 {
   "pages": [
     {
+      "path": "pages/tab-bar/home/index",
+      "style": {
+        "navigationBarTitleText": "东街口"
+      }
+    },
+    {
       "path": "pages/pay/index",
       "style": {
         "navigationBarTitleText": "结算"
@@ -10,12 +16,6 @@
       "path": "pages/remark/index",
       "style": {
         "navigationBarTitleText": "备注"
-      }
-    },
-    {
-      "path": "pages/tab-bar/home/index",
-      "style": {
-        "navigationBarTitleText": "东街口"
       }
     },
     {
