@@ -1,11 +1,10 @@
 <template>
   <div class="c-collections u-pt20">
     <c-products
-      v-if="productsList.items.length"
       ref="products"
       :items="productsList.items">
     </c-products>
-    <c-empty v-else-if="loaded"></c-empty>
+    <c-empty v-if="loaded && !productsList.items.length"></c-empty>
   </div>
 </template>
 

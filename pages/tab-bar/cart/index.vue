@@ -1,14 +1,13 @@
 <template>
   <div class="p-cart">
     <div
-      v-if="cartProducts.length"
       class="u-mt20">
       <c-products
         :items="cartProducts"
         editable>
       </c-products>
     </div>
-    <c-empty v-else></c-empty>
+    <c-empty v-if="!cartProducts.length"></c-empty>
     <c-cart-manager
       v-if="cartProducts.length"
       :cart-products="cartProducts">
