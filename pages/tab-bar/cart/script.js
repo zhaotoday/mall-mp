@@ -1,13 +1,13 @@
-import CCheckbox from '@/components/checkbox'
 import CCartManager from '@/components/cart-manager/index'
-import CNumberInput from '@/components/number-input/index'
+import CProducts from '@/components/products'
 import productsMixin from '@/mixins/products'
 import cartProductsMxins from '@/mixins/cart-products'
 
 export default {
-  components: { CNumberInput, CCartManager, CCheckbox },
+  components: { CProducts, CCartManager },
   mixins: [productsMixin, cartProductsMxins],
   onShow () {
+    this.$refs.products.init()
     this.cartProducts = this.getCartProducts()
   }
 }

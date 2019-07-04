@@ -1,9 +1,15 @@
 <template>
-  <ul class="c-products">
+  <ul :class="[ 'c-products', { 'is-editable':  editable } ]">
     <li
-      v-for="item in listItems"
+      v-for="item in items"
       :key="item.id"
       class="c-products__item">
+      <c-checkbox
+        v-if="editable"
+        class="c-products__checkbox"
+        :checked="item.checked"
+        @change="handleCheckboxChange(item)">
+      </c-checkbox>
       <img
         class="c-products__image"
         :src="$helpers.getImageById(item.pictures)"
