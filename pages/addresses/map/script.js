@@ -20,7 +20,6 @@ export default {
     })
   },
   methods: {
-    search () {},
     handleRegionChange () {
       this.mapContext.getCenterLocation({
         success: async ({ longitude, latitude }) => {
@@ -31,6 +30,13 @@ export default {
           })
         }
       })
+    },
+    select (item) {
+      this.$store.dispatch('wx/addresses/setForm', {
+        key: 'location',
+        value: item
+      })
+      this.$wx.navigateBack()
     }
   }
 }

@@ -29,6 +29,7 @@ export default {
   postAction ({ commit }, { query, body }) {
     return new Model().addPath('actions').POST({ query, body })
   },
+
   setForm ({ commit }, { key, value }) {
     commit(types.SET_FORM, { key, value })
   }

@@ -7,7 +7,10 @@ const initState = {
     items: [],
     total: 0
   },
-  detail: {}
+  detail: {},
+  form: {
+    location: {}
+  }
 }
 
 export default {

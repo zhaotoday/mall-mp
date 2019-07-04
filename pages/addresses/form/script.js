@@ -1,3 +1,5 @@
+import { mapState } from 'vuex'
+
 export default {
   data () {
     return {
@@ -11,6 +13,9 @@ export default {
       }
     }
   },
+  computed: mapState({
+    addressesForm: state => state['wx/addresses'].form
+  }),
   async onShow () {
     this.id = this.$mp.query.id
 

@@ -13,17 +13,19 @@ export default {
   },
   async onLoad () {
     this.location = await this.$wx.getLocation({ type: 'gcj02' })
-    this.addresses = await map.getNearbyAddresses({
-      location: this.location,
-      keywords: ''
-    })
   },
   methods: {
     async search () {
-      this.addresses = await map.getNearbyAddresses({
-        location: this.location,
-        keywords: ''
-      })
+      const keywords = this.$refs.search.getValue().trim()
+
+      if (keywords) {
+        this.addresses = await map.getNearbyAddresses({
+          location: this.location,
+          keywords: this.$refs.search.getValue().trim()
+        })
+      } else {
+        this.addresses = []
+      }
     }
   }
 }

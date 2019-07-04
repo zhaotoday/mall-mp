@@ -1,6 +1,7 @@
 <template>
   <div class="p-addresses-map bgc1">
     <c-search
+      ref="search"
       placeholder="请输入小区/写字楼"
       @confirm="search">
     </c-search>
