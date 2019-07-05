@@ -2,10 +2,10 @@
   <div class="p-orders">
     <ul class="c-tabs o-grid bgc1 fs28 u-tac u-mb20">
       <li
-        v-for="(item, index) in $consts.ORDER_STATUSES"
+        v-for="item in $consts.ORDER_STATUSES"
         :key="item.value"
-        :class="[ 'c-tabs__item o-grid__cell', { 'is-active': cTabs.current === index } ]"
-        @click="changeTab(item, index)">
+        :class="[ 'c-tabs__item o-grid__cell', { 'is-active': cTabs.current === item.code } ]"
+        @click="changeTab(item)">
         {{ item.label }}
       </li>
     </ul>

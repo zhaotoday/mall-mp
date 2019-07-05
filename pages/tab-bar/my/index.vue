@@ -12,7 +12,7 @@
             v-for="item in $consts.ORDER_STATUSES"
             :key="item.label"
             :class="[ 'b-orders__item', `b-orders__item--${item.value}` ]"
-            @click="navigateTo('/pages/orders/index')">
+            @click="navigateTo(`/pages/orders/index?status=${item.code}`)">
             <div class="b-orders__title c10 fs26 u-tac">{{ item.label }}</div>
           </li>
         </ul>

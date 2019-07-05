@@ -9,7 +9,7 @@ export default {
     return {
       status: '',
       cTabs: {
-        current: 0
+        current: ''
       }
     }
   },
@@ -17,13 +17,15 @@ export default {
     list: state => state['wx/orders'].list
   }),
   async onShow () {
+    if (this.$mp.query.status) {
+      this.cTabs.current = this.$mp.query.status
+    }
     await this.getList()
     this.loaded = true
   },
   methods: {
-    changeTab (item, index) {
-      this.status = item.code
-      this.cTabs.current = index
+    changeTab (item) {
+      this.cTabs.current = item.code
       this.getList()
     },
     getList () {
@@ -31,7 +33,7 @@ export default {
         query: {
           where: {
             status: {
-              $eq: this.status
+              $eq: this.cTabs.current
             }
           },
           offset: 0,

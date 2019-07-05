@@ -1,15 +1,15 @@
 {
   "pages": [
     {
-      "path": "pages/orders/index",
-      "style": {
-        "navigationBarTitleText": "我的订单"
-      }
-    },
-    {
       "path": "pages/tab-bar/home/index",
       "style": {
         "navigationBarTitleText": "东街口"
+      }
+    },
+    {
+      "path": "pages/orders/index",
+      "style": {
+        "navigationBarTitleText": "我的订单"
       }
     },
     {
