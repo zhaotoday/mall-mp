@@ -23,7 +23,7 @@ export default {
     },
     confirmText: {
       type: String,
-      default: '确定'
+      default: '确认'
     },
     confirmDisabled: {
       type: Boolean,

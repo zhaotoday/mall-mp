@@ -1,24 +1,6 @@
 {
   "pages": [
     {
-      "path": "pages/addresses/form/index",
-      "style": {
-        "navigationBarTitleText": ""
-      }
-    },
-    {
-      "path": "pages/addresses/search/index",
-      "style": {
-        "navigationBarTitleText": "选择"
-      }
-    },
-    {
-      "path": "pages/addresses/map/index",
-      "style": {
-        "navigationBarTitleText": "选择"
-      }
-    },
-    {
       "path": "pages/tab-bar/home/index",
       "style": {
         "navigationBarTitleText": "东街口"
@@ -28,6 +10,30 @@
       "path": "pages/pay/index",
       "style": {
         "navigationBarTitleText": "结算"
+      }
+    },
+    {
+      "path": "pages/addresses/list/index",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/addresses/form/index",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/addresses/search/index",
+      "style": {
+        "navigationBarTitleText": "搜索并选择地址"
+      }
+    },
+    {
+      "path": "pages/addresses/map/index",
+      "style": {
+        "navigationBarTitleText": "选择地址"
       }
     },
     {
@@ -76,12 +82,6 @@
       "path": "pages/login/index",
       "style": {
         "navigationBarTitleText": "授权登录"
-      }
-    },
-    {
-      "path": "pages/addresses/list/index",
-      "style": {
-        "navigationBarTitleText": ""
       }
     },
     {

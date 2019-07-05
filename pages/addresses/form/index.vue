@@ -30,12 +30,12 @@
       </li>
       <li
         class="c-list__item is-link"
-        @click="navigateTo('/pages/addresses/map/index')">
+        @click="selectLocation">
         小区
         <p
-          v-if="addressesForm.location.id"
+          v-if="cForm.location.id"
           class="c-list__value fs32">
-          {{ addressesForm.location.name }}
+          {{ cForm.location.name }}
         </p>
         <p
           v-else

@@ -89,6 +89,7 @@
   @include e(value) {
     @include position--absolute(50%);
     @include text--middle(px2rpx($__value_height));
+    @include text--overflow;
 
     transform: translateY(-50%);
     border: 0;

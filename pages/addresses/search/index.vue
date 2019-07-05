@@ -3,6 +3,7 @@
     <c-search
       ref="search"
       placeholder="请输入小区/写字楼"
+      show-submit
       @confirm="search">
     </c-search>
     <scroll-view
@@ -12,7 +13,8 @@
         <li
           v-for="item in addresses"
           :key="item.id"
-          class="c-list__item is-adaptable">
+          class="c-list__item is-adaptable"
+          @click="select(item)">
           <p class="c-list__desc fs28">{{ item.name }}</p>
           <p class="c-list__desc c9 fs24">{{ item.address }}</p>
         </li>

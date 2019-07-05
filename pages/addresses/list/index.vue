@@ -8,7 +8,7 @@
         class="b-list__item bgc1"
         @click="select(item)">
         <div class="b-list__head">
-          <h2 class="b-list__title fs28">{{ item.address + item.room }}</h2>
+          <h2 class="b-list__title fs28">{{ item.location.name + item.room }}</h2>
           <p class="b-list__desc c9 fs24">{{ item.name }} {{ item.phoneNumber }}</p>
           <div class="c-tag h34 bdc5 c5 fs20">
             {{ $helpers.getItem($consts.ADDRESS_TAGS, 'value', item.tag)['label'] }}
@@ -33,15 +33,16 @@
         </div>
       </li>
     </ul>
+    <c-empty v-if="!list.items.length && loaded"></c-empty>
     <button
       class="c-button w670 h76 bgc4 c1 fs32"
       @click="navigateTo('/pages/addresses/form/index')">
-      新增地址
+      新增
     </button>
     <c-dialog
       :visible="cDel.visible"
       title="请确认"
-      content="确认删除地址？"
+      content="确认删除收货地址？"
       @cancel="cDel.visible = false"
       @confirm="confirmDel">
     </c-dialog>

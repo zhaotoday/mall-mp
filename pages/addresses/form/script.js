@@ -7,7 +7,7 @@ export default {
         name: '',
         gender: '1',
         phoneNumber: '',
-        address: '',
+        location: {},
         room: '',
         tag: '1'
       }
@@ -16,18 +16,25 @@ export default {
   computed: mapState({
     addressesForm: state => state['wx/addresses'].form
   }),
-  async onShow () {
+  watch: {
+    ['addressesForm.location'] (newVal) {
+      console.log(newVal, 22)
+      this.cForm.location = newVal
+    }
+  },
+  // onLoad：选择地址返回后，不要 getDetail
+  async onLoad () {
     this.id = this.$mp.query.id
 
     if (this.id) {
       this.$wx.setNavigationBarTitle({
-        title: '修改收获地址'
+        title: '修改收货地址'
       })
 
       this.cForm = await this.getDetail()
     } else {
       this.$wx.setNavigationBarTitle({
-        title: '新增收获地址'
+        title: '新增收货地址'
       })
     }
   },
@@ -40,9 +47,22 @@ export default {
     changeTag (key, item) {
       this.cForm[key] = item.value
     },
+    selectLocation () {
+      if (this.cForm.location.id) {
+        const { longitude, latitude } = this.cForm.location
+
+        this.$wx.navigateTo({
+          url: `/pages/addresses/map/index?longitude=${longitude}&latitude=${latitude}`
+        })
+      } else {
+        this.$wx.navigateTo({
+          url: '/pages/addresses/map/index'
+        })
+      }
+    },
     async save () {
       const PHONE_REG = /^1\d{2}\s?\d{4}\s?\d{4}$/
-      const { name, phoneNumber, address } = this.cForm
+      const { name, phoneNumber } = this.cForm
 
       if (!name.trim()) {
         this.$wx.showToast({ title: '请填写收货人' })
@@ -59,7 +79,7 @@ export default {
         return
       }
 
-      if (!address.trim()) {
+      if (!this.addressesForm.location.id) {
         this.$wx.showToast({ title: '请填写小区' })
         return
       }

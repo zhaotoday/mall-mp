@@ -20,8 +20,8 @@ export default {
 
       return {
         id: item.id,
-        lng,
-        lat,
+        longitude: lng,
+        latitude: lat,
         province: item.pname,
         city: item.cityname,
         cityCode: item.citycode,

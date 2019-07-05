@@ -26,6 +26,15 @@ export default {
       } else {
         this.addresses = []
       }
+    },
+    select (item) {
+      this.$store.dispatch('wx/addresses/setForm', {
+        key: 'location',
+        value: item
+      })
+      this.$wx.navigateBack({
+        delta: 2
+      })
     }
   }
 }

@@ -1,8 +1,9 @@
 import { mapState } from 'vuex'
 import CDialog from '@/components/dialog'
+import CEmpty from '@/components/empty'
 
 export default {
-  components: { CDialog },
+  components: { CDialog, CEmpty },
   data () {
     return {
       cDel: {
@@ -14,12 +15,14 @@ export default {
   computed: mapState({
     list: state => state['wx/addresses'].list
   }),
-  onShow () {
+  async onShow () {
     this.$wx.setNavigationBarTitle({
-      title: '收获地址'
+      title: this.$mp.query.select ? '选择收货地址' : '收货地址'
     })
 
-    this.getList()
+    await this.getList()
+
+    this.loaded = true
   },
   methods: {
     getList () {
