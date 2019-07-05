@@ -18,7 +18,7 @@
           <span
             class="fs28"
             style="padding-right: 10rpx;">
-            订单已完成
+            {{ $helpers.getItem($consts.ORDER_STATUSES, 'code', order.status)['label'] }}
           </span>
           <span class="c8 fs22">{{ $time.getTime(order.createdAt) }}</span>
         </div>
@@ -29,16 +29,29 @@
             :src="$helpers.getImageById(order.products[0].pictures)"
           />
           <div class="o-media__body">
-            <ul class="b-products">
-              <li
+            <div class="b-products">
+              <div
                 v-for="product in order.products"
-                :key="product.id"
-                class="b-products__item c10 fs26">
-                {{ product.name }}
-                <div class="b-products__number">x{{ product.number }}</div>
-              </li>
-            </ul>
-            <div class="b-money fs28">共10份，实付 ￥{{ order.paidMoney }}</div>
+                :key="product.id">
+                <template v-if="product.price">
+                  <div class="b-products__item c10 fs26">
+                    {{ product.name }}
+                    <div class="b-products__number">￥{{ product.price }}x{{ product.number }}</div>
+                  </div>
+                </template>
+                <template v-else>
+                  <div
+                    v-for="specification in product.specifications"
+                    :key="specification.value"
+                    v-if="specification.number"
+                    class="b-products__item c10 fs26">
+                    {{ product.name }}（{{ specification.price }} 元 / {{ specification.label }}）
+                    <div class="b-products__number">x{{ specification.number }}</div>
+                  </div>
+                </template>
+              </div>
+            </div>
+            <div class="b-money fs28">共 {{ getTotalNumber(order.products) }} 份，实付 ￥{{ order.paidMoney }}</div>
           </div>
         </div>
         <div class="b-list__foot">

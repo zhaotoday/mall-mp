@@ -27,6 +27,21 @@ export default {
       } else {
         items.find(product => product.id === item.id)['visible'] = !item.visible
       }
+    },
+    getTotalNumber (products) {
+      let ret = 0
+
+      products.forEach(product => {
+        if (product.price) {
+          ret += product.number
+        } else {
+          product.specifications.forEach(specification => {
+            ret += specification.number
+          })
+        }
+      })
+
+      return ret
     }
   }
 }

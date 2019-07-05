@@ -1,6 +1,8 @@
 import { mapState } from 'vuex'
+import productsMixin from '@/mixins/products'
 
 export default {
+  mixins: [productsMixin],
   data () {
     return {
       cTabs: {

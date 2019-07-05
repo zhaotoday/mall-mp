@@ -40,7 +40,7 @@
       </div>
       <div class="c-list__item">
         商品数
-        <div class="c-list__extra fs28">{{ cartProducts.length }} 件</div>
+        <div class="c-list__extra fs28">{{ getTotalNumber(cartProducts) }} 件</div>
       </div>
       <picker
         class="c-list__item is-link"
@@ -65,7 +65,7 @@
       <div class="b-pay__money c5 fs32">￥{{ totalPrice }} 元</div>
       <div
         class="b-pay__submit bgc5 c1 fs32 u-tac"
-        @click="handlePay">
+        @click="pay">
         支付
       </div>
     </div>
