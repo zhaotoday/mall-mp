@@ -41,8 +41,6 @@ export default {
           .find(product => product.id === item.id)['number'] -= 1
       }
     }
-
-    state.items = state.items.filter(product => product.number || product.specifications.find(specification => specification.number))
   },
   [types.CHECK_ITEM] (state, { item }) {
     state.items.find(product => product.id === item.id)['checked'] = !item.checked

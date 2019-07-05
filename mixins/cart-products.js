@@ -1,8 +1,8 @@
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
-  computed: mapState({
-    cartProducts: state => state['public/cartProducts'].items
+  computed: mapGetters({
+    cartProducts: 'public/cartProducts/filteredItems'
   }),
   methods: {
     getNumber (item, specification) {

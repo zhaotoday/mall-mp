@@ -53,7 +53,9 @@ export default {
           url: `/pages/orders/index`
         })
       } catch (e) {
-        console.log(e)
+        this.$wx.navigateTo({
+          url: '/pages/orders/index?status=1'
+        })
       }
     }
   }
