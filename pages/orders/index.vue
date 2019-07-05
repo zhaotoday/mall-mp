@@ -9,32 +9,36 @@
         {{ item.label }}
       </li>
     </ul>
-    <ul class="b-list bgc1">
-      <li class="b-list__item u-mb20">
+    <ul class="b-list">
+      <li
+        v-for="order in list.items"
+        :key="order.id"
+        class="b-list__item bgc1 u-mb20">
         <div class="b-list__head">
           <span
             class="fs28"
             style="padding-right: 10rpx;">
-            订单已完成</span>
-          <span class="c8 fs22">2019-04-25 13:17:49</span>
+            订单已完成
+          </span>
+          <span class="c8 fs22">{{ $time.getTime(order.createdAt) }}</span>
         </div>
         <div class="b-list__body o-media">
           <img
             class="o-media__image"
             mode="aspectFill"
-            src="https://api.fjnm.cn/files/2019-05-27/aa365c20-7fdd-11e9-a72d-25bd1ddba1cf.jpg"
+            :src="$helpers.getImageById(order.products[0].pictures)"
           />
           <div class="o-media__body">
             <ul class="b-products">
               <li
-                v-for="item in 8"
-                :key="item"
+                v-for="product in order.products"
+                :key="product.id"
                 class="b-products__item c10 fs26">
-                发射点犯得上反对士大夫但是
-                <div class="b-products__number">x1</div>
+                {{ product.name }}
+                <div class="b-products__number">x{{ product.number }}</div>
               </li>
             </ul>
-            <div class="b-money fs28">共10份，实付 ￥123.28</div>
+            <div class="b-money fs28">共10份，实付 ￥{{ order.payMoney }}</div>
           </div>
         </div>
         <div class="b-list__foot">

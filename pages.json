@@ -1,6 +1,12 @@
 {
   "pages": [
     {
+      "path": "pages/orders/index",
+      "style": {
+        "navigationBarTitleText": "我的订单"
+      }
+    },
+    {
       "path": "pages/pay/index",
       "style": {
         "navigationBarTitleText": "结算"
@@ -52,12 +58,6 @@
       "path": "pages/products/list/index",
       "style": {
         "navigationBarTitleText": ""
-      }
-    },
-    {
-      "path": "pages/orders/index",
-      "style": {
-        "navigationBarTitleText": "我的订单"
       }
     },
     {
