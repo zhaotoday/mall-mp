@@ -10,7 +10,7 @@ export default {
 
       if (cartProduct) {
         if (specification) {
-          return cartProduct.specifications.find(item => item.value === specification.value)['number']
+          return (cartProduct.specifications.find(item => item.value === specification.value) || {})['number'] || 0
         } else {
           return cartProduct.number
         }
