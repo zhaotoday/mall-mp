@@ -6,7 +6,6 @@ export default {
   mixins: [cartProductsMxins],
   computed: {
     ...mapState({
-      cartDetail: state => state['wx/carts'].detail,
       ordersForm: state => state['wx/orders'].form
     }),
     totalPrice () {
@@ -15,31 +14,27 @@ export default {
   },
   data () {
     return {
-      cartId: 0,
       cPayWay: {
         index: 0,
         range: this.$consts.PAY_WAYS.map(item => item.label)
       }
     }
   },
-  onShow () {
-    this.cartId = this.$mp.query.cartId
-    this.getCartsDetail()
-  },
   methods: {
-    getCartsDetail () {
-      this.$store.dispatch('wx/carts/getDetail', { id: this.cartId })
-    },
     handlePayWayChange (e) {
       this.cPayWay.index = e.detail.value
     },
     async handlePay () {
+      const { address, remark } = this.ordersForm
       const { data } = await this.$store.dispatch('wx/payments/postAction', {
         body: {
           type: 'CREATE_UNIFIED_ORDER',
-          cartId: parseInt(this.cartId, 10),
+          addressId: address.id,
+          couponId: 0,
+          deliveryId: 0,
+          remark: remark.value,
           payMoney: this.totalPrice,
-          remark: 'abc'
+          products: this.cartProducts
         }
       })
 

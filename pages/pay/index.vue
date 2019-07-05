@@ -15,7 +15,7 @@
         @click="navigateTo('/pages/addresses/list/index?select=1')">
         <i class="c-icon c-icon--address"></i>
         <p class="c-list__desc">{{ ordersForm.address.name }} {{ ordersForm.address.phoneNumber }}</p>
-        <p class="c-list__desc">{{ ordersForm.address.address + ordersForm.address.room }}</p>
+        <p class="c-list__desc">{{ ordersForm.address.location.name + ordersForm.address.room }}</p>
       </div>
     </div>
     <div class="c-list bgc1 fs30 u-mt20">
