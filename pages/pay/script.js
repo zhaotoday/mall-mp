@@ -33,7 +33,7 @@ export default {
           couponId: 0,
           deliveryId: 0,
           remark: remark.value,
-          payMoney: this.totalPrice,
+          paidMoney: this.totalPrice,
           products: this.cartProducts
         }
       })

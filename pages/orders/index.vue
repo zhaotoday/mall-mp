@@ -38,7 +38,7 @@
                 <div class="b-products__number">x{{ product.number }}</div>
               </li>
             </ul>
-            <div class="b-money fs28">共10份，实付 ￥{{ order.payMoney }}</div>
+            <div class="b-money fs28">共10份，实付 ￥{{ order.paidMoney }}</div>
           </div>
         </div>
         <div class="b-list__foot">

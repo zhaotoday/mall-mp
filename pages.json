@@ -1,9 +1,9 @@
 {
   "pages": [
     {
-      "path": "pages/orders/index",
+      "path": "pages/tab-bar/home/index",
       "style": {
-        "navigationBarTitleText": "我的订单"
+        "navigationBarTitleText": "东街口"
       }
     },
     {
@@ -13,9 +13,9 @@
       }
     },
     {
-      "path": "pages/tab-bar/home/index",
+      "path": "pages/orders/index",
       "style": {
-        "navigationBarTitleText": "东街口"
+        "navigationBarTitleText": "我的订单"
       }
     },
     {
