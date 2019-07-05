@@ -5,7 +5,7 @@
         v-for="(item, index) in $consts.ORDER_STATUSES"
         :key="item.value"
         :class="[ 'c-tabs__item o-grid__cell', { 'is-active': cTabs.current === index } ]"
-        @click="changeTab(index)">
+        @click="changeTab(item, index)">
         {{ item.label }}
       </li>
     </ul>
@@ -60,6 +60,7 @@
         </div>
       </li>
     </ul>
+    <c-empty v-if="!list.items.length && loaded"></c-empty>
   </div>
 </template>
 

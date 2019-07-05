@@ -1,7 +1,7 @@
 export default [
   {
     value: 'all',
-    code: '0',
+    code: '',
     label: '全部'
   },
   {
