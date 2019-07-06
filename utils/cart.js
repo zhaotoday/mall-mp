@@ -12,6 +12,6 @@ export default {
       }
     })
 
-    return totalPrice
+    return parseFloat(totalPrice.toFixed(2))
   }
 }

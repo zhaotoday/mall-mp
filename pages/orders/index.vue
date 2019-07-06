@@ -36,7 +36,7 @@
                 <template v-if="product.price">
                   <div class="b-products__item c10 fs26">
                     {{ product.name }}
-                    <div class="b-products__number">￥{{ product.price }}x{{ product.number }}</div>
+                    <div class="b-products__number">x{{ product.number }}</div>
                   </div>
                 </template>
                 <template v-else>
@@ -55,7 +55,9 @@
           </div>
         </div>
         <div class="b-list__foot">
-          <div class="c-button w160 h48 bgc1 bdc4 c4 fs24">再来一单</div>
+          <div
+            v-if="order.status === '2'"
+            class="c-button w160 h48 bgc1 bdc4 c4 fs24">再来一单          </div>
           <div class="c-button w160 h48 bgc4 c1 fs24">再来一单</div>
         </div>
       </li>
