@@ -5,7 +5,8 @@
         <img
           v-if="detail.pictures"
           mode="aspectFill"
-          :src="$helpers.getImageById(detail.pictures)" />
+          :src="$helpers.getImageURL({ id: detail.pictures, width: 500, height: 500 })"
+        />
       </div>
       <div class="b-name u-tac fs40">{{ detail.name }}</div>
       <div

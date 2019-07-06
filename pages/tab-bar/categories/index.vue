@@ -19,7 +19,7 @@
         class="b-banner-wrap">
         <img
           class="b-banner"
-          :src="$helpers.getImageById((categoriesTree[cSidebar.index] || {})['banner'])" />
+          :src="$helpers.getImageURL({ id: (categoriesTree[cSidebar.index] || {})['banner'], width: 510, height: 200 })" />
       </div>
       <ul class="b-categories">
         <li
@@ -29,7 +29,7 @@
           @click="navigateTo(`/pages/products/list/index?categoryId=${item.id}&categoryName=${item.name}`)">
           <img
             class="b-categories__image"
-            :src="$helpers.getImageById(item.icon)" />
+            :src="$helpers.getImageURL({ id: item.icon, width: 110, height: 110 })" />
           <p class="b-categories__name c10 fs24">
             {{ item.name }}
           </p>

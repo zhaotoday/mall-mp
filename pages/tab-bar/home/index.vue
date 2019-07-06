@@ -10,7 +10,7 @@
         @click="goCategories(item.id)">
         <img
           class="b-categories__image"
-          :src="$helpers.getImageById(item.icon)" />
+          :src="$helpers.getImageURL({ id: item.icon, width: 88, height: 88 })" />
         <div class="b-categories__name">{{ item.name }}</div>
       </li>
     </ul>

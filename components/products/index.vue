@@ -12,7 +12,7 @@
       </c-checkbox>
       <img
         class="c-products__image"
-        :src="$helpers.getImageById(item.pictures)"
+        :src="$helpers.getImageURL({ id: item.pictures, width: 168, height: 168 })"
         @click="navigateTo(`/pages/products/detail/index?id=${item.id}`)"
       />
       <div

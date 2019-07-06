@@ -17,7 +17,7 @@ export default {
       sizeParams = `?imageView2/2/h/${height}/q/100`
     }
 
-    return `${consts.CDN_URL}/${id}`
+    return `${consts.CDN_URL}/${id}${sizeParams}`
   },
   getItem (items, key, val) {
     return items && items.length

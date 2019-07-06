@@ -26,7 +26,7 @@
           <img
             class="o-media__image"
             mode="aspectFill"
-            :src="$helpers.getImageById(order.products[0].pictures)"
+            :src="$helpers.getImageURL({ id: order.products[0].pictures, width: 110, height: 110 })"
           />
           <div class="o-media__body">
             <div class="b-products">
@@ -57,7 +57,8 @@
         <div class="b-list__foot">
           <div
             v-if="order.status === '2'"
-            class="c-button w160 h48 bgc1 bdc4 c4 fs24">再来一单          </div>
+            class="c-button w160 h48 bgc1 bdc4 c4 fs24">再来一单
+          </div>
           <div class="c-button w160 h48 bgc4 c1 fs24">再来一单</div>
         </div>
       </li>

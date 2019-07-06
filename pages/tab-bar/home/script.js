@@ -23,7 +23,7 @@ export default {
       adsList: state => state['public/ads'].list
     }),
     adsImages () {
-      return this.adsList.items.map(item => this.$helpers.getImageById(item.picture))
+      return this.adsList.items.map(item => this.$helpers.getImageURL({ id: item.picture, width: 750, height: 300 }))
     }
   },
   async onShow () {
