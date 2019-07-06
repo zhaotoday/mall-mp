@@ -10,6 +10,9 @@ export default {
   subtractNumber ({ commit }, { item, specification }) {
     commit(types.SUBTRACT_NUMBER, { item, specification })
   },
+  setItems ({ commit }, { items }) {
+    commit(types.SET_ITEMS, { items })
+  },
   checkItem ({ commit }, { item }) {
     commit(types.CHECK_ITEM, { item })
   },

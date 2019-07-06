@@ -55,11 +55,20 @@
           </div>
         </div>
         <div class="b-list__foot">
-          <div
-            v-if="order.status === '2'"
-            class="c-button w160 h48 bgc1 bdc4 c4 fs24">再来一单
-          </div>
-          <div class="c-button w160 h48 bgc4 c1 fs24">再来一单</div>
+          <template v-if="order.status === '1'">
+            <div
+              class="c-button w160 h48 bgc4 c1 fs24"
+              @click="goToPay(order)">
+              立即付款
+            </div>
+          </template>
+          <template v-else-if="order.status === '2'">
+            <div
+              class="c-button w160 h48 bgc1 bdc4 c4 fs24"
+              @click="cloneOrder(order)">
+              再来一单
+            </div>
+          </template>
         </div>
       </li>
     </ul>

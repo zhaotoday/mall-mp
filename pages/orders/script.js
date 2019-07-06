@@ -40,6 +40,14 @@ export default {
           limit: 1000
         }
       })
+    },
+    cloneOrder (order) {
+      this.$store.dispatch('public/cartProducts/setItems', {
+        items: order.products
+      })
+      this.$wx.switchTab({
+        url: '/pages/tab-bar/cart/index'
+      })
     }
   }
 }

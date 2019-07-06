@@ -42,6 +42,9 @@ export default {
       }
     }
   },
+  [types.SET_ITEMS] (state, { items }) {
+    state.items = items
+  },
   [types.CHECK_ITEM] (state, { item }) {
     state.items.find(product => product.id === item.id)['checked'] = !item.checked
   },
