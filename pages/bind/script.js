@@ -99,15 +99,7 @@ export default {
 
       await this.$helpers.sleep(1500)
 
-      const url = this.$mp.query.from
-        ? '/' + utils.url.decode(this.$mp.query.from)
-        : this.$consts.HOME_PAGE
-
-      try {
-        await this.$wx.navigateTo({ url })
-      } catch (e) {
-        await this.$wx.switchTab({ url })
-      }
+      this.$wx.navigateBack()
     }
   }
 }

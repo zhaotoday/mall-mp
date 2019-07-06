@@ -25,20 +25,18 @@ export default {
           }
         })
         const { wxUser, token } = wxUsersPostActionRes.data
-        const { from } = this.$mp.query
-        const url = from ? `/${utils.url.decode(from)}` : this.$consts.HOME_PAGE
 
         this.$auth.login({ user: wxUser, token })
         this.$wx.showToast({ title: '登录成功' })
 
         await this.$helpers.sleep(1500)
 
-        await this.phoneNumberBound(url)
-
-        try {
-          await this.$wx.navigateTo({ url })
-        } catch (e) {
-          await this.$wx.switchTab({ url })
+        if (!this.$auth.phoneNumberBound()) {
+          this.$wx.redirectTo({
+            url: this.$consts.BIND_PAGE
+          })
+        } else {
+          this.$wx.navigateBack()
         }
       }
     }
