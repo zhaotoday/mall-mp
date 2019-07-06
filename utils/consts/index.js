@@ -10,6 +10,9 @@ import COUPON_STATUSES from './coupon-statuses'
 // const API_URL = 'http://localhost:3004/api/v1'
 const API_URL = 'https://api.fjnm.cn/api/v1'
 
+// CDN
+const CDN_URL = 'https://cdn.fjnm.cn'
+
 // 高德地图 Web 服务接口地址
 const AMAP_WEB_SERVICE_URL = 'https://restapi.amap.com/v3'
 
@@ -27,6 +30,7 @@ const BIND_PAGE = '/pages/bind/index'
 
 export default {
   API_URL,
+  CDN_URL,
   AMAP_WEB_SERVICE_URL,
   AMAP_WEB_SERVICE_KEY,
   HOME_PAGE,
