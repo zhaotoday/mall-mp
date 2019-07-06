@@ -33,6 +33,8 @@ export default {
 
         await this.$helpers.sleep(1500)
 
+        await this.phoneNumberBound(url)
+
         try {
           await this.$wx.navigateTo({ url })
         } catch (e) {

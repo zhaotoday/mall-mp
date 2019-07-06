@@ -4,10 +4,8 @@ export default {
       user: {}
     }
   },
-  onShow () {
-    if (!this.$auth.loggedIn()) {
-      this.$wx.navigateTo({ url: this.$consts.LOGIN_PAGE })
-    }
+  async onShow () {
+    await this.loggedIn()
     this.user = this.$auth.get()['user']
   }
 }

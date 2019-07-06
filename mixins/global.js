@@ -38,9 +38,9 @@ export default {
         }
       })
     },
-    phoneNumberBound () {
+    phoneNumberBound (fromRoute) {
       const { page: { route } } = this.$parent ? this.$parent.$mp : this.$mp
-      const url = `${this.$consts.BIND_PAGE}?from=${route}`
+      const url = `${this.$consts.BIND_PAGE}?from=${fromRoute || route}`
 
       return new Promise(async (resolve, reject) => {
         if (!this.$auth.phoneNumberBound()) {

@@ -94,6 +94,7 @@ export default {
         }
       })
 
+      this.$auth.setPhoneNumber({ phoneNumber })
       this.$wx.showToast({ title: '绑定成功' })
 
       await this.$helpers.sleep(1500)
@@ -101,8 +102,6 @@ export default {
       const url = this.$mp.query.from
         ? '/' + utils.url.decode(this.$mp.query.from)
         : this.$consts.HOME_PAGE
-
-      this.$auth.setPhoneNumber({ phoneNumber })
 
       try {
         await this.$wx.navigateTo({ url })
