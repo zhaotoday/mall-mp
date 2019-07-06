@@ -6,7 +6,7 @@
           class="c-list__value is-full fs32"
           type="number"
           maxlength="11"
-          placeholder-class="c15"
+          placeholder-class="c9"
           placeholder="请输入要绑定的手机号"
           v-model="cForm.phoneNumber" />
         <div
@@ -20,7 +20,7 @@
           class="c-list__value is-full fs32"
           type="number"
           maxlength="6"
-          placeholder-class="c15"
+          placeholder-class="c9"
           placeholder="请输入验证码"
           v-model="cForm.checkCode" />
       </div>

@@ -2,11 +2,12 @@ import CSearch from '@/components/search'
 import CSort from '@/components/sort'
 import CProducts from '@/components/products'
 import CEmpty from '@/components/empty'
+import productsMixin from '@/mixins/products'
 import cartProductsMxins from '@/mixins/cart-products'
 
 export default {
   components: { CSearch, CSort, CProducts, CEmpty },
-  mixins: [cartProductsMxins],
+  mixins: [productsMixin, cartProductsMxins],
   data () {
     return {
       keywords: '',

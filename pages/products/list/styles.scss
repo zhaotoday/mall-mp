@@ -1,6 +1,10 @@
 @import '../../../styles/utils/index';
 
 @include p(products-list) {
+  @include position--fixed(0, null, null, 0);
+
+  width: 100%;
+
   @include b(products) {
     @include position--fixed(px2rpx(184px), null, 0, 0);
 
