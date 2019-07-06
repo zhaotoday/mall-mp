@@ -9,7 +9,7 @@ export default {
           .sort((a, b) => a - b)
         const unitLabel = this.$helpers.getItem(this.$consts.PRODUCT_UNITS, 'value', unit)['label']
 
-        return `${unitPrices[0]} - ${unitPrices.pop()}/${unitLabel}`
+        return `${unitPrices[0]} - ${unitPrices.pop()} / ${unitLabel}`
       } else {
         return ''
       }
@@ -19,7 +19,7 @@ export default {
       const number = parseInt(value.split(':')[1], 10)
       const unitLabel = this.$helpers.getItem(this.$consts.PRODUCT_UNITS, 'value', unit)['label']
 
-      return `${parseFloat((price / number).toFixed(2))} 元/${unitLabel}`
+      return `${parseFloat((price / number).toFixed(2))} 元 / ${unitLabel}`
     },
     toggleSpecification (items, item, editable) {
       if (editable) {
