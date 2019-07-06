@@ -2,7 +2,6 @@ import CProductActions from '@/components/product-actions'
 import CSpecifications from '@/components/specifications'
 import cartProductsMxins from '@/mixins/cart-products'
 import CAddToCart from '@/components/add-to-cart'
-import { mapState } from 'vuex'
 
 export default {
   components: { CProductActions, CSpecifications, CAddToCart },
@@ -16,7 +15,8 @@ export default {
     }
   },
   async onShow () {
-    this.id = this.$mp.query.id || 17
+    this.id = this.$mp.query.id
+
     this.detail = this.addCartKeys(await this.getDetail())
 
     await this.$wx.setNavigationBarTitle({ title: this.detail.name })

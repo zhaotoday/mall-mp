@@ -21,6 +21,10 @@ export default {
       }
     }
   },
+  async onShow () {
+    await this.loggedIn()
+    await this.phoneNumberBound()
+  },
   methods: {
     handlePayWayChange (e) {
       this.cPayWay.index = e.detail.value

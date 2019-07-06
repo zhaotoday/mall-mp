@@ -25,7 +25,9 @@ export default {
     }
   },
   async created () {
-    this.collectedProductIds = await this.getCollectedProductIds()
+    if (this.$auth.loggedIn()) {
+      this.collectedProductIds = await this.getCollectedProductIds()
+    }
   },
   methods: {
     async getCollectedProductIds () {
@@ -36,6 +38,7 @@ export default {
       return data
     },
     async collect () {
+      await this.loggedIn()
       await this.$store.dispatch('wx/collections/postAction', {
         body: {
           type: this.collected ? 'CANCEL' : 'ADD',
