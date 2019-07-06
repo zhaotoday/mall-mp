@@ -53,11 +53,11 @@ export default {
 
       try {
         await this.$wx.requestPayment(data)
-        this.$wx.navigateTo({
+        this.$wx.redirectTo({
           url: `/pages/orders/index`
         })
       } catch (e) {
-        this.$wx.navigateTo({
+        this.$wx.redirectTo({
           url: '/pages/orders/index?status=1'
         })
       }

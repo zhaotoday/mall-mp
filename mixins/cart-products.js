@@ -61,7 +61,6 @@ export default {
       } : {}
     },
     addNumber (item, specification) {
-      console.log(item, specification, 333)
       this.$store.dispatch('public/cartProducts/addNumber', { item, specification })
     },
     subtractNumber (item, specification) {
