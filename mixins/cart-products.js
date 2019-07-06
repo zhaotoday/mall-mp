@@ -1,9 +1,27 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  computed: mapGetters({
-    cartProducts: 'public/cartProducts/filteredItems'
-  }),
+  computed: {
+    ...mapGetters({
+      cartProducts: 'public/cartProducts/filteredItems',
+      checkedCartProducts: 'public/cartProducts/checkedItems'
+    }),
+    totalPrice () {
+      let totalPrice = 0
+
+      this.checkedCartProducts.forEach(product => {
+        if (product.price) {
+          totalPrice += product.price * product.number
+        } else {
+          product.specifications.forEach(specification => {
+            totalPrice += specification.price * specification.number
+          })
+        }
+      })
+
+      return parseFloat(totalPrice.toFixed(2))
+    }
+  },
   methods: {
     getNumber (item, specification) {
       const cartProduct = this.cartProducts.find(product => product.id === item.id)

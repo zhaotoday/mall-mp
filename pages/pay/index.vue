@@ -40,7 +40,7 @@
       </div>
       <div class="c-list__item">
         商品数
-        <div class="c-list__extra fs28">{{ getTotalNumber(cartProducts) }} 件</div>
+        <div class="c-list__extra fs28">{{ getTotalNumber(checkedCartProducts) }} 件</div>
       </div>
       <picker
         class="c-list__item is-link"

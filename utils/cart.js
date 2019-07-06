@@ -2,7 +2,7 @@ export default {
   getTotalPrice (products = []) {
     let totalPrice = 0
 
-    products.forEach(product => {
+    products.filter(item => item.checked).forEach(product => {
       if (product.price) {
         totalPrice += product.price * product.number
       } else {

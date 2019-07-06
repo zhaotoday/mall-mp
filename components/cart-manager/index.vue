@@ -6,7 +6,7 @@
         :checked="!cartProducts.find(item => !item.checked)"
         @change="$store.dispatch('public/cartProducts/checkAllItems')">
       </c-checkbox>
-      <div class="fs28">已选中（{{ checkedProducts.length }}）</div>
+      <div class="fs28">已选中（{{ checkedCartProducts.length }}）</div>
       <div class="c-cart-manager__money fs32">￥{{ totalPrice }} 元</div>
     </div>
     <div

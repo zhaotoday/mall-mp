@@ -7,14 +7,6 @@ export default {
   name: 'c-cart-manager',
   components: { CCheckbox },
   mixins: [cartProductsMxins],
-  computed: {
-    ...mapGetters({
-      checkedProducts: 'public/cartProducts/checkedItems'
-    }),
-    totalPrice () {
-      return cartUtils.getTotalPrice(this.checkedProducts)
-    }
-  },
   created () {
     console.log(this.$store)
   },
