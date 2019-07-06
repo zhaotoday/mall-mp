@@ -61,6 +61,12 @@ export default {
           url: '/pages/orders/index?status=1'
         })
       }
+
+      await this.$helpers.sleep(200)
+
+      this.$store.dispatch('public/cartProducts/setItems', {
+        items: []
+      })
     }
   }
 }

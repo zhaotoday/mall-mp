@@ -27,6 +27,7 @@ export default {
     }
   },
   async onShow () {
+    console.log(this.$store, 3333)
     this.getAdsList()
     this.getCategoriesList()
 
@@ -44,7 +45,7 @@ export default {
       })
 
       return {
-        items: items.map(item => this.$refs.hotProducts.addCartKeys(item)),
+        items: items.map(item => this.addCartKeys(item)),
         total
       }
     },

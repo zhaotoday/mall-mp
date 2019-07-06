@@ -32,6 +32,9 @@ export default {
       return this.$store.dispatch('wx/orders/getList', {
         query: {
           where: {
+            wxUserId: {
+              $eq: this.$auth.get()['user'].id
+            },
             status: {
               $eq: this.cTabs.current
             }

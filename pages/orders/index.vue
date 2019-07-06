@@ -26,7 +26,7 @@
           <img
             class="o-media__image"
             mode="aspectFill"
-            :src="$helpers.getImageURL({ id: order.products[0].pictures, width: 110, height: 110 })"
+            :src="$helpers.getImageURL({ id: order.products[0] ? order.products[0].pictures : 0, width: 110, height: 110 })"
           />
           <div class="o-media__body">
             <div class="b-products">

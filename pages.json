@@ -1,15 +1,27 @@
 {
   "pages": [
     {
+      "path": "pages/tab-bar/home/index",
+      "style": {
+        "navigationBarTitleText": "福菜"
+      }
+    },
+    {
       "path": "pages/bind/index",
       "style": {
         "navigationBarTitleText": ""
       }
     },
     {
-      "path": "pages/tab-bar/home/index",
+      "path": "pages/addresses/list/index",
       "style": {
-        "navigationBarTitleText": "福菜"
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/addresses/map/index",
+      "style": {
+        "navigationBarTitleText": "选择地址"
       }
     },
     {
@@ -31,12 +43,6 @@
       }
     },
     {
-      "path": "pages/addresses/list/index",
-      "style": {
-        "navigationBarTitleText": ""
-      }
-    },
-    {
       "path": "pages/addresses/form/index",
       "style": {
         "navigationBarTitleText": ""
@@ -46,12 +52,6 @@
       "path": "pages/addresses/search/index",
       "style": {
         "navigationBarTitleText": "搜索并选择地址"
-      }
-    },
-    {
-      "path": "pages/addresses/map/index",
-      "style": {
-        "navigationBarTitleText": "选择地址"
       }
     },
     {

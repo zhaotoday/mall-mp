@@ -19,10 +19,7 @@
         热销产品
       </div>
       <div class="c-card__body">
-        <c-products
-          ref="hotProducts"
-          :items="hotProductsList.items">
-        </c-products>
+        <c-products :items="hotProductsList.items"></c-products>
       </div>
     </div>
   </div>

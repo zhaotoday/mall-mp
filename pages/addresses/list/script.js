@@ -27,7 +27,13 @@ export default {
   methods: {
     getList () {
       return this.$store.dispatch('wx/addresses/getList', {
-        query: {}
+        query: {
+          where: {
+            wxUserId: {
+              $eq: this.$auth.get()['user'].id
+            }
+          }
+        }
       })
     },
     async setDefault (item) {
