@@ -1,11 +1,7 @@
-import { utils } from 'mp-client'
-
 export default {
   data () {
     return {
-      cForm: {
-        data: {}
-      },
+      cForm: {},
       cCheckCode: {
         disabled: false,
         message: '获取验证码'

@@ -11,6 +11,12 @@
     border: none;
   }
 
+  @include s(is-foot) {
+    @include position--fixed(null, null, px2rpx(60px), 50%);
+
+    transform: translateX(-50%);
+  }
+
   @each $item in $widths {
     &.w#{$item} {
       width: px2rpx($item * 1px);
