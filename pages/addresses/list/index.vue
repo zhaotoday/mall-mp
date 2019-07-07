@@ -35,7 +35,7 @@
     </ul>
     <c-empty v-if="!list.items.length && loaded"></c-empty>
     <button
-      class="c-button w670 h76 bgc4 c1 fs32"
+      class="c-button is-foot w670 h76 bgc4 c1 fs32"
       @click="navigateTo('/pages/addresses/form/index')">
       新增
     </button>

@@ -10,10 +10,4 @@
     display: block;
     border-radius: px2rpx(8px);
   }
-
-  @include c(button) {
-    @include position--fixed(null, null, px2rpx(60px), 50%);
-
-    transform: translateX(-50%);
-  }
 }

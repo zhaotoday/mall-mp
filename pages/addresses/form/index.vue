@@ -65,7 +65,7 @@
       </li>
     </ul>
     <button
-      class="c-button w670 h76 bgc4 c1 fs32"
+      class="c-button is-foot w670 h76 bgc4 c1 fs32"
       @click="save">
       保存
     </button>
