@@ -11,7 +11,7 @@ export default {
   onShareAppMessage () {
     return {
       title: '小程序名称',
-      path: `pages/index/index`
+      path: this.$consts.HOME_PAGE
     }
   },
   methods: {
