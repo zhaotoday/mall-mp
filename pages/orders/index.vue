@@ -65,7 +65,7 @@
           <template v-else-if="order.status === '2'">
             <div
               class="c-button w160 h48 bgc1 bdc4 c4 fs24"
-              @click="cloneOrder(order)">
+              @click="clone(order)">
               再来一单
             </div>
           </template>

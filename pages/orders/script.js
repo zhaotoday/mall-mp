@@ -44,7 +44,19 @@ export default {
         }
       })
     },
-    cloneOrder (order) {
+    async pay (order) {
+      const { data } = await this.$store.dispatch('wx/payments/postAction', {
+        body: {
+          type: 'CREATE_UNIFIED_ORDER',
+          id: order.id
+        }
+      })
+
+      await this.$wx.requestPayment(data)
+
+      this.cTabs.current = '2'
+    },
+    clone (order) {
       this.$store.dispatch('public/cartProducts/setItems', {
         items: order.products
       })

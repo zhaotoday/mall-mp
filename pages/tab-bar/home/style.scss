@@ -9,13 +9,13 @@
     height: px2rpx(400px);
 
     @include e(item) {
-      padding-bottom: px2rpx(65px);
-      width: 16.6%;
+      padding-bottom: px2rpx(50px);
+      width: 25%;
       float: left;
     }
 
     @include e(image) {
-      @include circle(px2rpx(88px));
+      @include circle(px2rpx(100px));
       @include block--center;
 
       display: block;
