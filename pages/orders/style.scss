@@ -2,9 +2,6 @@
 
 @include p(orders) {
   @include b(list) {
-    @include e(item) {
-    }
-
     @include e(head) {
       @include text--middle(px2rpx(70px));
 

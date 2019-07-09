@@ -58,7 +58,7 @@
           <template v-if="order.status === '1'">
             <div
               class="c-button w160 h48 bgc4 c1 fs24"
-              @click="goToPay(order)">
+              @click="pay(order)">
               立即付款
             </div>
           </template>
