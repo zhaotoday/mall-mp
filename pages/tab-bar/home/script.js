@@ -3,12 +3,13 @@ import CSwiper from '@/components/swiper'
 import CSearch from '@/components/search'
 import CNumberInput from '@/components/number-input/index'
 import CProducts from '@/components/products'
+import CFixedCart from '@/components/fixed-cart'
 import categoriesMixin from '@/mixins/categories'
 import productsMixin from '@/mixins/products'
 import cartProductsMxins from '@/mixins/cart-products'
 
 export default {
-  components: { CNumberInput, CSwiper, CSearch, CProducts },
+  components: { CNumberInput, CSwiper, CSearch, CProducts, CFixedCart },
   mixins: [categoriesMixin, productsMixin, cartProductsMxins],
   data () {
     return {

@@ -48,15 +48,21 @@ export default {
       const { data } = await this.$store.dispatch('wx/payments/postAction', {
         body: {
           type: 'CREATE_UNIFIED_ORDER',
-          id: order.id
+          id: order.id,
+          paidMoney: order.paidMoney
         }
       })
 
       await this.$wx.requestPayment(data)
 
+      this.$wx.redirectTo({
+        url: '/pages/orders/index?status=2'
+      })
+
       this.cTabs.current = '2'
     },
     clone (order) {
+      console.log(order, 33)
       this.$store.dispatch('public/cartProducts/setItems', {
         items: order.products
       })

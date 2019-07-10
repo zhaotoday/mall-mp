@@ -43,16 +43,7 @@ export default {
     }
   },
   [types.SET_ITEMS] (state, { items }) {
-    state.items = state.items.map(item => ({
-      ...item,
-      number: 0,
-      checked: false,
-      visible: false,
-      specifications: item.specifications.map(specification => ({
-        ...specification,
-        number: 0
-      }))
-    }))
+    state.items = items
   },
   [types.CHECK_ITEM] (state, { item }) {
     state.items.find(product => product.id === item.id)['checked'] = !item.checked

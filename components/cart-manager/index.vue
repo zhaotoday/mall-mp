@@ -7,7 +7,7 @@
         @change="$store.dispatch('public/cartProducts/checkAllItems')">
       </c-checkbox>
       <div class="fs28">已选中（{{ checkedCartProducts.length }}）</div>
-      <div class="c-cart-manager__money fs32">￥{{ totalPrice }} 元</div>
+      <div class="c-cart-manager__money fs32">￥{{ totalPrice }}</div>
     </div>
     <div
       class="c-cart-manager__settle bgc5 fs32 u-tac"

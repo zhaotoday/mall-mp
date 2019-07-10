@@ -1,0 +1,22 @@
+@include c(fixed-cart) {
+  @include position--fixed(null, null, px2rpx(60px), px2rpx(60px));
+  @include text--middle(px2rpx(70px));
+  @include padding(null, px2rpx(30px), null, px2rpx(75px));
+
+  display: inline-block;
+  border-radius: px2rpx(35px);
+  background: {
+    image: cdn("components/fixed-cart/cart.png");
+    size: px2rpx(36px) px2rpx(30px);
+    repeat: no-repeat;
+    position: px2rpx(30px) center;
+  }
+
+  @include e(number) {
+    @include position--absolute(px2rpx(10px), null, null, px2rpx(100px));
+    @include padding(null, px2rpx(10px), null, px2rpx(10px));
+    @include text--middle(px2rpx(30px));
+
+    border-radius: px2rpx(15px);
+  }
+}
