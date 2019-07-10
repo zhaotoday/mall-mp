@@ -1,5 +1,8 @@
 @include c(fixed-cart) {
-  @include position--fixed(null, null, px2rpx(120px), px2rpx(30px));
+  $left: 30px;
+  $bottom: 120px;
+
+  @include position--fixed(null, null, px2rpx($bottom), px2rpx($left));
   @include text--middle(px2rpx(76px));
   @include padding(null, px2rpx(30px), null, px2rpx(75px));
 
@@ -13,7 +16,7 @@
   }
 
   @include s(has-tab) {
-    bottom: px2rpx(120px - 96px);
+    bottom: px2rpx($bottom - 96px);
   }
 
   @include e(number) {
