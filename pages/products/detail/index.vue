@@ -97,6 +97,7 @@
         </template>
       </div>
     </c-product-actions>
+    <c-fixed-cart></c-fixed-cart>
   </div>
 </template>
 

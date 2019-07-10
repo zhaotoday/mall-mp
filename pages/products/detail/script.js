@@ -1,10 +1,11 @@
 import CProductActions from '@/components/product-actions'
 import CSpecifications from '@/components/specifications'
+import CFixedCart from '@/components/fixed-cart'
 import cartProductsMxins from '@/mixins/cart-products'
 import CAddToCart from '@/components/add-to-cart'
 
 export default {
-  components: { CProductActions, CSpecifications, CAddToCart },
+  components: { CProductActions, CSpecifications, CAddToCart, CFixedCart },
   mixins: [cartProductsMxins],
   data () {
     return {

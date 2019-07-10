@@ -1,5 +1,5 @@
 @include c(fixed-cart) {
-  @include position--fixed(null, null, px2rpx(60px), px2rpx(60px));
+  @include position--fixed(null, null, px2rpx(110px), px2rpx(30px));
   @include text--middle(px2rpx(70px));
   @include padding(null, px2rpx(30px), null, px2rpx(75px));
 
@@ -12,8 +12,12 @@
     position: px2rpx(30px) center;
   }
 
+  @include s(has-tab) {
+    bottom: px2rpx(110px - 96px);
+  }
+
   @include e(number) {
-    @include position--absolute(px2rpx(10px), null, null, px2rpx(100px));
+    @include position--absolute(px2rpx(6px), null, null, px2rpx(50px));
     @include padding(null, px2rpx(10px), null, px2rpx(10px));
     @include text--middle(px2rpx(30px));
 

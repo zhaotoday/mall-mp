@@ -22,7 +22,7 @@
         <c-products :items="hotProductsList.items"></c-products>
       </div>
     </div>
-    <c-fixed-cart></c-fixed-cart>
+    <c-fixed-cart has-tab></c-fixed-cart>
   </div>
 </template>
 
