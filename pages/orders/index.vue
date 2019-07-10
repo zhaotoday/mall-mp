@@ -14,8 +14,9 @@
       scroll-y>
       <ul class="u-mt20">
         <li
-          v-for="order in list.items"
+          v-for="(order, index) in list.items"
           :key="order.id"
+          :id="'order-' + index"
           class="b-list__item bgc1 u-mb20">
           <div class="b-list__head">
           <span

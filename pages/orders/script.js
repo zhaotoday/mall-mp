@@ -24,9 +24,9 @@ export default {
     this.loaded = true
   },
   methods: {
-    changeTab (item) {
+    async changeTab (item) {
       this.cTabs.current = item.code
-      this.getList()
+      await this.getList()
     },
     getList () {
       return this.$store.dispatch('wx/orders/getList', {
@@ -62,7 +62,6 @@ export default {
       this.cTabs.current = '2'
     },
     clone (order) {
-      console.log(order, 33)
       this.$store.dispatch('public/cartProducts/setItems', {
         items: order.products
       })
