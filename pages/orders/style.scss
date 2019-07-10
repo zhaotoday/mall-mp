@@ -1,7 +1,17 @@
 @import '../../styles/utils/index';
 
 @include p(orders) {
+  @include c(tabs) {
+    @include position--fixed(0, null, null, 0);
+
+    width: 100%;
+  }
+
   @include b(list) {
+    @include position--fixed(px2rpx(72px), null, 0, 0);
+
+    width: 100%;
+
     @include e(head) {
       @include text--middle(px2rpx(70px));
 

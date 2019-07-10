@@ -7,6 +7,12 @@
       }
     },
     {
+      "path": "pages/orders/index",
+      "style": {
+        "navigationBarTitleText": "我的订单"
+      }
+    },
+    {
       "path": "pages/bind/index",
       "style": {
         "navigationBarTitleText": ""
@@ -28,12 +34,6 @@
       "path": "pages/products/list/index",
       "style": {
         "navigationBarTitleText": ""
-      }
-    },
-    {
-      "path": "pages/orders/index",
-      "style": {
-        "navigationBarTitleText": "我的订单"
       }
     },
     {
