@@ -21,6 +21,7 @@
       </c-products>
       <c-empty v-if="!productsList.items.length && loaded"></c-empty>
     </scroll-view>
+    <c-fixed-cart></c-fixed-cart>
   </div>
 </template>
 

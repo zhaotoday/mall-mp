@@ -41,6 +41,8 @@ export default {
           .find(product => product.id === item.id)['number'] -= 1
       }
     }
+
+    state.items = state.items.filter(product => product.number || product.specifications.find(specification => specification.number))
   },
   [types.SET_ITEMS] (state, { items }) {
     state.items = items

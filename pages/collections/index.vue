@@ -5,6 +5,7 @@
       :items="productsList.items">
     </c-products>
     <c-empty v-if="loaded && !productsList.items.length"></c-empty>
+    <c-fixed-cart></c-fixed-cart>
   </div>
 </template>
 
