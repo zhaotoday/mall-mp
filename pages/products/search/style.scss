@@ -11,7 +11,7 @@
 
   @include c(icon) {
     @include m(del) {
-      @include position--absolute(50%, px2rpx(-10px));
+      @include position--absolute(50%, px2rpx(20px));
 
       transform: translateY(-50%);
       border: px2rpx(10px) solid transparent;
