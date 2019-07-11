@@ -3,9 +3,7 @@ import CSearch from '@/components/search'
 const SEARCH_HISTORY = 'searchHistory'
 
 export default {
-  components: {
-    CSearch
-  },
+  components: { CSearch },
   data () {
     return {
       history: [],
