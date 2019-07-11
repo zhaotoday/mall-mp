@@ -5,8 +5,8 @@
       show-submit
       @confirm="search()">
     </c-search>
-    <div class="bgc1">
-      <template v-show="history[0]">
+    <div class="b-keywords bgc1">
+      <template v-if="history[0]">
         <h2 class="b-title fs28">
           历史搜索
           <i

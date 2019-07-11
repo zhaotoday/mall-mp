@@ -1,12 +1,16 @@
 @import '../../../styles/utils/index';
 
 @include p(products-search) {
-  padding-bottom: px2rpx(160px);
+  @include b(keywords) {
+    padding-bottom: px2rpx(160px);
+  }
 
   @include b(title) {
-    @include padding(px2rpx(38px), px2rpx(30px), px2rpx(24px), px2rpx(30px));
+    @include padding(px2rpx(24px), px2rpx(30px), px2rpx(24px), px2rpx(30px));
 
     position: relative;
+    line-height: 100%;
+    border-top: px2rpx(14px) solid transparent;
   }
 
   @include c(icon) {
