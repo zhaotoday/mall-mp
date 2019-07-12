@@ -9,6 +9,8 @@
         {{ item.label }}
       </li>
     </ul>
+    <c-coupon></c-coupon>
+    <c-coupon disabled></c-coupon>
     <c-empty></c-empty>
   </div>
 </template>

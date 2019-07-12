@@ -1,7 +1,8 @@
 import CEmpty from '@/components/empty'
+import CCoupon from '@/components/coupon'
 
 export default {
-  components: { CEmpty },
+  components: { CEmpty, CCoupon },
   data () {
     return {
       cTabs: {
