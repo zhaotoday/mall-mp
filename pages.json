@@ -1,15 +1,21 @@
 {
   "pages": [
     {
-      "path": "pages/tab-bar/home/index",
+      "path": "pages/coupons/index",
       "style": {
-        "navigationBarTitleText": "福菜"
+        "navigationBarTitleText": "我的优惠券"
       }
     },
     {
       "path": "pages/orders/index",
       "style": {
         "navigationBarTitleText": "我的订单"
+      }
+    },
+    {
+      "path": "pages/tab-bar/home/index",
+      "style": {
+        "navigationBarTitleText": "福菜"
       }
     },
     {
@@ -64,12 +70,6 @@
       "path": "pages/collections/index",
       "style": {
         "navigationBarTitleText": "我的收藏"
-      }
-    },
-    {
-      "path": "pages/coupons/index",
-      "style": {
-        "navigationBarTitleText": "我的优惠券"
       }
     },
     {
