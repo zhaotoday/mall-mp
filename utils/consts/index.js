@@ -7,8 +7,8 @@ import GENDERS from './genders'
 import COUPON_STATUSES from './coupon-statuses'
 
 // 接口地址
-// const API_URL = 'http://localhost:3004/api/v1'
-const API_URL = 'https://api.fjnm.cn/api/v1'
+const API_URL = 'http://localhost:3004/api/v1'
+// const API_URL = 'https://api.fjnm.cn/api/v1'
 
 // CDN
 const CDN_URL = 'https://cdn.fjnm.cn'
@@ -28,6 +28,9 @@ const LOGIN_PAGE = '/pages/login/index'
 // 绑定手机页面
 const BIND_PAGE = '/pages/bind/index'
 
+// 订单最低限额
+const ORDER_MIN_PRICE = 0.03
+
 export default {
   API_URL,
   CDN_URL,
@@ -36,6 +39,7 @@ export default {
   HOME_PAGE,
   LOGIN_PAGE,
   BIND_PAGE,
+  ORDER_MIN_PRICE,
   ORDER_STATUSES,
   PRODUCT_UNITS,
   PRODUCT_SORT_ITEMS,

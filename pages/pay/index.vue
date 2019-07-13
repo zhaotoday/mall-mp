@@ -23,7 +23,16 @@
         class="c-list__item is-link"
         @click="navigateTo('/pages/coupons/index?select=1')">
         优惠券
-        <div class="c-list__extra c8 fs28">请选择优惠券</div>
+        <div
+          v-if="!ordersForm.coupon.id"
+          class="c-list__extra c8 fs28">
+          请选择优惠券
+        </div>
+        <div
+          v-else
+          class="c-list__extra fs28">
+          ￥{{ ordersForm.coupon.value }}（{{ ordersForm.coupon.title }}）
+        </div>
       </div>
       <div
         class="c-list__item is-link"
@@ -58,11 +67,11 @@
       </div>
       <div class="c-list__item">
         合计
-        <div class="c-list__extra c5 fs28">￥{{ totalPrice }} 元</div>
+        <div class="c-list__extra c5 fs28">￥{{ totalPrice - parseFloat(ordersForm.coupon.value) }} 元</div>
       </div>
     </div>
     <div class="b-pay bgc1">
-      <div class="b-pay__money c5 fs32">￥{{ totalPrice }} 元</div>
+      <div class="b-pay__money c5 fs32">￥{{ totalPrice - parseFloat(ordersForm.coupon.value) }} 元</div>
       <div
         class="b-pay__submit bgc5 c1 fs32 u-tac"
         @click="pay">

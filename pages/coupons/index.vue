@@ -5,13 +5,18 @@
         v-for="(item, index) in $consts.COUPON_STATUSES"
         :key="item.value"
         :class="[ 'c-tabs__item o-grid__cell', { 'is-active': cTabs.current === index } ]"
-        @click="changeTab(index)">
+        @click="changeTab(index, item.value)">
         {{ item.label }}
       </li>
     </ul>
-    <c-coupon></c-coupon>
-    <c-coupon disabled></c-coupon>
-    <c-empty></c-empty>
+    <c-coupon
+      v-for="item in list.items"
+      :key="item.id"
+      :item="item.coupon"
+      :used="item.used"
+      @select="select(item.coupon)">
+    </c-coupon>
+    <c-empty v-if="loaded && !list.items.length"></c-empty>
   </div>
 </template>
 

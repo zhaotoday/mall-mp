@@ -40,7 +40,7 @@ export default {
           couponId: 0,
           deliveryId: 0,
           remark: remark.value,
-          paidMoney: this.totalPrice,
+          paidMoney: this.totalPrice - parseFloat(this.ordersForm.coupon.value || 0),
           products: this.cartProducts
         }
       })

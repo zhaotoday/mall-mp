@@ -7,7 +7,15 @@ export default {
   mixins: [cartProductsMxins],
   methods: {
     async handleGoToPay () {
-      this.$wx.navigateTo({ url: `/pages/pay/index` })
+      const { ORDER_MIN_PRICE } = this.$consts
+
+      if (this.totalPrice < ORDER_MIN_PRICE) {
+        this.$wx.showToast({
+          title: `满 ￥${ORDER_MIN_PRICE} 才可下单`
+        })
+      } else {
+        this.$wx.navigateTo({ url: `/pages/pay/index` })
+      }
     }
   }
 }
