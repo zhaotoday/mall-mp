@@ -36,6 +36,7 @@ export default new Vuex.Store({
     'wx/carts': require('./modules/wx/carts').default,
     'wx/collections': require('./modules/wx/collections').default,
     'wx/coupons': require('./modules/wx/coupons').default,
+    'wx/wxUserCoupons': require('./modules/wx/wx-user-coupons').default,
     'wx/footprints': require('./modules/wx/footprints').default,
     'wx/orders': require('./modules/wx/orders').default,
     'wx/payments': require('./modules/wx/payments').default
