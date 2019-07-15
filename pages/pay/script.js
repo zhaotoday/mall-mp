@@ -44,7 +44,7 @@ export default {
     handlePayWayChange (e) {
       this.cPayWay.index = e.detail.value
     },
-    async pay () {
+    async pay (e) {
       const { address, remark, coupon } = this.ordersForm
 
       if (!address.id) {
@@ -61,8 +61,10 @@ export default {
           couponId: coupon.id,
           deliveryId: 0,
           remark: remark.value,
+          payWay: this.$consts.PAY_WAYS[this.cPayWay.index].value,
           paidMoney: this.finalTotalPrice,
-          products: this.cartProducts
+          products: this.cartProducts,
+          formId: e.detail.formId || ''
         }
       })
 
