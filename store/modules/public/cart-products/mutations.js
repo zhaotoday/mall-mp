@@ -5,6 +5,14 @@ export default {
     state.items.find(product => product.id === item.id)['visible'] = !item.visible
   },
   [types.ADD_NUMBER] (state, { item, specification }) {
+    if (!state.items.length) {
+      item.number = 0
+
+      if (specification) {
+        specification.number = 0
+      }
+    }
+
     if (!state.items.find(product => product.id === item.id)) {
       state.items = [...state.items, item]
     }

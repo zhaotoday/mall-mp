@@ -69,7 +69,7 @@ export default {
       try {
         await this.$wx.requestPayment(data)
         this.$wx.redirectTo({
-          url: `/pages/orders/index`
+          url: `/pages/orders/index?status=2`
         })
       } catch (e) {
         this.$wx.redirectTo({
