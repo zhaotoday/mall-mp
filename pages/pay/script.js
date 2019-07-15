@@ -4,9 +4,14 @@ import cartProductsMxins from '@/mixins/cart-products'
 
 export default {
   mixins: [productsMixin, cartProductsMxins],
-  computed: mapState({
-    ordersForm: state => state['wx/orders'].form
-  }),
+  computed: {
+    ...mapState({
+      ordersForm: state => state['wx/orders'].form
+    }),
+    finalTotalPrice () {
+      return parseFloat((this.totalPrice - (this.ordersForm.coupon.value || 0).toFixed(2)).toFixed(2))
+    }
+  },
   data () {
     return {
       cPayWay: {
@@ -19,12 +24,28 @@ export default {
     await this.loggedIn()
     await this.phoneNumberBound()
   },
+  onUnload () {
+    this.$store.dispatch('wx/orders/setForm', {
+      key: 'address',
+      value: {}
+    })
+    this.$store.dispatch('wx/orders/setForm', {
+      key: 'coupon',
+      value: {}
+    })
+    this.$store.dispatch('wx/orders/setForm', {
+      key: 'remark',
+      value: {
+        value: ''
+      }
+    })
+  },
   methods: {
     handlePayWayChange (e) {
       this.cPayWay.index = e.detail.value
     },
     async pay () {
-      const { address, remark } = this.ordersForm
+      const { address, remark, coupon } = this.ordersForm
 
       if (!address.id) {
         this.$wx.showToast({
@@ -37,10 +58,10 @@ export default {
         body: {
           type: 'CREATE_UNIFIED_ORDER',
           addressId: address.id,
-          couponId: 0,
+          couponId: coupon.id,
           deliveryId: 0,
           remark: remark.value,
-          paidMoney: this.totalPrice - parseFloat(this.ordersForm.coupon.value || 0),
+          paidMoney: this.finalTotalPrice,
           products: this.cartProducts
         }
       })

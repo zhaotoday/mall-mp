@@ -67,11 +67,11 @@
       </div>
       <div class="c-list__item">
         合计
-        <div class="c-list__extra c5 fs28">￥{{ totalPrice - parseFloat(ordersForm.coupon.value) }} 元</div>
+        <div class="c-list__extra c5 fs28">￥{{ finalTotalPrice }} 元</div>
       </div>
     </div>
     <div class="b-pay bgc1">
-      <div class="b-pay__money c5 fs32">￥{{ totalPrice - parseFloat(ordersForm.coupon.value) }} 元</div>
+      <div class="b-pay__money c5 fs32">￥{{ finalTotalPrice }} 元</div>
       <div
         class="b-pay__submit bgc5 c1 fs32 u-tac"
         @click="pay">
