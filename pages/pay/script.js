@@ -69,7 +69,12 @@ export default {
       })
 
       try {
-        if (!e.detail.formId) {
+        if (e.detail.formId) {
+          this.$wx.showToast({
+            title: '下单成功'
+          })
+          await this.$helpers.sleep(1500)
+        } else {
           await this.$wx.requestPayment(data)
         }
         this.$wx.redirectTo({

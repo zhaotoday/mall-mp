@@ -4,7 +4,7 @@
     @include margin(null, px2rpx(30px), null, px2rpx(30px));
     @include clearfix;
 
-    padding-top: px2rpx(30px);
+    padding-top: px2rpx(20px);
     position: relative;
     border-bottom: 1px solid map-get($colors, c12);
 
@@ -16,7 +16,7 @@
   @include e(image) {
     @include size(px2rpx(168px), px2rpx(168px));
 
-    margin-bottom: px2rpx(30px);
+    margin-bottom: px2rpx(20px);
     display: block;
   }
 
@@ -29,7 +29,7 @@
   }
 
   @include c(number-input) {
-    @include position--absolute(null, 0, px2rpx(30px));
+    @include position--absolute(null, 0, px2rpx(20px));
   }
 
   @include s(is-editable) {
@@ -72,11 +72,11 @@
   }
 
   @include e(cart) {
-    @include position--absolute(px2rpx(30px * 2 + 168px - 30px - 48px), 0);
+    @include position--absolute(px2rpx(20px * 2 + 168px - 20px - 48px), 0);
   }
 
   @include e(specification) {
-    @include padding(px2rpx(30px), px2rpx(30px), px2rpx(30px));
+    @include padding(px2rpx(20px), px2rpx(30px), px2rpx(20px));
 
     position: relative;
     border-top: 1px dotted map-get($colors, c12);
