@@ -1,5 +1,5 @@
 {
-    "name" : "uni-app",
+    "name" : "mall-mp",
     "appid" : "__UNI__ECB11E9",
     "description" : "",
     "versionName" : "1.0.0",
@@ -60,9 +60,9 @@
             "urlCheck" : false
         },
         "usingComponents" : true,
-        "permission": {
-            "scope.userLocation": {
-                "desc": "你的位置信息将用于小程序位置接口的效果展示"
+        "permission" : {
+            "scope.userLocation" : {
+                "desc" : "你的位置信息将用于小程序位置接口的效果展示"
             }
         }
     }
