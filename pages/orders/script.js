@@ -49,6 +49,7 @@ export default {
         body: {
           type: 'CREATE_UNIFIED_ORDER',
           id: order.id,
+          payWay: '1',
           paidMoney: order.paidMoney
         }
       })

@@ -69,7 +69,9 @@ export default {
       })
 
       try {
-        await this.$wx.requestPayment(data)
+        if (!e.detail.formId) {
+          await this.$wx.requestPayment(data)
+        }
         this.$wx.redirectTo({
           url: `/pages/orders/index?status=2`
         })
