@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="[ 'c-coupon c1 u-mb20', { 'is-disabled': item.used } ]"
+    :class="[ 'c-coupon c1 u-mb20', { 'is-disabled': used } ]"
     @click="$emit('select')">
     <div class="c-coupon__body">
       <div class="c-coupon__title">

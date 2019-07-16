@@ -29,7 +29,8 @@ export default {
             used: {
               $eq: status
             }
-          }
+          },
+          minPrice: this.$mp.query.price || 0
         }
       })
     },
