@@ -78,6 +78,9 @@ export default {
         longitude: parseFloat(location.longitude),
         scale: 16
       })
+    },
+    makePhoneCall (phoneNumber) {
+      this.$wx.makePhoneCall({ phoneNumber })
     }
   }
 }

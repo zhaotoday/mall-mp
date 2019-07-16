@@ -1,9 +1,9 @@
 {
   "pages": [
     {
-      "path": "pages/dispatch/index",
+      "path": "pages/orders/index",
       "style": {
-        "navigationBarTitleText": "配送管理"
+        "navigationBarTitleText": "我的订单"
       }
     },
     {
@@ -13,15 +13,15 @@
       }
     },
     {
-      "path": "pages/coupons/index",
+      "path": "pages/dispatch/index",
       "style": {
-        "navigationBarTitleText": "我的优惠券"
+        "navigationBarTitleText": "配送管理"
       }
     },
     {
-      "path": "pages/orders/index",
+      "path": "pages/coupons/index",
       "style": {
-        "navigationBarTitleText": "我的订单"
+        "navigationBarTitleText": "我的优惠券"
       }
     },
     {

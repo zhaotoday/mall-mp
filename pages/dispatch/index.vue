@@ -37,7 +37,7 @@
             <template v-if="order.status === '3'">
               <div
                 class="c-button w120 h48 bgc1 bdc4 c4 fs24"
-                @click="openLocation(order.address.location)">
+                @click="makePhoneCall(order.address.phoneNumber)">
                 打电话
               </div>
               <div
