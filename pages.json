@@ -1,6 +1,12 @@
 {
   "pages": [
     {
+      "path": "pages/dispatch/index",
+      "style": {
+        "navigationBarTitleText": "配送管理"
+      }
+    },
+    {
       "path": "pages/tab-bar/home/index",
       "style": {
         "navigationBarTitleText": "福菜"

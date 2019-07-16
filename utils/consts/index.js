@@ -1,4 +1,5 @@
 import ORDER_STATUSES from './order-statuses'
+import DISPATCH_STATUSES from './dispatch-statuses'
 import PRODUCT_UNITS from './product-units'
 import PRODUCT_SORT_ITEMS from './product-sort-items'
 import PAY_WAYS from './pay-ways'
@@ -7,8 +8,8 @@ import GENDERS from './genders'
 import COUPON_STATUSES from './coupon-statuses'
 
 // 接口地址
-// const API_URL = 'http://localhost:3004/api/v1'
-const API_URL = 'https://api.fjnm.cn/api/v1'
+const API_URL = 'http://localhost:3004/api/v1'
+// const API_URL = 'https://api.fjnm.cn/api/v1'
 
 // CDN
 const CDN_URL = 'https://cdn.fjnm.cn'
@@ -41,6 +42,7 @@ export default {
   BIND_PAGE,
   ORDER_MIN_PRICE,
   ORDER_STATUSES,
+  DISPATCH_STATUSES,
   PRODUCT_UNITS,
   PRODUCT_SORT_ITEMS,
   PAY_WAYS,
