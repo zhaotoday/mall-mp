@@ -64,7 +64,7 @@
     <c-dialog
       :visible="cReachConfirm.visible"
       title="请确认"
-      content="确认送达订单？"
+      content="确认订单已送达？"
       @cancel="cReachConfirm.visible = false"
       @confirm="reach">
     </c-dialog>

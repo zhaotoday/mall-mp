@@ -12,7 +12,7 @@
     <scroll-view
       class="b-list"
       scroll-y>
-      <ul class="u-mt20">
+      <ul class="u-pt20">
         <li
           v-for="(order, index) in list.items"
           :key="order.id"
@@ -66,7 +66,7 @@
                 立即付款
               </div>
             </template>
-            <template v-else-if="order.status === '2'">
+            <template v-else>
               <div
                 class="c-button w160 h48 bgc1 bdc4 c4 fs24"
                 @click="clone(order)">
