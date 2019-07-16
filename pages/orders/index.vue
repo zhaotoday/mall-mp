@@ -9,16 +9,14 @@
         {{ item.label }}
       </li>
     </ul>
-    <scroll-view
-      class="b-list"
-      scroll-y>
-      <ul class="u-pt20">
+    <scroll-view scroll-y>
+      <ul class="c-orders u-pt20">
         <li
           v-for="(order, index) in list.items"
           :key="order.id"
           :id="'order-' + index"
-          class="b-list__item bgc1 u-mb20">
-          <div class="b-list__head">
+          class="c-orders__item bgc1 u-mb20">
+          <div class="c-orders__head">
           <span
             class="fs28"
             style="padding-right: 10rpx;">
@@ -26,21 +24,21 @@
           </span>
             <span class="c8 fs22">{{ $time.getTime(order.createdAt) }}</span>
           </div>
-          <div class="b-list__body o-media">
+          <div class="c-orders__body o-media">
             <img
               class="o-media__image"
               mode="aspectFill"
               :src="$helpers.getImageURL({ id: order.products[0] ? order.products[0].pictures : 0, width: 110, height: 110 })"
             />
             <div class="o-media__body">
-              <div class="b-products">
+              <div class="cc-products">
                 <div
                   v-for="product in order.products"
                   :key="product.id">
                   <template v-if="product.price">
-                    <div class="b-products__item c10 fs26">
+                    <div class="cc-products__item c10 fs26">
                       {{ product.name }}
-                      <div class="b-products__number">x{{ product.number }}</div>
+                      <div class="cc-products__number">x{{ product.number }}</div>
                     </div>
                   </template>
                   <template v-else>
@@ -48,9 +46,9 @@
                       v-for="specification in product.specifications"
                       :key="specification.value"
                       v-if="specification.number"
-                      class="b-products__item c10 fs26">
+                      class="cc-products__item c10 fs26">
                       {{ product.name }}（{{ specification.price }} 元 / {{ specification.label }}）
-                      <div class="b-products__number">x{{ specification.number }}</div>
+                      <div class="cc-products__number">x{{ specification.number }}</div>
                     </div>
                   </template>
                 </div>
@@ -58,7 +56,7 @@
               <div class="b-money fs28">共 {{ getTotalNumber(order.products) }} 份，实付 ￥{{ order.paidMoney }}</div>
             </div>
           </div>
-          <div class="b-list__foot">
+          <div class="c-orders__foot">
             <template v-if="order.status === '1'">
               <div
                 class="c-button w160 h48 bgc4 c1 fs24"

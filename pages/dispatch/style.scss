@@ -7,45 +7,9 @@
     width: 100%;
   }
 
-  @include b(list) {
+  scroll-view {
     @include position--fixed(px2rpx(72px), null, 0, 0);
 
     width: 100%;
-
-    @include e(head) {
-      @include text--middle(px2rpx(70px));
-
-      position: relative;
-      margin-left: px2rpx(30px);
-      border-bottom: 1px solid map-get($colors, c12);
-
-      span {
-        line-height: 100%;
-      }
-    }
-
-    @include e(body) {
-      @include margin(px2rpx(30px), px2rpx(30px), px2rpx(30px), px2rpx(30px));
-    }
-
-    @include e(time) {
-      @include position--absolute(50%, px2rpx(30px));
-
-      transform: translateY(-50%);
-      line-height: 100%;
-    }
-
-    @include e(foot) {
-      @include padding(px2rpx(16px), null, px2rpx(16px));
-
-      line-height: 100%;
-      text-align: right;
-      padding-right: px2rpx(30px);
-      border-top: 1px solid map-get($colors, c12);
-
-      @include c(button) {
-        margin-left: px2rpx(20px);
-      }
-    }
   }
 }

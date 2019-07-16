@@ -7,66 +7,9 @@
     width: 100%;
   }
 
-  @include b(list) {
+  scroll-view {
     @include position--fixed(px2rpx(72px), null, 0, 0);
 
     width: 100%;
-
-    @include e(head) {
-      @include text--middle(px2rpx(70px));
-
-      margin-left: px2rpx(30px);
-      border-bottom: 1px solid map-get($colors, c12);
-
-      span {
-        line-height: 100%;
-      }
-    }
-
-    @include e(body) {
-      @include margin(px2rpx(30px), px2rpx(30px), px2rpx(30px), px2rpx(30px));
-
-      @include o(media) {
-        @include e(image) {
-          @include size(px2rpx(110px), px2rpx(110px));
-        }
-
-        @include e(body) {
-          margin-left: px2rpx(10px);
-        }
-      }
-    }
-
-    @include e(foot) {
-      @include padding(px2rpx(16px), null, px2rpx(16px));
-
-      line-height: 100%;
-      text-align: right;
-      padding-right: px2rpx(30px);
-      border-top: 1px solid map-get($colors, c12);
-
-      @include c(button) {
-        margin-left: px2rpx(20px);
-      }
-    }
-  }
-
-  @include b(products) {
-    @include e(item) {
-      line-height: 100%;
-      position: relative;
-      margin-bottom: px2rpx(30px);
-    }
-
-    @include e(number) {
-      @include position--absolute(50%, 0);
-
-      transform: translateY(-50%);
-    }
-  }
-
-  @include b(money) {
-    line-height: 100%;
-    text-align: right;
   }
 }
