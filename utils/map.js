@@ -32,7 +32,7 @@ export default {
         location: `${location.longitude},${location.latitude}`,
         sortrule: 'distance',
         keywords,
-        // types
+        types
       }
     })
 

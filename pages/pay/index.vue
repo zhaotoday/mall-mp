@@ -21,7 +21,7 @@
     <div class="c-list bgc1 fs30 u-mt20">
       <div
         class="c-list__item is-link"
-        @click="navigateTo(`/pages/coupons/index?select=1&price=${finalTotalPrice}`)">
+        @click="navigateTo(`/pages/coupons/index?select=1&price=${finalTotalPrice}&productIds=${cartProducts.map(item => item.id).join(',')}`)">
         优惠券
         <div
           v-if="!ordersForm.coupon.id"

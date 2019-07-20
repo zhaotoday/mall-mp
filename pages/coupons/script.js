@@ -30,7 +30,8 @@ export default {
               $eq: status
             }
           },
-          minPrice: this.$mp.query.price || 0
+          minPrice: this.$mp.query.price || 0,
+          productIds: this.$mp.query.productIds || ''
         }
       })
     },
