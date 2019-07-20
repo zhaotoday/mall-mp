@@ -1,6 +1,7 @@
 import { mapState } from 'vuex'
 import productsMixin from '@/mixins/products'
 import cartProductsMxins from '@/mixins/cart-products'
+import map from '@/utils/map'
 
 export default {
   mixins: [productsMixin, cartProductsMxins],
@@ -50,6 +51,16 @@ export default {
       if (!address.id) {
         this.$wx.showToast({
           title: '请选择收货地址'
+        })
+        return
+      }
+
+      const { city, district, town } = await map.getAddress({ location: address.location })
+      const { DELIVERY_AREAS } = this.$consts
+
+      if (!(city === DELIVERY_AREAS.city && district === DELIVERY_AREAS.district && DELIVERY_AREAS.towns.includes(town))) {
+        this.$wx.showToast({
+          title: '该地址不在配送范围内'
         })
         return
       }

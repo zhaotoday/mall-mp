@@ -6,6 +6,7 @@ import PAY_WAYS from './pay-ways'
 import ADDRESS_TAGS from './address-tags'
 import GENDERS from './genders'
 import COUPON_STATUSES from './coupon-statuses'
+import DELIVERY_AREAS from './delivery-areas'
 
 // 接口地址
 // const API_URL = 'http://localhost:3004/api/v1'
@@ -48,5 +49,6 @@ export default {
   PAY_WAYS,
   ADDRESS_TAGS,
   GENDERS,
-  COUPON_STATUSES
+  COUPON_STATUSES,
+  DELIVERY_AREAS
 }

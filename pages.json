@@ -7,6 +7,24 @@
       }
     },
     {
+      "path": "pages/pay/index",
+      "style": {
+        "navigationBarTitleText": "结算"
+      }
+    },
+    {
+      "path": "pages/addresses/map/index",
+      "style": {
+        "navigationBarTitleText": "选择地址"
+      }
+    },
+    {
+      "path": "pages/addresses/search/index",
+      "style": {
+        "navigationBarTitleText": "搜索并选择地址"
+      }
+    },
+    {
       "path": "pages/dispatch/index",
       "style": {
         "navigationBarTitleText": "配送管理"
@@ -37,33 +55,15 @@
       }
     },
     {
-      "path": "pages/addresses/map/index",
-      "style": {
-        "navigationBarTitleText": "选择地址"
-      }
-    },
-    {
       "path": "pages/products/list/index",
       "style": {
         "navigationBarTitleText": ""
       }
     },
     {
-      "path": "pages/pay/index",
-      "style": {
-        "navigationBarTitleText": "结算"
-      }
-    },
-    {
       "path": "pages/addresses/form/index",
       "style": {
         "navigationBarTitleText": ""
-      }
-    },
-    {
-      "path": "pages/addresses/search/index",
-      "style": {
-        "navigationBarTitleText": "搜索并选择地址"
       }
     },
     {
