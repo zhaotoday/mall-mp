@@ -1,6 +1,15 @@
 @import "../../../styles/utils/index";
 
 @include p(index) {
+  padding-top: px2rpx(96px);
+
+  @include c(search) {
+    @include position--fixed(0, null, null, 0);
+
+    width: 100%;
+    z-index: 5;
+  }
+
   @include b(categories) {
     @include clearfix;
     @include padding(px2rpx(40px), px2rpx(18px), null, px2rpx(18px));
