@@ -2,6 +2,7 @@
   @include block--center;
 
   width: px2rpx(690px);
+  color: map-get($colors, c1);
 
   @include e(body) {
     position: relative;
@@ -42,6 +43,30 @@
 
       @include e(foot) {
         background-color: map-get($colors, c21);
+      }
+    }
+  }
+
+  @include s(is-new-user) {
+    width: px2rpx(530px);
+    color: map-get($colors, c2);
+
+    @include c(coupon) {
+      @include e(body) {
+        background-color: map-get($colors, c1);
+        border-bottom: 1px solid map-get($colors, c6);
+      }
+
+      @include e(rmb, money) {
+        color: map-get($colors, c23);
+      }
+
+      @include e(foot) {
+        background-color: map-get($colors, c6);
+      }
+
+      @include e(time, foot) {
+        color: map-get($colors, c9);
       }
     }
   }

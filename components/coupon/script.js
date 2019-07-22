@@ -8,6 +8,10 @@ export default {
     used: {
       type: Number,
       default: 0
+    },
+    isNewUser: {
+      type: Boolean,
+      default: false
     }
   }
 }

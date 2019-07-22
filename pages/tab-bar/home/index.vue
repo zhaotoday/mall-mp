@@ -23,6 +23,11 @@
       </div>
     </div>
     <c-fixed-cart has-tab></c-fixed-cart>
+    <c-new-user-coupon
+      :visible="cNewUserCoupon.visible"
+      @cancel="knowNewUserCoupon"
+      @confirm="knowNewUserCoupon">
+    </c-new-user-coupon>
   </div>
 </template>
 

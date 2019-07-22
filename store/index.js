@@ -30,6 +30,7 @@ export default new Vuex.Store({
     'public/helpers': require('./modules/public/helpers').default,
     'public/products': require('./modules/public/products').default,
     'public/cartProducts': require('./modules/public/cart-products').default,
+    'public/coupons': require('./modules/public/coupons').default,
     'wx/wxUsers': require('./modules/wx/wx-users').default,
     'wx/points': require('./modules/wx/points').default,
     'wx/addresses': require('./modules/wx/addresses').default,

@@ -1,12 +1,12 @@
 <template>
   <div
-    :class="[ 'c-coupon c1 u-mb20', { 'is-disabled': used } ]"
+    :class="[ 'c-coupon u-mb20', { 'is-disabled': used }, { 'is-new-user': isNewUser } ]"
     @click="$emit('select')">
     <div class="c-coupon__body">
       <div class="c-coupon__title">
-        <span class="fs24">￥</span>
+        <span class="c-coupon__rmb fs24">￥</span>
         <span
-          class="fs50"
+          class="c-coupon__money fs50"
           style="padding-right: 10rpx;">
           {{ item.value }}
         </span>

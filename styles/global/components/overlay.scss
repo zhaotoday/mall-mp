@@ -4,6 +4,6 @@
   @include position--fixed(0, 0, 0, 0);
 
   background-color: $background-color;
-  opacity: .6;
+  opacity: .2;
   z-index: map-get($z-indexes, c-overlay);
 }

@@ -4,18 +4,22 @@ import CSearch from '@/components/search'
 import CNumberInput from '@/components/number-input/index'
 import CProducts from '@/components/products'
 import CFixedCart from '@/components/fixed-cart'
+import CNewUserCoupon from '@/components/new-user-coupon'
 import categoriesMixin from '@/mixins/categories'
 import productsMixin from '@/mixins/products'
 import cartProductsMxins from '@/mixins/cart-products'
 
 export default {
-  components: { CNumberInput, CSwiper, CSearch, CProducts, CFixedCart },
+  components: { CNumberInput, CSwiper, CSearch, CProducts, CFixedCart, CNewUserCoupon },
   mixins: [categoriesMixin, productsMixin, cartProductsMxins],
   data () {
     return {
       hotProductsList: {
         items: [],
         total: 0
+      },
+      cNewUserCoupon: {
+        visible: false
       }
     }
   },
@@ -28,7 +32,11 @@ export default {
     }
   },
   async onShow () {
-    console.log(this.$store, 3333)
+    if (!this.$wx.getStorageSync('knowNewUserCoupon') && !this.$auth.phoneNumberBound()) {
+      this.cNewUserCoupon.visible = true
+    } else {
+      this.cNewUserCoupon.visible = false
+    }
     this.getAdsList()
     this.getCategoriesList()
 
@@ -53,6 +61,10 @@ export default {
     goCategories (id) {
       this.$store.dispatch('public/categories/setId', { id })
       this.$wx.switchTab({ url: '/pages/tab-bar/categories/index' })
+    },
+    knowNewUserCoupon () {
+      this.cNewUserCoupon.visible = false
+      this.$wx.setStorageSync('knowNewUserCoupon', 1)
     }
   }
 }
