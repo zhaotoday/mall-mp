@@ -10,7 +10,7 @@
     background-color: map-get($colors, c18);
     border-top-left-radius: px2rpx(16px);
     border-top-right-radius: px2rpx(16px);
-    border-bottom: 1px dotted map-get($colors, c19);
+    border-bottom: 1px solid map-get($colors, c19);
   }
 
   @include e(title) {
@@ -21,6 +21,12 @@
 
   @include e(time) {
     @include padding(px2rpx(15px), null, null, px2rpx(34px));
+
+    line-height: 100%;
+  }
+
+  @include e(number) {
+    @include position--absolute(px2rpx(36px), px2rpx(34px));
 
     line-height: 100%;
   }
@@ -65,7 +71,7 @@
         background-color: map-get($colors, c6);
       }
 
-      @include e(time, foot) {
+      @include e(time, number, foot) {
         color: map-get($colors, c9);
       }
     }

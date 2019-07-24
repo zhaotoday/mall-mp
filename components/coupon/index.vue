@@ -13,9 +13,10 @@
         <span class="fs24">{{ item.title }}</span>
       </div>
       <div class="c-coupon__time fs20">有效期：{{ $time.getTime(item.startsAt) }} - {{ $time.getTime(item.endsAt) }}</div>
+      <div class="c-coupon__number fs28">x{{ item.number }}</div>
     </div>
     <div class="c-coupon__foot fs22">
-      {{ item.productId ? '仅限指定商品使用' : '全场通用' }}
+      {{ $helpers.getItem(this.$consts.COUPON_TYPES, 'value', item.type)['label'] }}优惠券
     </div>
   </div>
 </template>

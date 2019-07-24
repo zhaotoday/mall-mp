@@ -2,12 +2,19 @@
   @include position--fixed(50%, null, null, 50%);
   @include size(px2rpx(608px), px2rpx(812px));
 
-  box-sizing: border-box;
-  padding-top: px2rpx(350px);
   transform: translateX(-50%) translateY(-50%);
   background: {
     image: cdn("components/new-user-coupon/bg.png");
     size: 100% 100%;
   }
   z-index: 6;
+
+  @include e(coupons) {
+    @include position--absolute(50%, null, null, 0);
+
+    transform: translateY(-50%);
+    margin-top: px2rpx(20px);
+    width: 100%;
+    max-height: px2rpx(420px);
+  }
 }

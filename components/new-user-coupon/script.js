@@ -10,15 +10,17 @@ export default {
       default: false
     }
   },
-  computed: mapState({
-    list: state => state['public/coupons'].list
-  }),
-  created () {
-    this.getList()
+  data () {
+    return {
+      list: {}
+    }
+  },
+  async created () {
+    this.list = await this.getList()
   },
   methods: {
     getList () {
-      return this.$store.dispatch('public/coupons/getList', {
+      return this.$store.dispatch('public/couponActivities/getList', {
         query: {
           where: {
             type: 'NEW_USER'

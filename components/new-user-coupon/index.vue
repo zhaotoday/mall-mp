@@ -8,12 +8,16 @@
     <div
       v-show="visible"
       class="c-new-user-coupon">
-      <c-coupon
-        v-for="item in list.items"
-        :key="item.id"
-        :item="item"
-        is-new-user>
-      </c-coupon>
+      <scroll-view
+        class="c-new-user-coupon__coupons"
+        scroll-y>
+        <c-coupon
+          v-for="item in list.items[0].coupons"
+          :key="item.id"
+          :item="item"
+          is-new-user>
+        </c-coupon>
+      </scroll-view>
       <button
         class="c-button is-foot w528 h76 bgc22 c1 fs32"
         @click="$emit('confirm')">

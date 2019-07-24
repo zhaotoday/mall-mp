@@ -6,6 +6,7 @@ import PAY_WAYS from './pay-ways'
 import ADDRESS_TAGS from './address-tags'
 import GENDERS from './genders'
 import COUPON_STATUSES from './coupon-statuses'
+import COUPON_TYPES from './coupon-types'
 import DELIVERY_AREAS from './delivery-areas'
 
 // 接口地址
@@ -50,5 +51,6 @@ export default {
   ADDRESS_TAGS,
   GENDERS,
   COUPON_STATUSES,
+  COUPON_TYPES,
   DELIVERY_AREAS
 }
