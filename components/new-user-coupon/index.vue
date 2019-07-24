@@ -12,7 +12,7 @@
         class="c-new-user-coupon__coupons"
         scroll-y>
         <c-coupon
-          v-for="item in list.items[0].coupons"
+          v-for="item in items[0].coupons"
           :key="item.id"
           :item="item"
           is-new-user>

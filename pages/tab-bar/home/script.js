@@ -19,7 +19,11 @@ export default {
         total: 0
       },
       cNewUserCoupon: {
-        visible: false
+        visible: false,
+        list: {
+          items: [],
+          total: 0
+        }
       }
     }
   },
@@ -32,11 +36,14 @@ export default {
     }
   },
   async onShow () {
-    if (!this.$wx.getStorageSync('knowNewUserCoupon') && !this.$auth.phoneNumberBound()) {
+    this.cNewUserCoupon.list = await this.getCouponActivities()
+
+    if (this.cNewUserCoupon.list.items[0] && this.cNewUserCoupon.list.items[0].sendTime === 'AFTER_REGISTER' && !this.$wx.getStorageSync('knowNewUserCoupon') && !this.$auth.phoneNumberBound()) {
       this.cNewUserCoupon.visible = true
     } else {
       this.cNewUserCoupon.visible = false
     }
+
     this.getAdsList()
     this.getCategoriesList()
 
@@ -57,6 +64,15 @@ export default {
         items: items.map(item => this.addCartKeys(item)),
         total
       }
+    },
+    getCouponActivities () {
+      return this.$store.dispatch('public/couponActivities/getList', {
+        query: {
+          where: {
+            type: 'NEW_USER'
+          }
+        }
+      })
     },
     goCategories (id) {
       this.$store.dispatch('public/categories/setId', { id })

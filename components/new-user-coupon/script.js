@@ -8,25 +8,7 @@ export default {
     visible: {
       type: Boolean,
       default: false
-    }
-  },
-  data () {
-    return {
-      list: {}
-    }
-  },
-  async created () {
-    this.list = await this.getList()
-  },
-  methods: {
-    getList () {
-      return this.$store.dispatch('public/couponActivities/getList', {
-        query: {
-          where: {
-            type: 'NEW_USER'
-          }
-        }
-      })
-    }
+    },
+    items: {}
   }
 }

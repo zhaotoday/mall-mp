@@ -25,6 +25,7 @@
     <c-fixed-cart has-tab></c-fixed-cart>
     <c-new-user-coupon
       :visible="cNewUserCoupon.visible"
+      :items="cNewUserCoupon.list.items"
       @cancel="knowNewUserCoupon"
       @confirm="knowNewUserCoupon">
     </c-new-user-coupon>

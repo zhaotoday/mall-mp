@@ -10,11 +10,11 @@
   z-index: 6;
 
   @include e(coupons) {
-    @include position--absolute(50%, null, null, 0);
+    @include position--absolute(50%, null, null, 50%);
 
-    transform: translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
     margin-top: px2rpx(20px);
-    width: 100%;
+    width: 96%;
     max-height: px2rpx(420px);
   }
 }
