@@ -1,3 +1,5 @@
+import time from 'jt-time'
+
 export default {
   name: 'c-coupon',
   props: {
@@ -12,6 +14,10 @@ export default {
     isNewUser: {
       type: Boolean,
       default: false
+    },
+    createdAt: {
+      type: Number,
+      default: time.getTime()
     }
   }
 }

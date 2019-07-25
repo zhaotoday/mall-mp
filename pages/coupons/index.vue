@@ -14,6 +14,7 @@
       :key="item.id"
       :item="item.coupon"
       :used="item.used"
+      :created-at="item.createdAt"
       @select="select(item.coupon)">
     </c-coupon>
     <c-empty v-if="loaded && !list.items.length"></c-empty>

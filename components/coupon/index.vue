@@ -10,10 +10,16 @@
           style="padding-right: 10rpx;">
           {{ item.value }}
         </span>
-        <span class="fs24">{{ item.title }}</span>
+        <span class="fs24">{{ item.name }}</span>
       </div>
-      <div class="c-coupon__time fs20">有效期：{{ $time.getTime(item.startsAt) }} - {{ $time.getTime(item.endsAt) }}</div>
-      <div class="c-coupon__number fs28">x{{ item.number }}</div>
+      <div class="c-coupon__time fs20">有效期：{{ $time.getDate(createdAt) }} - {{ $time.getDate(new Date().getTime() + item.period *
+        24 * 60 * 60 * 1000) }}
+      </div>
+      <div
+        v-if="item.number"
+        class="c-coupon__number fs28">
+        x{{ item.number }}
+      </div>
     </div>
     <div class="c-coupon__foot fs22">
       {{ $helpers.getItem(this.$consts.COUPON_TYPES, 'value', item.type)['label'] }}优惠券
