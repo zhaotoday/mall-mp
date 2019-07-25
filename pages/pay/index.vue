@@ -31,7 +31,7 @@
         <div
           v-else
           class="c-list__extra fs28">
-          ￥{{ ordersForm.coupon.value }}（{{ ordersForm.coupon.title }}）
+          ￥{{ ordersForm.coupon.value }}（{{ ordersForm.coupon.name }}）
         </div>
       </div>
       <div

@@ -10,7 +10,8 @@ export default {
       ordersForm: state => state['wx/orders'].form
     }),
     finalTotalPrice () {
-      return parseFloat((this.totalPrice - (this.ordersForm.coupon.value || 0).toFixed(2)).toFixed(2))
+      const totalPrice = parseFloat((this.totalPrice - (this.ordersForm.coupon.value || 0).toFixed(2)).toFixed(2))
+      return totalPrice > 0 ? totalPrice : 1
     }
   },
   data () {
