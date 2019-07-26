@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     handlePayWayChange (e) {
-      this.cPayWay.index = e.detail.value
+      this.cPayWay.index = +e.detail.value
     },
     async pay (e) {
       const { address, remark, coupon } = this.ordersForm
@@ -68,6 +68,13 @@ export default {
       if (!(city === DELIVERY_AREAS.city && district === DELIVERY_AREAS.district && DELIVERY_AREAS.towns.includes(town))) {
         this.$wx.showToast({
           title: '该地址不在配送范围内'
+        })
+        return
+      }
+
+      if (this.cPayWay.index === 1 && this.finalTotalPrice > this.$consts.ORDER_MAX_PRICE) {
+        this.$wx.showToast({
+          title: `货到付款订单金额不能高于 ${this.$consts.ORDER_MAX_PRICE} 元`
         })
         return
       }

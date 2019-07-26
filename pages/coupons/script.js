@@ -31,7 +31,8 @@ export default {
             }
           },
           minPrice: this.$mp.query.price || 0,
-          productIds: this.$mp.query.productIds || ''
+          productIds: this.$mp.query.productIds || '',
+          categoryIds: this.$mp.query.categoryIds || ''
         }
       })
     },

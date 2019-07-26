@@ -33,6 +33,7 @@ const BIND_PAGE = '/pages/bind/index'
 
 // 订单最低限额
 const ORDER_MIN_PRICE = 0.03
+const ORDER_MAX_PRICE = 0.06
 
 export default {
   API_URL,
@@ -43,6 +44,7 @@ export default {
   LOGIN_PAGE,
   BIND_PAGE,
   ORDER_MIN_PRICE,
+  ORDER_MAX_PRICE,
   ORDER_STATUSES,
   DISPATCH_STATUSES,
   PRODUCT_UNITS,
