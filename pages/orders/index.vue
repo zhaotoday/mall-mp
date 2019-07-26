@@ -57,7 +57,7 @@
             </div>
           </div>
           <div class="c-orders__foot">
-            <template v-if="order.status === '1'">
+            <template v-if="order.status === 'TO_PAY'">
               <div
                 class="c-button w160 h48 bgc4 c1 fs24"
                 @click="pay(order)">
@@ -71,6 +71,11 @@
                 再来一单
               </div>
             </template>
+            <div
+              class="c-button w160 h48 bgc1 bdc4 c4 fs24"
+              @click="cancel(order)">
+              取消订单
+            </div>
           </div>
         </li>
       </ul>

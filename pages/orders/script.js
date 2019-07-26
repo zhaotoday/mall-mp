@@ -69,6 +69,9 @@ export default {
       this.$wx.switchTab({
         url: '/pages/tab-bar/cart/index'
       })
+    },
+    cancel (order) {
+      console.log(order)
     }
   }
 }

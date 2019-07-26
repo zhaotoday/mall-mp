@@ -103,11 +103,11 @@ export default {
           await this.$wx.requestPayment(data)
         }
         this.$wx.redirectTo({
-          url: `/pages/orders/index?status=2`
+          url: `/pages/orders/index?status=TO_DELIVER`
         })
       } catch (e) {
         this.$wx.redirectTo({
-          url: '/pages/orders/index?status=1'
+          url: '/pages/orders/index?status=TO_PAY'
         })
       }
 
