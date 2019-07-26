@@ -10,8 +10,8 @@ import COUPON_TYPES from './coupon-types'
 import DELIVERY_AREAS from './delivery-areas'
 
 // 接口地址
-// const API_URL = 'http://localhost:3004/api/v1'
-const API_URL = 'https://api.fjnm.cn/api/v1'
+const API_URL = 'http://localhost:3004/api/v1'
+// const API_URL = 'https://api.fjnm.cn/api/v1'
 
 // CDN
 const CDN_URL = 'https://cdn.fjnm.cn'

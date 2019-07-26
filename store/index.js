@@ -35,7 +35,6 @@ export default new Vuex.Store({
     'wx/wxUsers': require('./modules/wx/wx-users').default,
     'wx/points': require('./modules/wx/points').default,
     'wx/addresses': require('./modules/wx/addresses').default,
-    'wx/carts': require('./modules/wx/carts').default,
     'wx/collections': require('./modules/wx/collections').default,
     'wx/coupons': require('./modules/wx/coupons').default,
     'wx/wxUserCoupons': require('./modules/wx/wx-user-coupons').default,
