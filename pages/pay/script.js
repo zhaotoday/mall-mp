@@ -12,6 +12,12 @@ export default {
     finalTotalPrice () {
       const totalPrice = parseFloat((this.totalPrice - (this.ordersForm.coupon.value || 0).toFixed(2)).toFixed(2))
       return totalPrice > 0 ? totalPrice : 1
+    },
+    couponQueryString () {
+      return '?select=1'
+        + `&price=${this.finalTotalPrice}`
+        + `&productIds=${this.cartProducts.map(item => item.id).join(',')}`
+        + `&categoryIds=${this.cartProducts.map(item => item.categoryId).join(',')}`
     }
   },
   data () {
