@@ -7,6 +7,12 @@
       }
     },
     {
+      "path": "pages/coupons/index",
+      "style": {
+        "navigationBarTitleText": "我的优惠券"
+      }
+    },
+    {
       "path": "pages/pay/index",
       "style": {
         "navigationBarTitleText": "结算"
@@ -34,12 +40,6 @@
       "path": "pages/orders/index",
       "style": {
         "navigationBarTitleText": "我的订单"
-      }
-    },
-    {
-      "path": "pages/coupons/index",
-      "style": {
-        "navigationBarTitleText": "我的优惠券"
       }
     },
     {

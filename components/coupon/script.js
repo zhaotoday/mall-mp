@@ -16,7 +16,7 @@ export default {
       default: false
     },
     createdAt: {
-      type: Number,
+      type: String,
       default: time.getTime()
     }
   }

@@ -12,8 +12,7 @@
         </span>
         <span class="fs24">{{ item.name }}</span>
       </div>
-      <div class="c-coupon__time fs20">有效期：{{ $time.getDate(createdAt) }} - {{ $time.getDate(new Date().getTime() + item.period *
-        24 * 60 * 60 * 1000) }}
+      <div class="c-coupon__time fs20">有效期：{{ $time.getTime(createdAt) }} - {{ $time.getTime($time.add(createdAt, item.period, 'day')) }}
       </div>
       <div
         v-if="item.number"
