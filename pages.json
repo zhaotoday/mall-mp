@@ -1,6 +1,12 @@
 {
   "pages": [
     {
+      "path": "pages/deliveries/index",
+      "style": {
+        "navigationBarTitleText": "配送管理"
+      }
+    },
+    {
       "path": "pages/orders/index",
       "style": {
         "navigationBarTitleText": "我的订单"
@@ -34,12 +40,6 @@
       "path": "pages/addresses/search/index",
       "style": {
         "navigationBarTitleText": "搜索并选择地址"
-      }
-    },
-    {
-      "path": "pages/dispatch/index",
-      "style": {
-        "navigationBarTitleText": "配送管理"
       }
     },
     {

@@ -1,15 +1,19 @@
 import { mapState } from 'vuex'
 import productsMixin from '@/mixins/products'
 import CEmpty from '@/components/empty'
+import CDialog from '@/components/dialog'
 
 export default {
   mixins: [productsMixin],
-  components: { CEmpty },
+  components: { CEmpty, CDialog },
   data () {
     return {
       status: '',
       cTabs: {
         current: ''
+      },
+      cCancel: {
+        visible: false
       }
     }
   },
@@ -70,8 +74,22 @@ export default {
         url: '/pages/tab-bar/cart/index'
       })
     },
-    cancel (order) {
-      console.log(order)
+    showCancel (item) {
+      this.cCancel.id = item.id
+      this.cCancel.visible = true
+    },
+    async confirmCancel () {
+      this.cCancel.visible = false
+
+      await this.$store.dispatch('wx/addresses/del', {
+        id: this.cCancel.id
+      })
+
+      this.$wx.showToast({
+        title: '删除成功'
+      })
+
+      this.getList()
     }
   }
 }

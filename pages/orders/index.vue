@@ -73,7 +73,7 @@
             </template>
             <div
               class="c-button w160 h48 bgc1 bdc4 c4 fs24"
-              @click="cancel(order)">
+              @click="showCancel(order)">
               取消订单
             </div>
           </div>
@@ -81,6 +81,13 @@
       </ul>
     </scroll-view>
     <c-empty v-if="!list.items.length && loaded"></c-empty>
+    <c-dialog
+      :visible="cCancel.visible"
+      title="请确认"
+      content="确认取消订单？"
+      @cancel="cCancel.visible = false"
+      @confirm="confirmCancel">
+    </c-dialog>
   </div>
 </template>
 

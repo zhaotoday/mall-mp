@@ -1,5 +1,4 @@
 import ORDER_STATUSES from './order-statuses'
-import DISPATCH_STATUSES from './dispatch-statuses'
 import PRODUCT_UNITS from './product-units'
 import PRODUCT_SORT_ITEMS from './product-sort-items'
 import PAY_WAYS from './pay-ways'
@@ -7,6 +6,7 @@ import ADDRESS_TAGS from './address-tags'
 import GENDERS from './genders'
 import COUPON_STATUSES from './coupon-statuses'
 import COUPON_TYPES from './coupon-types'
+import DELIVERY_STATUSES from './delivery-statuses'
 import DELIVERY_AREAS from './delivery-areas'
 
 // 接口地址
@@ -46,7 +46,6 @@ export default {
   ORDER_MIN_PRICE,
   ORDER_MAX_PRICE,
   ORDER_STATUSES,
-  DISPATCH_STATUSES,
   PRODUCT_UNITS,
   PRODUCT_SORT_ITEMS,
   PAY_WAYS,
@@ -54,5 +53,6 @@ export default {
   GENDERS,
   COUPON_STATUSES,
   COUPON_TYPES,
+  DELIVERY_STATUSES,
   DELIVERY_AREAS
 }

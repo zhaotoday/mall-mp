@@ -15,7 +15,7 @@ export default {
         items: [],
         total: 0
       },
-      cReachConfirm: {
+      cFinishConfirm: {
         visible: false,
         id: 0
       }
@@ -34,9 +34,9 @@ export default {
       this.list = await this.getList()
     },
     async getList () {
-      const { data } = await this.$store.dispatch('wx/orders/postAction', {
+      const { data } = await this.$store.dispatch('wx/deliveries/postAction', {
         body: {
-          type: 'GET_DISPATCH'
+          type: 'GET'
         },
         query: {
           where: {
@@ -55,20 +55,20 @@ export default {
       return data
     },
     showReachConfirm (item) {
-      this.cReachConfirm.id = item.id
-      this.cReachConfirm.visible = true
+      this.cFinishConfirm.id = item.id
+      this.cFinishConfirm.visible = true
     },
-    reach () {
-      this.$store.dispatch('wx/orders/postAction', {
+    finish () {
+      this.$store.dispatch('wx/deliveries/postAction', {
         body: {
-          type: 'REACH',
-          id: this.cReachConfirm.id
+          type: 'FINISH',
+          id: this.cFinishConfirm.id
         }
       })
       this.$wx.showToast({
         title: '订单已配送完成'
       })
-      this.cReachConfirm.visible = false
+      this.cFinishConfirm.visible = false
       this.changeTab({ value: '4' })
 
     },

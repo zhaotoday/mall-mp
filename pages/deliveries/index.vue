@@ -1,8 +1,8 @@
 <template>
-  <div class="p-dispatch">
+  <div class="p-deliveries">
     <ul class="c-tabs o-grid bgc1 fs28 u-tac">
       <li
-        v-for="item in $consts.DISPATCH_STATUSES"
+        v-for="item in $consts.DELIVERY_STATUSES"
         :key="item.value"
         :class="[ 'c-tabs__item o-grid__cell', { 'is-active': cTabs.current === item.value } ]"
         @click="changeTab(item)">
@@ -12,35 +12,35 @@
     <scroll-view scroll-y>
       <ul class="c-orders u-pt20">
         <li
-          v-for="(order, index) in list.items"
-          :key="order.id"
+          v-for="(item, index) in list.items"
+          :key="item.id"
           :id="'order-' + index"
           class="c-orders__item bgc1 u-mb20">
           <div class="c-orders__head">
             <span
               class="fs24"
               style="padding-right: 10rpx;">
-              订单号：{{ order.no }}
+              订单号：{{ item.no }}
             </span>
-            <div class="c-orders__extra c8 fs22">{{ $time.getTime(order.createdAt) }}</div>
+            <div class="c-orders__extra c8 fs22">{{ $time.getTime(item.createdAt) }}</div>
           </div>
           <div class="c-orders__body o-media">
             <div class="o-media__body">
-              <p class="fs24">联系人：{{ order.address.name }}</p>
-              <p class="fs24">手机号：{{ order.address.phoneNumber }}</p>
-              <p class="fs24">地址：{{ order.address.location.name + order.address.room }}</p>
+              <p class="fs24">联系人：{{ item.address.name }}</p>
+              <p class="fs24">手机号：{{ item.address.phoneNumber }}</p>
+              <p class="fs24">地址：{{ item.address.location.name + item.address.room }}</p>
             </div>
           </div>
           <div class="c-orders__foot">
-            <template v-if="order.status === '3'">
+            <template v-if="item.status === '3'">
               <div
                 class="c-button w120 h48 bgc1 bdc4 c4 fs24"
-                @click="makePhoneCall(order.address.phoneNumber)">
+                @click="makePhoneCall(item.address.phoneNumber)">
                 打电话
               </div>
               <div
                 class="c-button w96 h48 bgc1 bdc4 c4 fs24"
-                @click="openLocation(order.address.location)">
+                @click="openLocation(item.address.location)">
                 导航
               </div>
               <div
@@ -49,7 +49,7 @@
                 送达
               </div>
             </template>
-            <template v-else-if="order.status === '4'">
+            <template v-else-if="item.status === '4'">
               <div class="c-button w120 h48 bgc7 c8 fs24">
                 已完成
               </div>
@@ -60,11 +60,11 @@
     </scroll-view>
     <c-empty v-if="!list.items.length && loaded"></c-empty>
     <c-dialog
-      :visible="cReachConfirm.visible"
+      :visible="cFinishConfirm.visible"
       title="请确认"
       content="确认订单已送达？"
-      @cancel="cReachConfirm.visible = false"
-      @confirm="reach">
+      @cancel="cFinishConfirm.visible = false"
+      @confirm="finish">
     </c-dialog>
   </div>
 </template>

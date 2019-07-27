@@ -4,11 +4,11 @@ export default [
     label: '全部'
   },
   {
-    value: '3',
+    value: 'IN_DELIVER',
     label: '配送中'
   },
   {
-    value: '4',
+    value: 'FINISH',
     label: '已完成'
   }
 ]
