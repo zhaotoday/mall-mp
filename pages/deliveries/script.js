@@ -48,13 +48,14 @@ export default {
             }
           },
           offset: 0,
-          limit: 1000
+          limit: 1000,
+          order: JSON.stringify([['updatedAt', 'DESC']])
         }
       })
 
       return data
     },
-    showReachConfirm (item) {
+    showFinishConfirm (item) {
       this.cFinishConfirm.id = item.id
       this.cFinishConfirm.visible = true
     },

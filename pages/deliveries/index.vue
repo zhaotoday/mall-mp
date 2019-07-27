@@ -22,7 +22,7 @@
               style="padding-right: 10rpx;">
               订单号：{{ item.no }}
             </span>
-            <div class="c-orders__extra c8 fs22">{{ $time.getTime(item.createdAt) }}</div>
+            <div class="c-orders__extra c8 fs22">{{ $time.getTime(item.updatedAt) }}</div>
           </div>
           <div class="c-orders__body o-media">
             <div class="o-media__body">
@@ -32,7 +32,7 @@
             </div>
           </div>
           <div class="c-orders__foot">
-            <template v-if="item.status === '3'">
+            <template v-if="item.status === 'IN_DELIVER'">
               <div
                 class="c-button w120 h48 bgc1 bdc4 c4 fs24"
                 @click="makePhoneCall(item.address.phoneNumber)">
@@ -45,11 +45,11 @@
               </div>
               <div
                 class="c-button w96 h48 bgc1 bdc4 c4 fs24"
-                @click="showReachConfirm(order)">
+                @click="showFinishConfirm(item)">
                 送达
               </div>
             </template>
-            <template v-else-if="item.status === '4'">
+            <template v-else-if="item.status === 'FINISH'">
               <div class="c-button w120 h48 bgc7 c8 fs24">
                 已完成
               </div>

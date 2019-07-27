@@ -1,10 +1,10 @@
 export default [
   {
-    value: '1',
+    value: 'WECHATPAY',
     label: '在线支付'
   },
   {
-    value: '2',
+    value: 'CASH_ON_DELIVERY',
     label: '货到付款'
   }
 ]

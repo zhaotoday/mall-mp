@@ -22,7 +22,7 @@
             style="padding-right: 10rpx;">
             {{ $helpers.getItem($consts.ORDER_STATUSES, 'code', order.status)['label'] }}
           </span>
-            <span class="c8 fs22">{{ $time.getTime(order.createdAt) }}</span>
+            <span class="c8 fs22">{{ $time.getTime(order.updatedAt) }}</span>
           </div>
           <div class="c-orders__body o-media">
             <img
@@ -53,7 +53,10 @@
                   </template>
                 </div>
               </div>
-              <div class="b-money fs28">共 {{ getTotalNumber(order.products) }} 份，实付 ￥{{ order.paidMoney }}</div>
+              <div class="b-money fs28">
+                共 {{ getTotalNumber(order.products) }} 份，实付 ￥{{ order.paidMoney }}
+                （{{ order.payWay === 'WECHATPAY' ? '在线支付' : '货到付款' }}）
+              </div>
             </div>
           </div>
           <div class="c-orders__foot">
@@ -96,7 +99,9 @@
               </div>
             </template>
             <template v-else-if="order.status === 'CANCELLED'">
-              <span class="c9 fs24">订单已被取消<span v-if="order.paidAt">，请联系客服退款</span></span>
+              <div class="c-orders__tip c9 fs24">
+                订单已被取消<span v-if="order.paidAt">，请联系客服退款</span>
+              </div>
             </template>
           </div>
         </li>
