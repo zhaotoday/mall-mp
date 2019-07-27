@@ -63,19 +63,41 @@
                 @click="pay(order)">
                 立即付款
               </div>
+              <div
+                class="c-button w160 h48 bgc1 bdc4 c4 fs24"
+                @click="showCancel(order)">
+                取消订单
+              </div>
             </template>
-            <template v-else>
+            <template v-else-if="order.status === 'TO_DELIVER'">
+              <div
+                class="c-button w160 h48 bgc1 bdc4 c4 fs24"
+                @click="clone(order)">
+                再来一单
+              </div>
+              <div
+                class="c-button w160 h48 bgc1 bdc4 c4 fs24"
+                @click="showCancel(order)">
+                取消订单
+              </div>
+            </template>
+            <template v-else-if="order.status === 'IN_DELIVER'">
               <div
                 class="c-button w160 h48 bgc1 bdc4 c4 fs24"
                 @click="clone(order)">
                 再来一单
               </div>
             </template>
-            <div
-              class="c-button w160 h48 bgc1 bdc4 c4 fs24"
-              @click="showCancel(order)">
-              取消订单
-            </div>
+            <template v-else-if="order.status === 'FINISH'">
+              <div
+                class="c-button w160 h48 bgc1 bdc4 c4 fs24"
+                @click="clone(order)">
+                再来一单
+              </div>
+            </template>
+            <template v-else-if="order.status === 'CANCELLED'">
+              <span class="c9 fs24">订单已被取消<span v-if="order.paidAt">，请联系客服退款</span></span>
+            </template>
           </div>
         </li>
       </ul>

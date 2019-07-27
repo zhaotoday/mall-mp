@@ -44,7 +44,8 @@ export default {
             }
           },
           offset: 0,
-          limit: 1000
+          limit: 1000,
+          order: JSON.stringify([['updatedAt', 'DESC']])
         }
       })
     },
@@ -60,11 +61,8 @@ export default {
 
       await this.$wx.requestPayment(data)
 
-      this.$wx.redirectTo({
-        url: '/pages/orders/index?status=2'
-      })
-
-      this.cTabs.current = '2'
+      this.cTabs.current = 'TO_DELIVER'
+      this.getList()
     },
     clone (order) {
       this.$store.dispatch('public/cartProducts/setItems', {
@@ -92,6 +90,7 @@ export default {
         title: '取消成功'
       })
 
+      this.cTabs.current = 'CANCELLED'
       this.getList()
     }
   }
