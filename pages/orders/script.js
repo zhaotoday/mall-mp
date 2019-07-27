@@ -81,12 +81,15 @@ export default {
     async confirmCancel () {
       this.cCancel.visible = false
 
-      await this.$store.dispatch('wx/addresses/del', {
-        id: this.cCancel.id
+      await this.$store.dispatch('wx/orders/postAction', {
+        body: {
+          type: 'CANCEL',
+          id: this.cCancel.id
+        }
       })
 
       this.$wx.showToast({
-        title: '删除成功'
+        title: '取消成功'
       })
 
       this.getList()

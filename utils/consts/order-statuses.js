@@ -23,5 +23,10 @@ export default [
     value: 'finish',
     code: 'FINISH',
     label: '已完成'
+  },
+  {
+    value: 'cancelled',
+    code: 'CANCELLED',
+    label: '已取消'
   }
 ]

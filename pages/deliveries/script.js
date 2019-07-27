@@ -69,8 +69,7 @@ export default {
         title: '订单已配送完成'
       })
       this.cFinishConfirm.visible = false
-      this.changeTab({ value: '4' })
-
+      this.changeTab({ value: 'FINISH' })
     },
     openLocation (location) {
       this.$wx.openLocation({

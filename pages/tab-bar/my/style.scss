@@ -45,7 +45,7 @@
         position: center px2rpx(54px);
       }
 
-      @each $value in (all, to-pay, to-deliver, in-deliver, finish) {
+      @each $value in (all, to-pay, to-deliver, in-deliver, finish, cancelled) {
         @include m(#{$value}) {
           background-image: cdn("pages/tab-bar/my/orders/#{$value}.png");
         }
