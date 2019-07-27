@@ -40,7 +40,7 @@ export default {
         },
         query: {
           where: {
-            dispatcherId: {
+            delivererId: {
               $eq: this.$auth.get()['user'].id
             },
             status: {

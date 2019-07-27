@@ -1,15 +1,15 @@
 {
   "pages": [
     {
-      "path": "pages/deliveries/index",
-      "style": {
-        "navigationBarTitleText": "配送管理"
-      }
-    },
-    {
       "path": "pages/orders/index",
       "style": {
         "navigationBarTitleText": "我的订单"
+      }
+    },
+    {
+      "path": "pages/deliveries/index",
+      "style": {
+        "navigationBarTitleText": "配送管理"
       }
     },
     {
