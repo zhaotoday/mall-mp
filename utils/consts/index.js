@@ -10,8 +10,8 @@ import DELIVERY_STATUSES from './delivery-statuses'
 import DELIVERY_AREAS from './delivery-areas'
 
 // 接口地址
-const API_URL = 'http://localhost:3004/api/v1'
-// const API_URL = 'https://api.fjnm.cn/api/v1'
+// const API_URL = 'http://localhost:3004/api/v1'
+const API_URL = 'https://api.fjnm.cn/api/v1'
 
 // CDN
 const CDN_URL = 'https://cdn.fjnm.cn'
@@ -32,8 +32,8 @@ const LOGIN_PAGE = '/pages/login/index'
 const BIND_PAGE = '/pages/bind/index'
 
 // 订单最低限额
-const ORDER_MIN_PRICE = 0.03
-const ORDER_MAX_PRICE = 0.06
+const ORDER_MIN_PRICE = 69 // 0.03
+const ORDER_MAX_PRICE = 2000 // 0.06
 
 export default {
   API_URL,
