@@ -6,6 +6,9 @@ export default {
   components: { CEmpty, CCoupon },
   data () {
     return {
+      query: {
+        select: ''
+      },
       cTabs: {
         current: 0
       }
@@ -15,7 +18,21 @@ export default {
     list: state => state['wx/wxUserCoupons'].list
   }),
   onShow () {
-    this.getList()
+    this.query.select = this.$mp.query.select
+
+    if (this.$mp.query.select) {
+      this.$wx.setNavigationBarTitle({
+        title: '选择优惠券'
+      })
+      this.cTabs.current = 1
+      this.getList({ status: '0' })
+    } else {
+      this.$wx.setNavigationBarTitle({
+        title: '我的优惠券'
+      })
+      this.getList()
+    }
+
     this.loaded = true
   },
   methods: {

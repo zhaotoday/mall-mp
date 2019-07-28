@@ -17,7 +17,7 @@ export default {
       return '?select=1'
         + `&price=${this.finalTotalPrice}`
         + `&productIds=${this.cartProducts.map(item => item.id).join(',')}`
-        + `&categoryIds=${this.cartProducts.map(item => item.categoryId).join(',')}`
+        + `&categoryIds=${this.cartProducts.map(item => `${item.category.id},${item.category.parentId}`).join(',')}`
     }
   },
   data () {
@@ -87,7 +87,7 @@ export default {
           deliveryId: 0,
           remark: remark.value,
           payWay: this.$consts.PAY_WAYS[this.cPayWay.index].value,
-          paidMoney: this.finalTotalPrice,
+          paidMoney: 0.01, // this.finalTotalPrice,
           products: this.cartProducts,
           formId: e.detail.formId || ''
         }

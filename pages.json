@@ -21,7 +21,7 @@
     {
       "path": "pages/coupons/index",
       "style": {
-        "navigationBarTitleText": "我的优惠券"
+        "navigationBarTitleText": ""
       }
     },
     {

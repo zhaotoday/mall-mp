@@ -100,7 +100,7 @@
             </template>
             <template v-else-if="order.status === 'CANCELLED'">
               <div class="c-orders__tip c9 fs24">
-                订单已被取消<span v-if="order.paidAt">，请联系客服退款</span>
+                订单已取消<span v-if="order.paidAt">，请联系客服退款</span>
               </div>
             </template>
           </div>
