@@ -60,7 +60,7 @@ export default {
     select (item) {
       if (this.$mp.query.select) {
         this.$store.dispatch('wx/orders/setForm', {
-          key: 'coupon',
+          key: 'wxUserCoupon',
           value: item
         })
         this.$wx.navigateBack()

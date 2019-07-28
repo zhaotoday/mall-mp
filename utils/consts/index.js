@@ -10,8 +10,8 @@ import DELIVERY_STATUSES from './delivery-statuses'
 import DELIVERY_AREAS from './delivery-areas'
 
 // 接口地址
-const API_URL = 'http://localhost:3004/api/v1'
-// const API_URL = 'https://api.fjnm.cn/api/v1'
+// const API_URL = 'http://localhost:3005/api/v1'
+const API_URL = 'https://api.fjnm.cn/api/v1'
 
 // CDN
 const CDN_URL = 'https://cdn.fjnm.cn'

@@ -10,7 +10,9 @@ const initState = {
   detail: {},
   form: {
     address: {},
-    coupon: {},
+    wxUserCoupon: {
+      coupon: {}
+    },
     remark: {}
   }
 }

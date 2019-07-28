@@ -10,7 +10,7 @@ export default {
       ordersForm: state => state['wx/orders'].form
     }),
     finalTotalPrice () {
-      const totalPrice = parseFloat((this.totalPrice - (this.ordersForm.coupon.value || 0).toFixed(2)).toFixed(2))
+      const totalPrice = parseFloat((this.totalPrice - (this.ordersForm.wxUserCoupon.value || 0).toFixed(2)).toFixed(2))
       return totalPrice > 0 ? totalPrice : 1
     },
     couponQueryString () {
@@ -38,7 +38,7 @@ export default {
       value: {}
     })
     this.$store.dispatch('wx/orders/setForm', {
-      key: 'coupon',
+      key: 'wxUserCoupon',
       value: {}
     })
     this.$store.dispatch('wx/orders/setForm', {
@@ -53,7 +53,7 @@ export default {
       this.cPayWay.index = +e.detail.value
     },
     async pay (e) {
-      const { address, remark, coupon } = this.ordersForm
+      const { address, remark, wxUserCoupon } = this.ordersForm
 
       if (!address.id) {
         this.$wx.showToast({
@@ -83,7 +83,7 @@ export default {
         body: {
           type: 'CREATE_UNIFIED_ORDER',
           addressId: address.id,
-          couponId: coupon.id,
+          wxUserCouponId: wxUserCoupon.id,
           deliveryId: 0,
           remark: remark.value,
           payWay: this.$consts.PAY_WAYS[this.cPayWay.index].value,

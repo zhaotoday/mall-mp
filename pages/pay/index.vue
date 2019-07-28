@@ -24,14 +24,14 @@
         @click="navigateTo(`/pages/coupons/index${couponQueryString}`)">
         优惠券
         <div
-          v-if="!ordersForm.coupon.id"
+          v-if="!ordersForm.wxUserCoupon.coupon.id"
           class="c-list__extra c8 fs28">
           请选择优惠券
         </div>
         <div
           v-else
           class="c-list__extra fs28">
-          ￥{{ ordersForm.coupon.value }}（{{ ordersForm.coupon.name }}）
+          ￥{{ ordersForm.wxUserCoupon.coupon.value }}（{{ ordersForm.wxUserCoupon.coupon.name }}）
         </div>
       </div>
       <div
