@@ -87,7 +87,7 @@ export default {
           deliveryId: 0,
           remark: remark.value,
           payWay: this.$consts.PAY_WAYS[this.cPayWay.index].value,
-          paidMoney: 0.01, // this.finalTotalPrice,
+          paidMoney: this.finalTotalPrice,
           products: this.cartProducts,
           formId: e.detail.formId || ''
         }

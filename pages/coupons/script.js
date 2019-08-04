@@ -47,6 +47,8 @@ export default {
               $eq: status
             }
           },
+          offset: 0,
+          limit: 1000,
           minPrice: this.$mp.query.price || 0,
           productIds: this.$mp.query.productIds || '',
           categoryIds: this.$mp.query.categoryIds || ''
