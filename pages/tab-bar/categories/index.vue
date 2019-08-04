@@ -6,7 +6,7 @@
       <li
         v-for="(item, index) in categoriesTree"
         :key="item.id"
-        :class="[ 'b-sidebar__item', 'fs24', { 'is-active': index === cSidebar.index } ]"
+        :class="[ 'b-sidebar__item', 'fs26', { 'is-active': index === cSidebar.index } ]"
         @click="handleClickSidebarItem(index)">
         <p>{{ item.name }}</p>
       </li>

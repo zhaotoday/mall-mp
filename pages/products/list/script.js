@@ -19,7 +19,7 @@ export default {
     }
   },
   async onLoad () {
-    const { keywords, categoryId = '', categoryName = '' } = this.$mp.query
+    const { keywords, categoryId, categoryName = '' } = this.$mp.query
     this.keywords = keywords
     this.categoryId = categoryId
     this.categoryName = categoryName
@@ -39,13 +39,16 @@ export default {
     async getProductsList () {
       const { items, total } = await this.$store.dispatch('public/products/getList', {
         query: {
-          where: Object.assign({
-            name: {
-              $like: this.keywords
-            }
-          }, this.categoryId ? {
-            categoryId: this.categoryId
-          } : null),
+          where: Object.assign(
+            {
+              name: {
+                $like: this.keywords
+              }
+            },
+            typeof this.categoryId !== 'undefined' ? {
+              categoryId: { $in: this.categoryId.split(',') }
+            } : null
+          ),
           limit: 1000
         }
       })

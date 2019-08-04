@@ -57,7 +57,7 @@ export default {
     },
     async getProductsList () {
       const { items, total } = await this.$store.dispatch('public/products/getList', {
-        query: { limit: 1000 }
+        query: { limit: 15 }
       })
 
       return {
@@ -74,9 +74,13 @@ export default {
         }
       })
     },
-    goCategories (id) {
-      this.$store.dispatch('public/categories/setId', { id })
-      this.$wx.switchTab({ url: '/pages/tab-bar/categories/index' })
+    gotoProductsList (item) {
+      const categoryId = (item.children || []).map(item => item.id).join(',')
+      const categoryName = item.name
+
+      this.$wx.navigateTo({
+        url: `/pages/products/list/index?categoryId=${categoryId}&categoryName=${categoryName}`
+      })
     },
     knowNewUserCoupon () {
       this.cNewUserCoupon.visible = false
