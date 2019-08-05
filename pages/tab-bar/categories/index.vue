@@ -6,7 +6,7 @@
       <li
         v-for="(item, index) in categoriesTree"
         :key="item.id"
-        :class="[ 'b-sidebar__item', 'fs26', { 'is-active': index === cSidebar.index } ]"
+        :class="[ 'b-sidebar__item', 'fs28', { 'is-active': index === cSidebar.index } ]"
         @click="handleClickSidebarItem(index)">
         <p>{{ item.name }}</p>
       </li>
@@ -30,7 +30,7 @@
           <img
             class="b-categories__image"
             :src="$helpers.getImageURL({ id: item.icon, width: 110, height: 110 })" />
-          <p class="b-categories__name c10 fs24">
+          <p class="b-categories__name c10 fs24 u-fwb">
             {{ item.name }}
           </p>
         </li>

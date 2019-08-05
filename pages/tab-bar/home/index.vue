@@ -6,7 +6,7 @@
       <li
         v-for="item in categoriesTree"
         :key="item.id"
-        class="b-categories__item fs24 u-tac"
+        class="b-categories__item fs26 u-tac"
         @click="gotoProductsList(item)">
         <img
           class="b-categories__image"

@@ -19,7 +19,7 @@
         class="c-products__info"
         @click="navigateTo(`/pages/products/detail/index?id=${item.id}`)">
         <div class="c-products__name fs32">{{ item.name }}</div>
-        <div class="c-products__price c5 fs30">
+        <div class="c-products__price c5 fs32">
           <span class="fs20">￥</span>
           <template v-if="item.price">
             {{ item.price }}
