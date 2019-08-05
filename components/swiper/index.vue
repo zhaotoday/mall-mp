@@ -12,7 +12,9 @@
         <img
           class="c-swiper__image"
           mode="aspectFill"
-          :src="item" />
+          :src="item.image"
+          @click="navigateTo(item.url)"
+        />
       </swiper-item>
     </swiper>
     <div class="cc-indicator">

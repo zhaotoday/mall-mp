@@ -8,6 +8,8 @@ import CNewUserCoupon from '@/components/new-user-coupon'
 import categoriesMixin from '@/mixins/categories'
 import productsMixin from '@/mixins/products'
 import cartProductsMxins from '@/mixins/cart-products'
+import OrdersModel from '@/models/wx/orders'
+import orders from '../../../models/wx/orders'
 
 export default {
   components: { CNumberInput, CSwiper, CSearch, CProducts, CFixedCart, CNewUserCoupon },
@@ -15,6 +17,10 @@ export default {
   data () {
     return {
       hotProductsList: {
+        items: [],
+        total: 0
+      },
+      myProductsList: {
         items: [],
         total: 0
       },
@@ -32,7 +38,10 @@ export default {
       adsList: state => state['public/ads'].list
     }),
     adsImages () {
-      return this.adsList.items.map(item => this.$helpers.getImageURL({ id: item.picture, width: 750, height: 300 }))
+      return this.adsList.items.map(item => ({
+        image: this.$helpers.getImageURL({ id: item.picture, width: 750, height: 300 }),
+        url: item.link
+      }))
     }
   },
   async onShow () {
@@ -48,6 +57,9 @@ export default {
     this.getCategoriesList()
 
     this.hotProductsList = await this.getProductsList()
+    if (this.$auth.loggedIn()) {
+      this.myProductsList = await this.getMyProductsList()
+    }
   },
   methods: {
     getAdsList () {
@@ -85,6 +97,42 @@ export default {
     knowNewUserCoupon () {
       this.cNewUserCoupon.visible = false
       this.$wx.setStorageSync('knowNewUserCoupon', 1)
+    },
+    async getMyProductsList () {
+      const { data: { items: ordersListItems } } = await new OrdersModel().GET({
+        query: {
+          where: {
+            wxUserId: {
+              $eq: this.$auth.get()['user'].id
+            }
+          },
+          offset: 0,
+          limit: 1000,
+          order: JSON.stringify([['updatedAt', 'DESC']])
+        }
+      })
+
+      let productIds = []
+
+      ordersListItems.forEach(order => {
+        order.products.forEach(product => {
+          productIds.push(product.id)
+        })
+      })
+
+      const { items, total } = await this.$store.dispatch('public/products/getList', {
+        query: {
+          where: {
+            id: { $in: [...new Set(productIds)] }
+          },
+          limit: 15
+        }
+      })
+
+      return {
+        items: items.map(item => this.addCartKeys(item)),
+        total
+      }
     }
   }
 }
