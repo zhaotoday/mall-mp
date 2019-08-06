@@ -86,13 +86,9 @@ export default {
         }
       })
     },
-    gotoProductsList (item) {
-      const categoryId = (item.children || []).map(item => item.id).join(',')
-      const categoryName = item.name
-
-      this.$wx.navigateTo({
-        url: `/pages/products/list/index?categoryId=${categoryId}&categoryName=${categoryName}`
-      })
+    gotoCategories (id) {
+      this.$store.dispatch('public/categories/setId', { id })
+      this.$wx.switchTab({ url: '/pages/tab-bar/categories/index' })
     },
     knowNewUserCoupon () {
       this.cNewUserCoupon.visible = false
