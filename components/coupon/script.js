@@ -19,5 +19,10 @@ export default {
       type: String,
       default: time.getTime()
     }
+  },
+  methods: {
+    getTime (time) {
+      return time ? new Date(time).getTime() : new Date().getTime()
+    }
   }
 }

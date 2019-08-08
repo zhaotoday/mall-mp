@@ -7,7 +7,7 @@
         v-for="item in categoriesTree"
         :key="item.id"
         class="b-categories__item fs26 u-tac"
-        @click="gotoProductsList(item)">
+        @click="gotoCategories(item.id)">
         <img
           class="b-categories__image"
           :src="$helpers.getImageURL({ id: item.icon, width: 88, height: 88 })" />

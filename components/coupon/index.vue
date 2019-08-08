@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="[ 'c-coupon u-mb20', { 'is-disabled': used }, { 'is-new-user': isNewUser } ]"
+    :class="[ 'c-coupon u-mb20', { 'is-disabled': used || (getTime() > getTime($time.getTime($time.add(createdAt, item.period, 'day')))) }, { 'is-new-user': isNewUser } ]"
     @click="$emit('select')">
     <div class="c-coupon__body">
       <div class="c-coupon__title">
@@ -12,7 +12,8 @@
         </span>
         <span class="fs24">{{ item.name }}</span>
       </div>
-      <div class="c-coupon__time fs20">有效期：{{ $time.getTime(createdAt) }} - {{ $time.getTime($time.add(createdAt, item.period, 'day')) }}
+      <div class="c-coupon__time fs20">有效期：{{ $time.getTime(createdAt) }} - {{ $time.getTime($time.add(createdAt,
+        item.period, 'day')) }}
       </div>
       <div
         v-if="item.number"

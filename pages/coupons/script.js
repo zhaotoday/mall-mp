@@ -44,14 +44,16 @@ export default {
               $eq: this.$auth.get()['user'].id
             },
             used: {
-              $eq: status
+              $eq: status === '2' ? '' : status
             }
           },
           offset: 0,
           limit: 1000,
           minPrice: this.$mp.query.price || 0,
           productIds: this.$mp.query.productIds || '',
-          categoryIds: this.$mp.query.categoryIds || ''
+          categoryIds: this.$mp.query.categoryIds || '',
+          currentTime: status === '' || status === '0' ? '' : this.$time.getTime(),
+          expired: status === '2' ? '1' : ''
         }
       })
     },
