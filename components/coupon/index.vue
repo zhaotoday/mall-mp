@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="[ 'c-coupon u-mb20', { 'is-disabled': used || (getTime() > getTime($time.getTime($time.add(createdAt, item.period, 'day')))) }, { 'is-new-user': isNewUser } ]"
+    :class="[ 'c-coupon u-mb20', { 'is-disabled': used || (getTime() > getTime($time.add(createdAt, item.period, 'day'))) }, { 'is-new-user': isNewUser } ]"
     @click="$emit('select')">
     <div class="c-coupon__body">
       <div class="c-coupon__title">
