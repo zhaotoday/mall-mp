@@ -39,7 +39,9 @@ export default {
     })
     this.$store.dispatch('wx/orders/setForm', {
       key: 'wxUserCoupon',
-      value: {}
+      value: {
+        coupon: {}
+      }
     })
     this.$store.dispatch('wx/orders/setForm', {
       key: 'remark',
