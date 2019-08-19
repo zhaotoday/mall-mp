@@ -99,8 +99,10 @@
               </div>
             </template>
             <template v-else-if="order.status === 'CANCELLED'">
-              <div class="c-orders__tip c9 fs24">
-                订单已取消<span v-if="order.paidAt">，请联系客服退款</span>
+              <div
+                class="c-button w160 h48 bgc1 bdc4 c4 fs24"
+                @click="clone(order)">
+                再来一单
               </div>
             </template>
           </div>
