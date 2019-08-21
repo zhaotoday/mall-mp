@@ -27,6 +27,13 @@
         </li>
       </ul>
     </scroll-view>
+    <c-dialog
+      :visible="cConfirm.visible"
+      title="请确认"
+      content="需要获取您的位置信息，请到小程序的设置打开授权"
+      @cancel="cConfirm.visible = false"
+      @confirm="handleConfirm">
+    </c-dialog>
   </div>
 </template>
 
