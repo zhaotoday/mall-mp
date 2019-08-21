@@ -69,7 +69,10 @@ export default {
     },
     async getProductsList () {
       const { items, total } = await this.$store.dispatch('public/products/getList', {
-        query: { limit: 15 }
+        query: {
+          where: { status: { $eq: 1 } },
+          limit: 15
+        }
       })
 
       return {
@@ -119,6 +122,7 @@ export default {
       const { items, total } = await this.$store.dispatch('public/products/getList', {
         query: {
           where: {
+            status: { $eq: 1 },
             id: { $in: [...new Set(productIds)] }
           },
           limit: 15

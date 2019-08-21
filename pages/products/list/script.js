@@ -41,9 +41,8 @@ export default {
         query: {
           where: Object.assign(
             {
-              name: {
-                $like: this.keywords
-              }
+              name: { $like: this.keywords },
+              status: { $eq: 1 }
             },
             typeof this.categoryId !== 'undefined' ? {
               categoryId: { $in: this.categoryId.split(',') }

@@ -25,7 +25,7 @@
     "sass-utils": "^1.0.21",
     "vuex": "^3.1.0",
     "vuex-persistedstate": "^2.5.4",
-    "wx-bridge": "0.0.21"
+    "wx-bridge": "0.0.25"
   },
   "devDependencies": {
     "node-sass": "^4.11.0",
