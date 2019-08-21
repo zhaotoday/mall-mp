@@ -8,8 +8,12 @@ export default {
           .map(item => parseFloat((item.price / parseInt(item.value.split(':')[1], 10)).toFixed(2)))
           .sort((a, b) => a - b)
         const unitLabel = this.$helpers.getItem(this.$consts.PRODUCT_UNITS, 'value', unit)['label']
+        const fromUnitPrice = unitPrices[0]
+        const toUnitPrice = unitPrices.pop()
 
-        return `${unitPrices[0]} - ${unitPrices.pop()} / ${unitLabel}`
+        return fromUnitPrice === toUnitPrice
+          ? `${fromUnitPrice} / ${unitLabel}`
+          : `${fromUnitPrice} - ${toUnitPrice} / ${unitLabel}`
       } else {
         return ''
       }

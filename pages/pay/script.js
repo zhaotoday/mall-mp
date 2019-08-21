@@ -90,7 +90,7 @@ export default {
           remark: remark.value,
           payWay: this.$consts.PAY_WAYS[this.cPayWay.index].value,
           paidMoney: this.finalTotalPrice,
-          products: this.checkedCartProducts,
+          products: this.cartProducts.filter(item => item.checked),
           formId: e.detail.formId || ''
         }
       })
