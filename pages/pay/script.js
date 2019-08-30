@@ -64,6 +64,12 @@ export default {
         return
       }
 
+      if (this.payLoading) {
+        return
+      }
+
+      this.payLoading = true
+
       const { city, district, town } = await map.getAddress({ location: address.location })
       const { DELIVERY_AREAS } = this.$consts
 
@@ -82,6 +88,7 @@ export default {
       }
 
       const { data } = await this.$store.dispatch('wx/payments/postAction', {
+        showLoading: true,
         body: {
           type: 'CREATE_UNIFIED_ORDER',
           addressId: address.id,
@@ -94,6 +101,8 @@ export default {
           formId: e.detail.formId || ''
         }
       })
+
+      this.payLoading = false
 
       try {
         if (e.detail.formId) {

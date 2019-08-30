@@ -51,6 +51,7 @@ export default {
     },
     async pay (order) {
       const { data } = await this.$store.dispatch('wx/payments/postAction', {
+        showLoading: true,
         body: {
           type: 'CREATE_UNIFIED_ORDER',
           id: order.id,

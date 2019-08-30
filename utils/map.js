@@ -1,15 +1,28 @@
 import consts from '@/utils/consts'
 import wxb from '@/utils/wxb'
+import REST from '@/utils/rest'
+
+class MapModel extends REST {
+  constructor () {
+    super()
+
+    this.baseURL = consts.AMAP_WEB_SERVICE_URL
+    this.path = ''
+  }
+}
 
 export default {
   async getAddress ({ location } = {}) {
-    const { data: { regeocode } } = await wxb.request({
-      url: `${consts.AMAP_WEB_SERVICE_URL}/geocode/regeo?extensions=all`,
-      data: {
-        key: consts.AMAP_WEB_SERVICE_KEY,
-        location: `${location.longitude},${location.latitude}`
-      }
-    })
+    const { regeocode } = await new MapModel()
+      .addPath('geocode/regeo')
+      .GET({
+        showLoading: true,
+        query: {
+          extensions: 'all',
+          key: consts.AMAP_WEB_SERVICE_KEY,
+          location: `${location.longitude},${location.latitude}`
+        }
+      })
 
     return (item => ({
       ...location,
@@ -24,17 +37,19 @@ export default {
     }))({ ...regeocode.addressComponent, ...regeocode.pois[0] })
   },
   async getNearbyAddresses ({ location, keywords, types = '120201|120302|141200' }) {
-    const { data: { pois } } = await wxb.request({
-      url: `${consts.AMAP_WEB_SERVICE_URL}/place/around`,
-      data: {
-        extensions: 'all',
-        key: consts.AMAP_WEB_SERVICE_KEY,
-        location: `${location.longitude},${location.latitude}`,
-        sortrule: 'distance',
-        keywords,
-        types
-      }
-    })
+    const { data: { pois } } = await new MapModel()
+      .addPath('place/around')
+      .GET({
+        showLoading: true,
+        query: {
+          extensions: 'all',
+          key: consts.AMAP_WEB_SERVICE_KEY,
+          location: `${location.longitude},${location.latitude}`,
+          sortrule: 'distance',
+          keywords,
+          types
+        }
+      })
 
     return pois.map(item => {
       const [lng, lat] = item.location.split(',')

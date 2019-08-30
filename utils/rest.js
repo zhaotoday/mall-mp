@@ -27,7 +27,7 @@ export default class extends REST {
       query._ = new Date().getTime()
     }
 
-    showLoading && wxb.showLoading()
+    showLoading && wxb.showLoading({ mask: true })
 
     return new Promise(resolve => {
       super.request(method, { id, query, body })
