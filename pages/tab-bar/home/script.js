@@ -9,7 +9,6 @@ import categoriesMixin from '@/mixins/categories'
 import productsMixin from '@/mixins/products'
 import cartProductsMxins from '@/mixins/cart-products'
 import OrdersModel from '@/models/wx/orders'
-import orders from '../../../models/wx/orders'
 
 export default {
   components: { CNumberInput, CSwiper, CSearch, CProducts, CFixedCart, CNewUserCoupon },
@@ -57,9 +56,12 @@ export default {
     this.getCategoriesList()
 
     this.hotProductsList = await this.getProductsList()
+
     if (this.$auth.loggedIn()) {
       this.myProductsList = await this.getMyProductsList()
     }
+
+    this.$store.dispatch('public/categories/setId', { id: 0 })
   },
   methods: {
     getAdsList () {

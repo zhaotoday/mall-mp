@@ -6,5 +6,8 @@ import cartProductsMxins from '@/mixins/cart-products'
 
 export default {
   components: { CProducts, CCartManager, CEmpty },
-  mixins: [productsMixin, cartProductsMxins]
+  mixins: [productsMixin, cartProductsMxins],
+  onShow () {
+    this.$store.dispatch('public/categories/setId', { id: 0 })
+  }
 }
