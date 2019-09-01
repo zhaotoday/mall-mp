@@ -35,7 +35,7 @@ export default {
       query.exec(res => {
         this.cFixedCart.hidden = e.detail.scrollTop + 10 > e.detail.scrollHeight - res[0].height
       })
-    }, 100),
+    }, 10),
     getDetail () {
       return this.$store.dispatch('public/products/getDetail', {
         id: this.id

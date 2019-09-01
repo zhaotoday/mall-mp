@@ -76,7 +76,7 @@ export default {
       query.exec(res => {
         this.cFixedCart.hidden = e.detail.scrollTop + 10 > e.detail.scrollHeight - res[0].height
       })
-    }, 100),
+    }, 10),
     getAdsList () {
       return this.$store.dispatch('public/ads/getList', {
         query: {}
