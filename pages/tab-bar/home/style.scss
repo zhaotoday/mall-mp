@@ -3,6 +3,10 @@
 @include p(index) {
   padding-top: px2rpx(96px);
 
+  @include e(scroll) {
+    @include position--absolute(px2rpx(96px), 0, 0, 0);
+  }
+
   @include c(search) {
     @include position--fixed(0, null, null, 0);
 

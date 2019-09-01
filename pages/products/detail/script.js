@@ -3,6 +3,7 @@ import CSpecifications from '@/components/specifications'
 import CFixedCart from '@/components/fixed-cart'
 import cartProductsMxins from '@/mixins/cart-products'
 import CAddToCart from '@/components/add-to-cart'
+import { debounce } from 'debounce'
 
 export default {
   components: { CProductActions, CSpecifications, CAddToCart, CFixedCart },
@@ -12,7 +13,10 @@ export default {
       cSpecifications: {
         current: -1
       },
-      detail: {}
+      detail: {},
+      cFixedCart: {
+        hidden: false
+      }
     }
   },
   async onShow () {
@@ -23,6 +27,15 @@ export default {
     await this.$wx.setNavigationBarTitle({ title: this.detail.name })
   },
   methods: {
+    handleScroll: debounce(function (e) {
+      const query = wx.createSelectorQuery()
+
+      query.select('#scroll-view').boundingClientRect()
+      query.selectViewport().scrollOffset()
+      query.exec(res => {
+        this.cFixedCart.hidden = e.detail.scrollTop + 10 > e.detail.scrollHeight - res[0].height
+      })
+    }, 100),
     getDetail () {
       return this.$store.dispatch('public/products/getDetail', {
         id: this.id
