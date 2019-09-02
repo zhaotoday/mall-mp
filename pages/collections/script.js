@@ -1,11 +1,12 @@
 import CProducts from '@/components/products'
-import cartProductsMxins from '@/mixins/cart-products'
+import cartProductsMixin from '@/mixins/cart-products'
+import fixedCartMixin from '@/mixins/fixed-cart'
 import CEmpty from '@/components/empty'
 import CFixedCart from '@/components/fixed-cart'
 
 export default {
   components: { CProducts, CEmpty, CFixedCart },
-  mixins: [cartProductsMxins],
+  mixins: [cartProductsMixin, fixedCartMixin],
   data () {
     return {
       productsList: {

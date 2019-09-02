@@ -1,7 +1,7 @@
 @import '../../../styles/utils/index';
 
 @include p(products-list) {
-  @include position--fixed(0, null, null, 0);
+  @include position--absolute(0, null, null, 0);
 
   width: 100%;
 

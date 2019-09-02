@@ -4,11 +4,12 @@ import CProducts from '@/components/products'
 import CEmpty from '@/components/empty'
 import CFixedCart from '@/components/fixed-cart'
 import productsMixin from '@/mixins/products'
-import cartProductsMxins from '@/mixins/cart-products'
+import cartProductsMixin from '@/mixins/cart-products'
+import fixedCartMixin from '@/mixins/fixed-cart'
 
 export default {
   components: { CSearch, CSort, CProducts, CEmpty, CFixedCart },
-  mixins: [productsMixin, cartProductsMxins],
+  mixins: [productsMixin, cartProductsMixin, fixedCartMixin],
   data () {
     return {
       keywords: '',

@@ -7,18 +7,15 @@ import CFixedCart from '@/components/fixed-cart'
 import CNewUserCoupon from '@/components/new-user-coupon'
 import categoriesMixin from '@/mixins/categories'
 import productsMixin from '@/mixins/products'
-import cartProductsMxins from '@/mixins/cart-products'
+import cartProductsMixin from '@/mixins/cart-products'
+import fixedCartMixin from '@/mixins/fixed-cart'
 import OrdersModel from '@/models/wx/orders'
-import { debounce } from 'debounce'
 
 export default {
   components: { CNumberInput, CSwiper, CSearch, CProducts, CFixedCart, CNewUserCoupon },
-  mixins: [categoriesMixin, productsMixin, cartProductsMxins],
+  mixins: [categoriesMixin, productsMixin, cartProductsMixin, fixedCartMixin],
   data () {
     return {
-      cFixedCart: {
-        hidden: false
-      },
       hotProductsList: {
         items: [],
         total: 0
@@ -68,15 +65,6 @@ export default {
     this.$store.dispatch('public/categories/setId', { id: 0 })
   },
   methods: {
-    handleScroll: debounce(function (e) {
-      const query = wx.createSelectorQuery()
-
-      query.select('#scroll-view').boundingClientRect()
-      query.selectViewport().scrollOffset()
-      query.exec(res => {
-        this.cFixedCart.hidden = e.detail.scrollTop + 10 > e.detail.scrollHeight - res[0].height
-      })
-    }, 10),
     getAdsList () {
       return this.$store.dispatch('public/ads/getList', {
         query: {}

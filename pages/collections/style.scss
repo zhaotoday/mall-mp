@@ -1,4 +1,5 @@
 @import '../../styles/utils/index';
 
 @include p(collections) {
+  @include position--absolute(0, 0, 0, 0);
 }
