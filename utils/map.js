@@ -37,7 +37,7 @@ export default {
     }))({ ...regeocode.addressComponent, ...regeocode.pois[0] })
   },
   async getNearbyAddresses ({ location, keywords, types = '120201|120302|141200' }) {
-    const { data: { pois } } = await new MapModel()
+    const { pois } = await new MapModel()
       .addPath('place/around')
       .GET({
         showLoading: true,
