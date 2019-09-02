@@ -10,7 +10,7 @@ export default {
   },
   onShareAppMessage () {
     return {
-      title: '小程序名称',
+      title: '福菜生鲜商城',
       path: this.$consts.HOME_PAGE
     }
   },

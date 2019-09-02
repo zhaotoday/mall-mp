@@ -6,7 +6,10 @@ export default {
   components: { CSearch, CDialog },
   data () {
     return {
-      location: {},
+      location: {
+        longitude: '',
+        latitude: ''
+      },
       addresses: [],
       cConfirm: {
         visible: false
@@ -19,7 +22,8 @@ export default {
     this.mapContext = wx.createMapContext('map')
 
     if (longitude) {
-      this.location = { longitude, latitude }
+      this.location.longitude = longitude
+      this.location.latitude = latitude
     } else {
       try {
         this.location = await this.$wx.getLocation({ type: 'gcj02' })

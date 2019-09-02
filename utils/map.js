@@ -16,7 +16,6 @@ export default {
     const { regeocode } = await new MapModel()
       .addPath('geocode/regeo')
       .GET({
-        showLoading: true,
         query: {
           extensions: 'all',
           key: consts.AMAP_WEB_SERVICE_KEY,
@@ -40,7 +39,6 @@ export default {
     const { pois } = await new MapModel()
       .addPath('place/around')
       .GET({
-        showLoading: true,
         query: {
           extensions: 'all',
           key: consts.AMAP_WEB_SERVICE_KEY,

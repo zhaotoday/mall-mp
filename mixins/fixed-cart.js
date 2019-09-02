@@ -10,7 +10,6 @@ export default {
   },
   methods: {
     handleScroll: debounce(function (e) {
-      console.log(e)
       const query = wx.createSelectorQuery()
 
       query.select('#scroll-view').boundingClientRect()
