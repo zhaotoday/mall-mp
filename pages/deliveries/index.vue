@@ -22,17 +22,22 @@
               style="padding-right: 10rpx;">
               订单号：{{ item.no }}
             </span>
-            <div class="c-orders__extra c8 fs22">{{ $time.getTime(item.updatedAt) }}</div>
+            <div class="c-orders__extra c8 fs22">{{ $time.getTime(item.createdAt) }}</div>
           </div>
           <div class="c-orders__body o-media">
             <div class="o-media__body">
-              <p class="fs24">联系人：{{ item.address.name }}</p>
+              <p class="fs24">收货人：{{ item.address.name }}</p>
               <p class="fs24">手机号：{{ item.address.phoneNumber }}</p>
               <p class="fs24">地址：{{ item.address.location.name + item.address.room }}</p>
             </div>
           </div>
           <div class="c-orders__foot">
             <template v-if="item.status === 'IN_DELIVER'">
+              <div
+                class="c-button w160 h48 bgc1 bdc4 c4 fs24"
+                @click="navigateTo(`/pages/order-detail/index?id=${item.id}`)">
+                订单详情
+              </div>
               <div
                 class="c-button w120 h48 bgc1 bdc4 c4 fs24"
                 @click="makePhoneCall(item.address.phoneNumber)">

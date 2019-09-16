@@ -1,0 +1,25 @@
+@import '../../styles/utils/index';
+
+@include p(order-detail) {
+  @include c(list) {
+    @include cc(products) {
+      padding-left: px2rpx(138px);
+
+      @include e(item) {
+        @include text--middle(px2rpx(60px));
+
+        position: relative;
+      }
+
+      @include e(label) {
+        @include position--absolute(0, null, null, 0);
+      }
+
+      @include e(number) {
+        @include position--absolute(50%, px2rpx(30px));
+
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
