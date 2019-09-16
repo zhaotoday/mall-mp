@@ -22,7 +22,7 @@
             style="padding-right: 10rpx;">
             {{ $helpers.getItem($consts.ORDER_STATUSES, 'code', order.status)['label'] }}
           </span>
-            <span class="c8 fs22">{{ $time.getTime(order.updatedAt) }}</span>
+            <span class="c8 fs22">{{ $time.getTime(order.createdAt) }}</span>
           </div>
           <div class="c-orders__body o-media">
             <img
@@ -62,7 +62,12 @@
           <div class="c-orders__foot">
             <template v-if="order.status === 'TO_PAY'">
               <div
-                class="c-button w160 h48 bgc4 c1 fs24"
+                class="c-button w160 h48 bgc1 bdc4 c4 fs24"
+                @click="navigateTo(`/pages/order-detail/index?id=${order.id}`)">
+                订单详情
+              </div>
+              <div
+                class="c-button w160 h48 bgc1 bdc4 c4 fs24"
                 @click="pay(order)">
                 立即付款
               </div>
@@ -73,6 +78,11 @@
               </div>
             </template>
             <template v-else-if="order.status === 'TO_DELIVER'">
+              <div
+                class="c-button w160 h48 bgc1 bdc4 c4 fs24"
+                @click="navigateTo(`/pages/order-detail/index?id=${order.id}`)">
+                订单详情
+              </div>
               <div
                 class="c-button w160 h48 bgc1 bdc4 c4 fs24"
                 @click="clone(order)">
@@ -87,6 +97,11 @@
             <template v-else-if="order.status === 'IN_DELIVER'">
               <div
                 class="c-button w160 h48 bgc1 bdc4 c4 fs24"
+                @click="navigateTo(`/pages/order-detail/index?id=${order.id}`)">
+                订单详情
+              </div>
+              <div
+                class="c-button w160 h48 bgc1 bdc4 c4 fs24"
                 @click="clone(order)">
                 再来一单
               </div>
@@ -94,11 +109,21 @@
             <template v-else-if="order.status === 'FINISH'">
               <div
                 class="c-button w160 h48 bgc1 bdc4 c4 fs24"
+                @click="navigateTo(`/pages/order-detail/index?id=${order.id}`)">
+                订单详情
+              </div>
+              <div
+                class="c-button w160 h48 bgc1 bdc4 c4 fs24"
                 @click="clone(order)">
                 再来一单
               </div>
             </template>
             <template v-else-if="order.status === 'CANCELLED'">
+              <div
+                class="c-button w160 h48 bgc1 bdc4 c4 fs24"
+                @click="navigateTo(`/pages/order-detail/index?id=${order.id}`)">
+                订单详情
+              </div>
               <div
                 class="c-button w160 h48 bgc1 bdc4 c4 fs24"
                 @click="clone(order)">
