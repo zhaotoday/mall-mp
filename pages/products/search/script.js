@@ -24,7 +24,10 @@ export default {
       })
     },
     getHistory () {
-      return this.$wx.getStorageSync(SEARCH_HISTORY) || []
+      const MAX = 15
+      const ret = this.$wx.getStorageSync(SEARCH_HISTORY)
+
+      return ret ? ret.filter((item, index) => index < MAX) : []
     },
     saveHistory (keywords) {
       const searchHistory = this.$wx.getStorageSync(SEARCH_HISTORY) || []
