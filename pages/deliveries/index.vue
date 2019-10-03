@@ -55,8 +55,10 @@
               </div>
             </template>
             <template v-else-if="item.status === 'FINISH'">
-              <div class="c-button w120 h48 bgc7 c8 fs24">
-                已完成
+              <div
+                class="c-button w160 h48 bgc1 bdc4 c4 fs24"
+                @click="navigateTo(`/pages/order-detail/index?id=${item.id}`)">
+                订单详情
               </div>
             </template>
           </div>
