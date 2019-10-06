@@ -72,14 +72,8 @@
     </div>
     <div class="b-pay bgc1">
       <div class="b-pay__money c5 fs32">￥{{ finalTotalPrice }} 元</div>
-      <div
-        v-if="parseInt(cPayWay.index) === 0"
-        class="b-pay__submit bgc5 c1 fs32 u-tac"
-        @click="pay">
-        支付
-      </div>
       <form
-        v-else
+        v-if="parseInt(cPayWay.index) === 0"
         report-submit
         @submit="pay">
         <button
@@ -88,6 +82,12 @@
           下单
         </button>
       </form>
+      <div
+        v-else
+        class="b-pay__submit bgc5 c1 fs32 u-tac"
+        @click="pay">
+        支付
+      </div>
     </div>
   </div>
 </template>
