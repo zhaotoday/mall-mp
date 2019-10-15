@@ -23,7 +23,7 @@ export default {
     }
   },
   methods: {
-    async isCartProductPricesChanged () {
+    async isProductPricesChanged () {
       let pricesChanged = false
 
       const { items } = await this.$store.dispatch('public/products/getList', {

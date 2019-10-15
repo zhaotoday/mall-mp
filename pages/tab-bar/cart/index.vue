@@ -13,11 +13,11 @@
       :cart-products="cartProducts">
     </c-cart-manager>
     <c-dialog
-      :visible="cDel.visible"
+      :visible="cPriceConfirm.visible"
       title="请确认"
-      content="确认删除收货地址？"
-      @cancel="cDel.visible = false"
-      @confirm="confirmDel">
+      content="购物车商品价格有更新！"
+      @cancel="cPriceConfirm.visible = false"
+      @confirm="cPriceConfirm.visible = false">
     </c-dialog>
   </div>
 </template>
