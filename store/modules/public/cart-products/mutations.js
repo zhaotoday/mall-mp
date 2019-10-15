@@ -52,6 +52,32 @@ export default {
 
     state.items = state.items.filter(product => product.number || product.specifications.find(specification => specification.number))
   },
+  [types.UPDATE] (state, { product, specification }) {
+    if (specification) {
+      if (specification.price) {
+        state.items
+          .find(item => item.id === product.id)['specifications']
+          .find(item => item.value === specification.value)['price'] = specification.price
+      } else {
+        const index = state.items
+          .find(item => item.id === product.id)['specifications']
+          .find(item => item.value === specification.value)
+
+        state.items
+          .find(item => item.id === product.id)['specifications'].splice(index, 1)
+      }
+    } else {
+      if (product.price) {
+        state.items
+          .find(item => item.id === product.id)['price'] = product.price
+      } else {
+        const index = state.items
+          .find(item => item.id === product.id)
+
+        state.items.splice(index, 1)
+      }
+    }
+  },
   [types.SET_ITEMS] (state, { items }) {
     state.items = items
   },

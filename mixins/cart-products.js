@@ -23,6 +23,45 @@ export default {
     }
   },
   methods: {
+    async isCartProductPricesChanged () {
+      let pricesChanged = false
+
+      const { items } = await this.$store.dispatch('public/products/getList', {
+        query: {
+          where: {
+            id: { $in: this.checkedCartProducts.map(item => item.id) }
+          },
+          limit: 1000
+        }
+      })
+
+      this.checkedCartProducts.forEach(product => {
+        const foundProduct = items.find(item => item.id === product.id) || { id: product.id }
+
+        if (product.price) {
+          if (foundProduct.price !== product.price) {
+            this.$store.dispatch('public/cartProducts/update', {
+              product: foundProduct
+            })
+            pricesChanged = true
+          }
+        } else {
+          product.specifications.forEach(specification => {
+            const foundSpecification = foundProduct.specifications.find(item => item.value === specification.value) || { value: specification.value }
+
+            if (foundSpecification.price !== specification.price) {
+              this.$store.dispatch('public/cartProducts/update', {
+                product: foundProduct,
+                specification: foundSpecification
+              })
+              pricesChanged = true
+            }
+          })
+        }
+      })
+
+      return pricesChanged
+    },
     getNumber (item, specification) {
       const cartProduct = this.cartProducts.find(product => product.id === item.id)
 

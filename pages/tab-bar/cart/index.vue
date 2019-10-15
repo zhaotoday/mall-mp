@@ -12,6 +12,13 @@
       v-if="cartProducts.length"
       :cart-products="cartProducts">
     </c-cart-manager>
+    <c-dialog
+      :visible="cDel.visible"
+      title="请确认"
+      content="确认删除收货地址？"
+      @cancel="cDel.visible = false"
+      @confirm="confirmDel">
+    </c-dialog>
   </div>
 </template>
 
