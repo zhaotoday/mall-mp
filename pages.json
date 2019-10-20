@@ -1,6 +1,12 @@
 {
   "pages": [
     {
+      "path": "pages/apply-merchant/index",
+      "style": {
+        "navigationBarTitleText": "申请成为商家"
+      }
+    },
+    {
       "path": "pages/tab-bar/home/index",
       "style": {
         "navigationBarTitleText": "福菜生鲜商城"

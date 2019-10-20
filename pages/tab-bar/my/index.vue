@@ -38,7 +38,6 @@
         我的收藏
       </div>
       <div
-        v-if="false"
         class="c-list__item has-icon is-link">
         <i class="c-icon c-icon--to-be-business"></i>
         申请成为商家
