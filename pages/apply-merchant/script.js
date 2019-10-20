@@ -2,27 +2,37 @@ export default {
   data () {
     return {
       cForm: {
-        city: '',
         name: '',
-        suggestion: ''
+        contactName: '',
+        remark: ''
       }
     }
   },
   methods: {
     async submit () {
-      const { city, name, suggestion } = this.cForm
-
-      if (!city) {
-        this.$wx.showToast({ title: '请输入所在城市' })
-        return
-      }
+      const { name, contactName, phoneNumber } = this.cForm
 
       if (!name) {
-        this.$wx.showToast({ title: '请输入您的姓名' })
+        this.$wx.showToast({ title: '请输入商家名称' })
         return
       }
 
-      await this.$store.dispatch('wx/joins/post', {
+      if (!contactName) {
+        this.$wx.showToast({ title: '请输入联系人' })
+        return
+      }
+
+      if (!phoneNumber) {
+        this.$wx.showToast({ title: '请输入手机号' })
+        return
+      }
+
+      if (!/^1\d{2}\s?\d{4}\s?\d{4}$/.test(phoneNumber)) {
+        this.$wx.showToast({ title: '手机号格式错误' })
+        return
+      }
+
+      await this.$store.dispatch('wx/merchants/post', {
         body: this.cForm
       })
 
