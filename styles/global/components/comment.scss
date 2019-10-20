@@ -2,19 +2,19 @@
   @include margin(null, px2rpx(30px), null, px2rpx(30px));
 
   @include e(title) {
-    @include padding(px2rpx(40px), null, px2rpx(20px));
+    @include padding(px2rpx(36px), null, px2rpx(20px));
 
     line-height: 100%;
   }
 
   @include e(input, textarea) {
     border-radius: px2rpx(6px);
-    line-height: px2rpx(40px);
+    line-height: px2rpx(36px);
     padding: px2rpx(20px);
   }
 
   @include e(input) {
-    height: px2rpx(40px);
+    height: px2rpx(36px);
   }
 
   @include e(textarea) {

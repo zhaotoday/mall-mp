@@ -41,6 +41,7 @@ export default new Vuex.Store({
     'wx/footprints': require('./modules/wx/footprints').default,
     'wx/orders': require('./modules/wx/orders').default,
     'wx/deliveries': require('./modules/wx/deliveries').default,
-    'wx/payments': require('./modules/wx/payments').default
+    'wx/payments': require('./modules/wx/payments').default,
+    'wx/merchants': require('./modules/wx/merchants').default
   }
 })
